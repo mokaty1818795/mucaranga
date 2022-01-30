@@ -1,7 +1,16 @@
-require('./bootstrap');
+import "../sass/app.scss";
 
-import Alpine from 'alpinejs';
+// AdminKit (required)
+import "./modules/bootstrap";
+import "./modules/sidebar";
+import "./modules/theme";
+import "./modules/feather";
 
-window.Alpine = Alpine;
+// Charts
+import "./modules/chartjs";
 
-Alpine.start();
+// Forms
+import "./modules/flatpickr";
+
+
+import "./requires";

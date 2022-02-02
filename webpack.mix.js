@@ -12,6 +12,7 @@ require('laravel-mix-purgecss');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/pages/*.js','public/pages.js')
     .copyDirectory('resources/img','public/img')
     .copyDirectory('resources/errors','public/frontend/errors')
     .sass('resources/sass/app.scss', 'public/css')

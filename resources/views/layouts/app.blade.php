@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
 
 
@@ -35,7 +35,8 @@
         </div>
 </div>
 <!-- Scripts -->
-<script src="{{ asset('js/app.js') }}" defer></script>
-<script src="{{ asset('pages.js') }}" defer></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('pages.js') }}"></script>
+@stack('js')
 </body>
 </html>

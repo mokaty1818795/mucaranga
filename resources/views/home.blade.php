@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','dashboard')
 
 @section('content')
     <div class="container">
@@ -6,11 +7,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
                         @hasrole('root')
                             <div class="container">
                                 <table id="example" class="table table-responsive table-hover my-0 display responsive nowrap" style="width:100%">

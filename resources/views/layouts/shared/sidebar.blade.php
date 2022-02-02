@@ -14,6 +14,11 @@
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
+            <li class="sidebar-item @if(request()->routeIs('user.*')) active @endif">
+                <a class="sidebar-link " href="{{route('user.index')}}">
+                    <i class="align-middle" data-feather="users"></i> <span class="align-middle">Usuários</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

@@ -18066,3 +18066,75 @@ textarea.form-control-lg {
   height: 1.5em;
   border-radius: 0.2rem;
 }
+
+.dataTables_wrapper.container-fluid, .dataTables_wrapper.container-sm, .dataTables_wrapper.container-md, .dataTables_wrapper.container-lg, .dataTables_wrapper.container-xl {
+  padding: 0;
+}
+
+table.dataTable {
+  border-collapse: collapse !important;
+  margin-bottom: 15px !important;
+}
+table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+  background-color: #3B7DDD;
+}
+table.dataTable tbody > tr.selected td, table.dataTable tbody > tr > .selected td {
+  border-color: #3B7DDD;
+}
+table.dataTable tbody td:focus {
+  outline: none !important;
+}
+table.dataTable tbody th.focus, table.dataTable tbody td.focus {
+  outline: 2px solid #3B7DDD !important;
+  outline-offset: -1px;
+  color: #3B7DDD;
+  background-color: rgba(59, 125, 221, 0.15);
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr[role=row] > th:first-child:before {
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.05);
+  background-color: #1cbb8c;
+}
+table.dataTable.dtr-inline.collapsed > tbody > tr.parent > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child:before {
+  background-color: #dc3545;
+}
+
+div.dt-button-info {
+  background-color: #3B7DDD;
+  border: none;
+  color: #fff;
+  box-shadow: none;
+  border-radius: 3px;
+  text-align: center;
+  z-index: 21;
+}
+div.dt-button-info h2, div.dt-button-info .h2 {
+  border-bottom: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+@media (max-width: 575.98px) {
+  li.paginate_button.previous, li.paginate_button.next {
+    display: inline-block;
+    font-size: 1.5rem;
+  }
+
+  li.paginate_button {
+    display: none;
+  }
+
+  .dataTables_paginate ul {
+    text-align: center;
+    display: block;
+    margin: 1rem 0 0 !important;
+  }
+
+  div.dt-buttons {
+    display: inline-table;
+    margin-bottom: 1rem;
+  }
+}
+.activate-select .sorting_1 {
+  background-color: #f8f9fa;
+}

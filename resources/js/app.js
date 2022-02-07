@@ -9,10 +9,13 @@ import "./modules/feather";
 import "./modules/chartjs";
 // Forms
 import "./modules/flatpickr";
-import "select2";
+import "selectric";
+import "daterangepicker";
+import "timepicker"
+
 
 //Datatables
 import "./modules/datatables";
-
+import "~fontawesome/js/all";
 
 

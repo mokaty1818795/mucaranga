@@ -16,6 +16,7 @@
             </li>
             <li class="sidebar-item @if(request()->routeIs('user.*')) active @endif">
                 <a class="sidebar-link " href="{{route('user.index')}}">
+                 <i class="fab fa-accessible-icon"></i>
                     <i class="align-middle" data-feather="users"></i> <span class="align-middle">Usuários</span>
                 </a>
             </li>

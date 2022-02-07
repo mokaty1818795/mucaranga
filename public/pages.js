@@ -247,5 +247,6 @@ $(document).ready(function () {
   datatable('#example');
   datatable('#users_table');
 });
+$('select').selectric();
 /******/ })()
 ;

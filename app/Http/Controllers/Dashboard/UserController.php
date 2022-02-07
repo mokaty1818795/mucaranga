@@ -51,12 +51,12 @@ class UserController extends Controller
                 if ($key == "password"  || $key == "password_confirmation" && $value) {
                     $value = Hash::make($value);
                 }
-                if ($value) {
+                if (!is_null($value)) {
                     $dataCreate[$key] = $value;
                 }
             }
              $user = User::create($dataCreate);
-             $user->assignRole(Role::where('id',$request->role_id)->pluck('name'));
+             $user->assignRole(Role::where('id',$request->role_id)->pluck('name')->toArray());
             session()->flash('success', 'User criado com sucesso.');
             return redirect()->route('user.index');
         } catch (\Throwable $e) {
@@ -99,18 +99,20 @@ class UserController extends Controller
     {
         $data = $request->all();
 
+
         $dataUpdate  = array();
         foreach ($data as $key => $value) {
             if ($key == "password" && $value) {
                 $value = Hash::make($value);
             }
-            if (is_null($value)) {
+            if (!is_null($value)) {
                 $dataUpdate[$key] = $value;
             }
         }
         try {
             $user->update($dataUpdate);
-            $user->assignRole(Role::where('id',$request->role_id)->pluck('name'));
+            $user->syncRoles([]);
+            $user->assignRole(Role::where('id',$request->role_id)->pluck('name')->toArray());
             session()->flash('success', 'User actualizado com sucesso.');
             return redirect()->route('user.index');
         } catch (\Throwable $e) {
@@ -127,6 +129,19 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if (!is_null($user)) {
+            try {
+                $user->syncRoles([]);
+                $user->delete();
+                session()->flash('success', 'Usuário deletado com sucesso.');
+                return redirect()->route('user.index');
+            } catch (\Throwable $e) {
+                session()->flash('error', 'Erro ao deletar user.');
+                return redirect()->route('user.index');
+            }
+        } else {
+            session()->flash('error', 'Erro ao deletar: " Contacte o administrador do sistema."');
+            return redirect()->route('user.index');
+        }
     }
 }

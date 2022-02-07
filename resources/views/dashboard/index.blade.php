@@ -3,6 +3,16 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header row justify-content-between">
+                        <h5 class="card-title col-auto">Lista usuarios</h5>
+                        <a href="{{ route('user.create') }}" class="col-auto btn btn-info">
+                        <i class="align-middle" data-feather="user"></i>&nbsp; Novo usuário
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">

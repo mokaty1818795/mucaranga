@@ -3,6 +3,15 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header row justify-content-between">
+                        <a href="{{ route('user.index') }}" class="col-auto btn btn-info">
+                        <i class="align-middle" data-feather="corner-up-left"></i>&nbsp; Voltar
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
@@ -72,7 +81,7 @@
                             </select>
                         </div>
                         <div class="row col-sm-10">
-                            <input type="submit" class="btn btn-primary rounded-3 " value="Guardar">
+                            <input type="submit" class="btn btn-primary rounded-3 " value="@if (request()->routeIs('user.edit')) Actualizar @else Guardar @endif">
                         </div>
                     </div>
                 </div>

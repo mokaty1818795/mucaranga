@@ -6,6 +6,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible show fade" role="alert" style="border-left: 5px solid darkgreen;">
+                                <div class="alert-body">
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    <strong>{{ session('success') }}</strong>
+                                </div>
+                            </div>
+                        @endif
                         <table id="users_table" class="table table-responsive display table-hover my-0 w-100">
                             <thead>
                             <tr>
@@ -18,6 +26,7 @@
                             </thead>
                             <tbody>
                             @foreach($users as $user)
+                            <tr>
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->roles()->first()->name}}</td>
@@ -28,6 +37,7 @@
                                         @method('DELETE')
                                     </form>
                                 </td>
+                            </tr>
                             @endforeach
                             </tbody>
                         </table>

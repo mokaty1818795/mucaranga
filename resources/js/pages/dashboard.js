@@ -251,7 +251,7 @@ $(document).ready(function () {
                ['5', '10','15','20', '25', '50','100', 'Show all' ]
            ],
        });
-       $('select').select2();
+       //$('select').select2();
    }
     datatable('#example');
     datatable('#users_table');

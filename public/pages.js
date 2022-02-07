@@ -241,8 +241,7 @@ $(document).ready(function () {
       },
       responsive: true,
       lengthMenu: [[5, 10, 15, 20, 25, 50, 100, -1], ['5', '10', '15', '20', '25', '50', '100', 'Show all']]
-    });
-    $('select').select2();
+    }); //$('select').select2();
   }
 
   datatable('#example');

@@ -8,7 +8,7 @@
                     <div class="card-header row justify-content-between">
                         <h5 class="card-title col-auto">Cartas de condução</h5>
                         <a href="{{ route('veicle_class.create') }}" class="col-auto btn btn-purple">
-                        <i class="fas fa-car-side align-middle"></i> &nbsp; <span class="align-middle">Novo tipo de carta</span>
+                        <i class="fas fa-car-side align-middle" data-feather="layers"></i> &nbsp; <span class="align-middle">Novo tipo de carta</span>
                         </a>
                     </div>
                 </div>

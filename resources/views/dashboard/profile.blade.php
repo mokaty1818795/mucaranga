@@ -27,26 +27,27 @@
                     <div class="d-flex align-items-start">
                         <ul class="list-unstyled mb-0">
                             <li class="mb-1 px-2">
-                                <i class="far fa-user align-middle"></i>
+                                <i class="align-middle" data-feather="user"></i>
                                 <span class="align-middle mx-2">Nome completo <strong class="mx-3">{{$user->name}}</strong></span>
                             </li>
                             <li class="mb-1 p-2">
 
-                                <i class="far fa-mail-bulk align-middle"></i>
+                                <i class=" align-middle" data-feather="mail"></i>
                                 <span class="align-middle mx-2">Email <strong class="mx-3">{{$user->email}}</strong></span>
                             </li>
                             <li class="mb-1 p-2">
-                                <i class="fas fa-phone align-middle"></i>
+                                <i class="align-middle" data-feather="phone"></i>
                                 <span class="align-middle mx-2">Contacto <strong class="mx-3">{{$user->contact}}</strong></span>
                             </li>
                             <li class="mb-1 p-2">
-                               <i class="fas fa-transgender-alt    "></i>
+                                <img src="{{ asset('img/gender.svg') }}" alt="" srcset="" width="20" height="20">
+
                                 <span class="align-middle mx-2">Sexo <strong class="mx-3">{{$user->genre? __('Masculino'):__('Feminino')}}</strong></span>
                             </li>
                             <li class="mb-1 p-2">
-                               <i class="fas fa-shield-alt    "></i>
+                               <i class="fas fa-shield-alt    " data-feather="shield"></i>
                                  <span class="align-middle mx-2">Status <strong class="mx-3">
-                                     @if ($user->genre)
+                                     @if ($user->active)
                                      <span class="badge bg-success rounded-pill p-2">Activo</span>
 
                                     </strong></span>

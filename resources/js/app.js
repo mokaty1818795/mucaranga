@@ -15,7 +15,7 @@ import "timepicker";
 
 //Datatables
 import "./modules/datatables";
-import "fontawesome-pro/js/all";
+//import "fontawesome-pro/js/all";
 
 
 

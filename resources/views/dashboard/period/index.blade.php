@@ -8,7 +8,7 @@
                     <div class="card-header row justify-content-between">
                         <h5 class="card-title col-auto">Horário de aulas</h5>
                         <a href="{{ route('period.create') }}" class="col-auto btn btn-purple">
-                        <i class="fas fa-clock    "></i> &nbsp; <span class="align-middle">Novo horário</span>
+                        <i class="fas fa-clock    " data-feather="clock"></i> &nbsp; <span class="align-middle">Novo horário</span>
                         </a>
                     </div>
                 </div>

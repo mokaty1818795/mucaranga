@@ -246,8 +246,12 @@ $(document).ready(function () {
 
   datatable('#example');
   datatable('#users_table');
-  datatable('#veicle_classs_table');
+  datatable('#periods_table');
+  datatable('#veicle_classs_table'); //formulários //forms
+
+  $('select').selectric();
+  $('#init_at').timepicker();
+  $('#end_at').timepicker();
 });
-$('select').selectric();
 /******/ })()
 ;

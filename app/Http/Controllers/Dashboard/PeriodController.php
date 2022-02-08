@@ -16,7 +16,7 @@ class PeriodController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.period.index')->with('periods',Period::all());
     }
 
     /**
@@ -26,7 +26,7 @@ class PeriodController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.period.create_edit');
     }
 
     /**
@@ -37,7 +37,15 @@ class PeriodController extends Controller
      */
     public function store(StorePeriodRequest $request)
     {
-        //
+        try {
+            Period::create($request->all());
+            session()->flash('success', 'Horário criado com sucesso.');
+           return redirect()->route('period.index');
+       } catch (\Throwable $e) {
+           throw $e;
+           session()->flash('error', 'Erro na criação do horário.');
+           return redirect()->route('period.index');
+       }
     }
 
     /**
@@ -59,7 +67,7 @@ class PeriodController extends Controller
      */
     public function edit(Period $period)
     {
-        //
+        return view('dashboard.period.create_edit')->with('period',$period);
     }
 
     /**
@@ -71,7 +79,14 @@ class PeriodController extends Controller
      */
     public function update(UpdatePeriodRequest $request, Period $period)
     {
-        //
+        try {
+            $period->update($request->all());
+            session()->flash('success', 'Horário actualizado com sucesso.');
+            return redirect()->route('period.index');
+        } catch (\Throwable $e) {
+            session()->flash('error', 'Erro na actualização do horário.');
+            return redirect()->route('period.index');
+        }
     }
 
     /**
@@ -82,6 +97,18 @@ class PeriodController extends Controller
      */
     public function destroy(Period $period)
     {
-        //
+        if (!is_null($period) || $period->class_rooms->count() <= 0) {
+            try {
+                $period->delete();
+                session()->flash('success', 'Horário deletado com sucesso.');
+                return redirect()->route('period.index');
+            } catch (\Throwable $e) {
+                session()->flash('error', 'Erro ao deletar horário.');
+                return redirect()->route('period.index');
+            }
+        } else {
+            session()->flash('error', 'Erro ao deletar: " Contacte o administrador do sistema."');
+            return redirect()->route('period.index');
+        }
     }
 }

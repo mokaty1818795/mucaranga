@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Period;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdatePeriodRequest extends FormRequest
 {
@@ -24,7 +26,9 @@ class UpdatePeriodRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required',Rule::unique('periods')->ignore(Period::find($this->id),'name')],
+            'init_at' => 'required',
+            'end_at' => 'required'
         ];
     }
 }

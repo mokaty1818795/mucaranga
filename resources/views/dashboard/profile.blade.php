@@ -45,7 +45,17 @@
                             </li>
                             <li class="mb-1 p-2">
                                <i class="fas fa-shield-alt    "></i>
-                                 <span class="align-middle mx-2">Status <strong class="mx-3">{{$user->genre? __('Activo'):__('Inactivo')}}</strong></span>
+                                 <span class="align-middle mx-2">Status <strong class="mx-3">
+                                     @if ($user->genre)
+                                     <span class="badge bg-success rounded-pill p-2">Activo</span>
+
+                                    </strong></span>
+                                        @else
+                                        <span class="badge bg-primary rounded-pill p-2">Inactivo</span>
+
+                                    </strong></span>
+                                     @endif
+
                              </li>
                             </ul>
                         </div>

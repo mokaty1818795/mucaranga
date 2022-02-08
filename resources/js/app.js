@@ -11,7 +11,7 @@ import "./modules/chartjs";
 import "./modules/flatpickr";
 import "selectric";
 import "daterangepicker";
-import "timepicker"
+import "timepicker";
 
 //Datatables
 import "./modules/datatables";

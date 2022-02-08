@@ -1,7 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/pages.js": "/pages.js",
-    "/css/app.css": "/css/app.css",
     "/img/auth.svg": "/img/auth.svg",
-    "/img/avatar.svg": "/img/avatar.svg"
+    "/img/avatar.svg": "/img/avatar.svg",
+    "/css/app.css": "/css/app.css"
 }

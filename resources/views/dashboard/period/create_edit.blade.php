@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', request()->routeIs('period.edit') ? 'Editar o horário  - ' . $period->name : 'Criar novo horário')
+@section('title', request()->routeIs('period.edit') ? 'Editar o horário - ' . $period->name : 'Criar novo horário')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -36,7 +36,7 @@
                             @if (request()->routeIs('period.edit'))
                                 <form action="{{ route('period.update', $period->id) }}" method="post">
                                     @method('PATCH')@csrf
-                                    <input type="hidden" name="id" value="{{$period->id}}">
+                                    <input type="hidden" name="id" value="{{ $period->id }}">
                                 @else
                                     <form action="{{ route('period.store') }}" method="post">
                                         @method('POST')@csrf
@@ -45,18 +45,22 @@
                             <div class="row justify-content-center mb-3">
                                 <label for="name">Nome do horário</label>
                                 <div class="row col-md-12">
-                                    <input name="name" value="@if (request()->routeIs('period.edit')){{ $period->name }}@endif" type="text" class="form-control"
-                                        placeholder="Nome do horário" autofocus autocomplete="">
+                                    <input name="name" value="@if(old('name')){{old('name')}}@elseif(request()->routeIs('period.edit')){{ $period->name }}@endif" type="text" class="form-control"
+                                        placeholder="Nome do horário" autofocus autocomplete="" required>
                                 </div>
                             </div>
                             <div class=" row justify-content-between mb-3">
                                 <div class="  col-md-6">
                                     <label for="init_at">Hora inicial</label>
-                                    <input type="text" name="init_at" id="init_at" class="form-control">
+                                    <input type="text" name="init_at" id="init_at" class="form-control"
+                                    @if(old('name')){{old('init_at')}} value="{{old('init_at')}}" @elseif (request()->routeIs('period.edit')) value="{{ $period->init_at->hour }}:{{ $period->init_at->minute }}" @endif placeholder="{{ now()->hour . ':' . now()->minute }}" required>
                                 </div>
                                 <div class="  col-md-6">
                                     <label for="init_at">Hora final</label>
-                                    <input type="text" name="end_at" id="end_at" class="form-control">
+                                    <input type="text" name="end_at" id="end_at" class="form-control"
+                                    @if(old('end_at')){{old('end_at')}} value="{{old('end_at')}}" @elseif (request()->routeIs('period.edit')) value="{{ $period->end_at->hour }}:{{ $period->end_at->minute }}" @endif
+                                        placeholder="{{ now()->addMinutes(30)->hour .':' .now()->now()->addMinutes(30)->minute }}"
+                                        required>
                                 </div>
                             </div>
 
@@ -65,9 +69,9 @@
                             </div>
 
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

@@ -44,31 +44,31 @@
                             <div class="row justify-content-between mb-3">
                                 <div class="row col-md-6">
                                     <label for="name">Nome de usuário</label>
-                                    <input name="name" value="@if (request()->routeIs('user.edit')){{ $user->name }}@endif" type="text" class="form-control"
-                                        placeholder="Nome de usuário" autofocus autocomplete="">
+                                    <input name="name" value="@if(old('name')){{old('name')}}@elseif (request()->routeIs('user.edit')){{ $user->name }}@endif" type="text" class="form-control"
+                                        placeholder="Nome de usuário" autofocus autocomplete="{{old('name')}}" required>
                                 </div>
                                 <div class="row col-md-6">
                                     <label for="name">Nome do email</label>
-                                    <input name="email" value="@if (request()->routeIs('user.edit')){{ $user->email }}@endif" type="email" class="form-control"
-                                        placeholder="Nome do email" autofocus autocomplete="">
+                                    <input name="email" value="@if(old('email')){{old('email')}}@elseif (request()->routeIs('user.edit')){{ $user->email }}@endif" type="email" class="form-control"
+                                        placeholder="Nome do email" autofocus autocomplete="{{old('email')}}" required>
                                 </div>
                             </div>
                             <div class="row justify-content-between mb-3">
                             <div class="row col-md-6">
                                 <label for="name">Senha</label>
                                 <input name="password" type="password" class="form-control" placeholder="Senha" autofocus
-                                    autocomplete="">
+                                    autocomplete="" required value="@if(old('password')){{old('password')}}@endif">
                             </div>
                             <div class="row col-md-6">
                                 <label for="name">Confirmar senha</label>
                                 <input name="password_confirmation" type="password" class="form-control"
-                                    placeholder="Confirmar senha" autofocus autocomplete="">
+                                    placeholder="Confirmar senha" autofocus autocomplete="" required value="@if(old('password_confirmation')){{old('password_confirmation')}}@endif">
                             </div>
                             </div>
                             <div class="row justify-content-between mb-3">
                             <div class="row col-sm-4">
                                 <label for="name">Contacto</label>
-                                <input name="contact" value="@if (request()->routeIs('user.edit')){{ $user->contact }}@endif" type="text" class="form-control"
+                                <input name="contact" value="@if(old('contact')){{old('contact')}}@elseif (request()->routeIs('user.edit')){{ $user->contact }}@endif" type="text" class="form-control"
                                     placeholder="Contacto" autofocus autocomplete="">
                             </div>
                             <div class="row col-sm-4">

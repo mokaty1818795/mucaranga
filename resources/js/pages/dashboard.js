@@ -259,7 +259,17 @@ $(document).ready(function () {
     datatable('#veicle_classs_table');
    //formulários //forms
     $('select').selectric();
-    $('#init_at').timepicker();
-    $('#end_at').timepicker();
+    $('#init_at').timepicker({
+        use24hours: true,
+        showMeridian: false,
+        timeFormat: 'H:i',
+        disableTimeRanges:[['0:00', '5:30'], ['21:00', '23:59']]
+    });
+    $('#end_at').timepicker({
+        use24hours: true,
+        showMeridian: false,
+        timeFormat: 'H:i',
+        disableTimeRanges:[['0:00', '5:30'], ['21:00', '23:59']]
+    });
 });
 

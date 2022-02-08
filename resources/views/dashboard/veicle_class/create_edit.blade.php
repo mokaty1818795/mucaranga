@@ -46,8 +46,8 @@
 
                                 <label for="name">Nome da carta</label>
                                 <div class="row col-md-12">
-                                    <input name="name" value="@if (request()->routeIs('veicle_class.edit')){{ $veicle_class->name }}@endif" type="text" class="form-control"
-                                        placeholder="Nome da carta" autofocus autocomplete="">
+                                    <input name="name" value="@if(old('name')){{old('name')}}@elseif(request()->routeIs('veicle_class.edit')){{ $veicle_class->name }}@endif" type="text" class="form-control"
+                                        placeholder="Nome da carta" autofocus autocomplete="" required >
                                 </div>
                             </div>
 

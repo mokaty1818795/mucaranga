@@ -25,8 +25,8 @@ class StorePeriodRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:periods,name',
-            'init_at' => 'required|before:end_at',
-            'end_at' => 'required|after:init_at'
+            'init_at' => 'required|before:end_at|date_format:H:i',
+            'end_at' => 'required|after:init_at|date_format:H:i'
         ];
     }
 }

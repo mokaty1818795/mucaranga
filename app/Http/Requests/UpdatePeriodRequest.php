@@ -27,8 +27,8 @@ class UpdatePeriodRequest extends FormRequest
     {
         return [
             'name' => ['required',Rule::unique('periods')->ignore(Period::find($this->id),'name')],
-            'init_at' => 'required',
-            'end_at' => 'required'
+            'init_at' => 'required|before:end_at|date_format:H:i',
+            'end_at' => 'required|after:init_at|date_format:H:i'
         ];
     }
 }

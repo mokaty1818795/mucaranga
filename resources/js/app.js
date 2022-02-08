@@ -1,4 +1,4 @@
-//import "../sass/app.scss";
+import "../sass/app.scss";
 
 // AdminKit (required)
 import "./modules/bootstrap";
@@ -13,9 +13,8 @@ import "selectric";
 import "daterangepicker";
 import "timepicker"
 
-
 //Datatables
 import "./modules/datatables";
-import "~fontawesome/js/all";
+import "fontawesome/js/all";
 
 

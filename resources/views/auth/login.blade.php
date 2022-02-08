@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="row mb-0">
                                             <button type="submit"
-                                                    class="btn btn-primary col-sm-11 mx-auto rounded-3 bg-purple">
+                                                    class="btn btn-purple col-sm-11 mx-auto rounded-3">
                                                 {{ __('Login') }}
                                             </button>
                                         </div>

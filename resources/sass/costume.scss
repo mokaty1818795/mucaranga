@@ -1,0 +1,13 @@
+
+.form-control{
+    padding: 0.6rem 0.85rem;
+    border-radius: 2px 2px;
+}
+
+@each $color, $value in $theme-colors {
+    .btn-#{$color} {
+      @include button-variant($value, $value);
+      box-shadow :  0 0.05rem 0.19rem $value;
+    }
+  }
+

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Users')
+@section('title','Usuários')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="card-header row justify-content-between">
                         <h5 class="card-title col-auto">Lista usuarios</h5>
-                        <a href="{{ route('user.create') }}" class="col-auto btn btn-info">
-                        <i class="align-middle" data-feather="user"></i>&nbsp; Novo usuário
+                        <a href="{{ route('user.create') }}" class="col-auto btn btn-purple">
+                        <i class="align-middle" data-feather="user"></i>&nbsp; <span class="align-middle">Novo usuário</span>
                         </a>
                     </div>
                 </div>
@@ -50,6 +50,17 @@
                             </tr>
                             @endforeach
                             </tbody>
+                            <tfoot>
+
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Email</th>
+                                        <th> Previlêgio </th>
+                                        <th>Editar</th>
+                                        <th>Deletar</th>
+                                    </tr>
+
+                            </tfoot>
                         </table>
                     </div>
                 </div>

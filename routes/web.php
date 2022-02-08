@@ -26,3 +26,4 @@ Auth::routes([
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Route::resource('user',\App\Http\Controllers\Dashboard\UserController::class);
+Route::resource('veicle_class',\App\Http\Controllers\Dashboard\VeicleClassController::class);

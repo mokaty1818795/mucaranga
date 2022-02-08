@@ -23,13 +23,12 @@
             <li class="sidebar-header">
                 Configurações
             </li>
-            <li class="sidebar-item @if(request()->routeIs('user.*')) active @endif">
-                <a class="sidebar-link " href="{{route('user.index')}}">
-                    <i class="far fa-car-side    "></i>
+            <li class="sidebar-item @if(request()->routeIs('veicle_class.*')) active @endif">
+                <a class="sidebar-link " href="{{route('veicle_class.index')}}">
+                    <i class="far fa-car-side align-middle"></i>
                 <span class="align-middle">Tipo de carta</span>
                 </a>
             </li>
-
         </ul>
     </div>
 </nav>

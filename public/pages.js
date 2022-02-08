@@ -246,6 +246,7 @@ $(document).ready(function () {
 
   datatable('#example');
   datatable('#users_table');
+  datatable('#veicle_classs_table');
 });
 $('select').selectric();
 /******/ })()

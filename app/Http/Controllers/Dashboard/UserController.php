@@ -22,7 +22,7 @@ class UserController extends Controller
      */
     public function index():View
     {
-        return view('dashboard.index')->with('users',User::all());
+        return view('dashboard.user.index')->with('users',User::all());
     }
 
     /**
@@ -32,7 +32,7 @@ class UserController extends Controller
      */
     public function create() : View
     {
-        return view('dashboard.create_edit');
+        return view('dashboard.user.create_edit');
     }
 
     /**
@@ -85,7 +85,7 @@ class UserController extends Controller
      */
     public function edit(User $user) : View
     {
-        return view('dashboard.create_edit')->with('user',$user);
+        return view('dashboard.user.create_edit')->with('user',$user);
     }
 
     /**

@@ -9,6 +9,16 @@
                 Dashboard
             </li>
 
+            @if(request()->routeIs('profile'))
+
+            <li class="sidebar-item  active">
+                <a class="sidebar-link " href="{{route('profile')}}">
+                <i class="align-middle" data-feather="user"></i>
+                <span class="align-middle">Perfil</span>
+                </a>
+            </li>
+            
+            @endif
             <li class="sidebar-item @if(request()->routeIs('dashboard')) active @endif">
                 <a class="sidebar-link " href="{{route('dashboard')}}">
                     <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Dashboard</span>
@@ -27,6 +37,12 @@
                 <a class="sidebar-link " href="{{route('veicle_class.index')}}">
                     <i class="far fa-car-side align-middle"></i>
                 <span class="align-middle">Tipo de carta</span>
+                </a>
+            </li>
+            <li class="sidebar-item @if(request()->routeIs('period.*')) active @endif">
+                <a class="sidebar-link " href="{{route('period.index')}}">
+                <i class="fas fa-clock "></i>
+                <span class="align-middle">Horário de aulas</span>
                 </a>
             </li>
         </ul>

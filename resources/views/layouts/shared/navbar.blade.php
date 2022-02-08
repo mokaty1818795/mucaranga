@@ -12,8 +12,15 @@
                             </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
+                    <a href="{{ route('profile') }}" class="dropdown-item">
+                        <i class="align-middle" data-feather="user"></i>
+                        <span class="align-middle">&nbsp;Perfil</span>
+
+                    </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"  onclick="document.getElementById('logoutForm').submit()" >Log out</a>
+                    <a class="dropdown-item"  onclick="document.getElementById('logoutForm').submit()" >
+                        <i class="align-middle" data-feather="power"></i>
+                    <span class="align-middle">&nbsp; {{_('Terminar sessão')}}</span></a>
                     <form  action="{{route('logout')}}" method="post" id="logoutForm">
                         @csrf
                     </form>

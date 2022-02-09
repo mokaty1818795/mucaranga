@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="{{ asset('frontend/errors/errors.css') }}">
 
 </head>
 <style>
@@ -81,11 +82,12 @@
         </div>
         <div class="home">
             <a href="{{ URL::previous()}}">
-                <i class="fas fa-arrow-left"></i>
-                Voltar</a>
+                <i class="align-middle" data-feather="corner-up-left"></i>
+                &nbsp; Voltar</a>
         </div>
 
     </section>
+    <script src="{{ asset('frontend/errors/errors.js') }}"></script>
 </body>
 
 </html>

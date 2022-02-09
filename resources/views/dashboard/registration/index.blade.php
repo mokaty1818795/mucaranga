@@ -1,14 +1,14 @@
 @extends('layouts.app')
-@section('title','Horário de aulas')
+@section('title','Estudantes matricluados')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="row">
                 <div class="card">
                     <div class="card-header row justify-content-between">
-                        <h5 class="card-title col-auto">Horário de aulas</h5>
-                        <a href="{{ route('period.create') }}" class="col-auto btn btn-purple">
-                        <i class="fas fa-clock    " data-feather="clock"></i> &nbsp; <span class="align-middle">Novo horário</span>
+                        <h5 class="card-title col-auto">Estudantes matricluados</h5>
+                        <a href="{{ route('registration.create') }}" class="col-auto btn btn-purple">
+                        <i class="fas fa-car-side align-middle" data-feather="layers"></i> &nbsp; <span class="align-middle">Novo tipo de carta</span>
                         </a>
                     </div>
                 </div>
@@ -24,27 +24,23 @@
                                 </div>
                             </div>
                         @endif
-                        <table id="periods_table" class="table table-responsive display table-hover my-0 w-100">
+                        <table id="registrations_table" class="table table-responsive display table-hover my-0 w-100">
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nome do periodo</th>
-                                <th>Horário de início</th>
-                                <th>Horário do fim</th>
+                                <th>Nome da carta</th>
                                 <th>Editar</th>
                                 <th>Deletar</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($periods as $period)
+                            @foreach($registrations as $registration)
                             <tr>
-                                <td>{{$period->id}}</td>
-                                <td>{{$period->name}}</td>
-                                <td>{{$period->init_at->hour . ":" . $period->init_at->minute .' m' }}</td>
-                                <td>{{$period->end_at->hour . ":" . $period->end_at->minute .' m' }}</td>
-                                <td><a class="btn btn-warning" href="{{route('period.edit',$period->id)}}">Editar</a></td>
-                                <td><button class="btn btn-danger" onclick="document.getElementById('period_{{$period->id}}_delete').submit()">Delete</button>
-                                    <form action="{{route('period.destroy',$period->id)}}" method="post" id="period_{{$period->id}}_delete">
+                                <td>{{$registration->id}}</td>
+                                <td>{{$registration->name}}</td>
+                                <td><a class="btn btn-warning" href="{{route('registration.edit',$registration->id)}}">Editar</a></td>
+                                <td><button class="btn btn-danger" onclick="document.getElementById('registration_{{$registration->id}}_delete').submit()">Delete</button>
+                                    <form action="{{route('registration.destroy',$registration->id)}}" method="post" id="registration_{{$registration->id}}_delete">
                                         @csrf
                                         @method('DELETE')
                                     </form>
@@ -56,9 +52,7 @@
 
                                     <tr>
                                         <th>Id</th>
-                                        <th>Nome do periodo</th>
-                                        <th>Horário de início</th>
-                                        <th>Horário do fim</th>
+                                        <th>Nome da carta</th>
                                         <th>Editar</th>
                                         <th>Deletar</th>
                                     </tr>

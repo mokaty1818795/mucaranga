@@ -58,6 +58,7 @@ class CivilStatesController extends Controller
      */
     public function show(CivilState $civilState)
     {
+        return abort(404);
        // return view('dashboard.civil_state.create_edit')->with('civil_state',$civilState);
     }
 

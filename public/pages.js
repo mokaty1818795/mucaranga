@@ -17519,7 +17519,9 @@ $(document).ready(function () {
   datatable('#users_table');
   datatable('#periods_table');
   datatable('#civil_states_table');
-  datatable('#veicle_classes_table'); //formulários //forms//
+  datatable('#payment_phases_table');
+  datatable('#veicle_classes_table'); //
+  //formulários //forms//
 
   $('select').selectric();
   var date = new Date('12/31/2001');

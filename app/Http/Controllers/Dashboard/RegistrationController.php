@@ -54,7 +54,7 @@ class RegistrationController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return abort(404);
     }
 
     /**

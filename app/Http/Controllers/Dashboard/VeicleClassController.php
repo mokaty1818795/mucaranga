@@ -56,7 +56,7 @@ class VeicleClassController extends Controller
      */
     public function show(VeicleClass $veicleClass)
     {
-        //
+        return abort(404);
     }
 
     /**

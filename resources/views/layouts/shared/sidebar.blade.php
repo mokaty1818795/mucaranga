@@ -56,6 +56,12 @@
                 <span class="align-middle">Estados civis</span>
                 </a>
             </li>
+            <li class="sidebar-item @if(request()->routeIs('payment_phase.*')) active @endif">
+                <a class="sidebar-link " href="{{route('payment_phase.index')}}">
+                <i class="align-middle" data-feather="dollar-sign"></i>
+                <span class="align-middle">Fâses de pagamento</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

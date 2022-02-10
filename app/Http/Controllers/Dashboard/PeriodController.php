@@ -56,7 +56,7 @@ class PeriodController extends Controller
      */
     public function show(Period $period)
     {
-        //
+        return abort(404);
     }
 
     /**

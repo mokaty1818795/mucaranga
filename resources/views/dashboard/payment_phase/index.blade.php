@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                         @endif
-                        <table id="payment_phases_table" class="table table-responsive display table-hover my-0 w-100">
+                        <table id="payment_phases_table" class="table table-striped table-responsive display table-hover my-0 w-100">
                             <thead>
                             <tr>
                                 <th>Id</th>

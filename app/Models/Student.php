@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Student
- * 
+ *
  * @property int $id
  * @property string|null $name
  * @property Carbon $birth_day
@@ -44,7 +44,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $tecnic_lessons
  * @property float|null $result
  * @property bool|null $genre
- * 
+ *
  * @property CivilState $civil_state
  * @property VeicleClass $veicle_class
  * @property Collection|ClassRoom[] $class_rooms

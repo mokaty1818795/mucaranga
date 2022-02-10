@@ -1,3 +1,5 @@
+const { now } = require("lodash");
+
 $(document).ready(function () {
    function datatable(table) {
        $(table).DataTable({
@@ -259,6 +261,16 @@ $(document).ready(function () {
     datatable('#veicle_classs_table');
    //formulários //forms
     $('select').selectric();
+
+    const date = new Date('12/31/2001');
+     date.setYear((new Date().getFullYear() - 15));
+    console.log(date);
+    
+    $('#birth_day').daterangepicker({
+        singleDatePicker:true,
+        maxDate:date
+    });
+
     $('#init_at').timepicker({
         use24hours: true,
         showMeridian: false,

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
+use App\Models\CivilState;
 
 class RegistrationController extends Controller
 {
@@ -16,7 +17,10 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return view('dashboard.registration.index')->with('registrations',Student::all());
+        return view('dashboard.registration.index')->with([
+            'registrations'=>Student::all(),
+
+        ]);
     }
 
     /**
@@ -26,7 +30,9 @@ class RegistrationController extends Controller
      */
     public function create()
     {
-        return view('dashboard.registration.create_edit');
+        return view('dashboard.registration.create_edit')->with([
+            'civil_states' => CivilState::all()
+        ]);
     }
 
     /**

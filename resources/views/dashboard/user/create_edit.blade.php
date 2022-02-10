@@ -57,12 +57,12 @@
                             <div class="row col-md-6">
                                 <label for="name">Senha</label>
                                 <input name="password" type="password" class="form-control" placeholder="Senha" autofocus
-                                    autocomplete="" required value="@if(old('password')){{old('password')}}@endif">
+                                    autocomplete="" @if(!request()->routeIs('user.edit')) required @endif value="@if(old('password')){{old('password')}}@endif">
                             </div>
                             <div class="row col-md-6">
                                 <label for="name">Confirmar senha</label>
                                 <input name="password_confirmation" type="password" class="form-control"
-                                    placeholder="Confirmar senha" autofocus autocomplete="" required value="@if(old('password_confirmation')){{old('password_confirmation')}}@endif">
+                                    placeholder="Confirmar senha" autofocus autocomplete=""  @if(!request()->routeIs('user.edit')) required @endif value="@if(old('password_confirmation')){{old('password_confirmation')}}@endif">
                             </div>
                             </div>
                             <div class="row justify-content-between mb-3">

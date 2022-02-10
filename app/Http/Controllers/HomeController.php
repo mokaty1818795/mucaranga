@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home')->with([
+            'students' => Student::count(),
+            'administrators' => Role::with('users')->where('name','root')->first()->users->count(),
+            'intructors' => Role::with('users')->where('name','default')->first()->users->count(),
+            'employees' => Role::with('users')->where('name','funcionario')->first()->users->count()
+        ]);
     }
 
     public function profile()

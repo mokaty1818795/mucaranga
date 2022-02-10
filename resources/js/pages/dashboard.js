@@ -258,14 +258,15 @@ $(document).ready(function () {
     datatable('#example');
     datatable('#users_table');
     datatable('#periods_table');
-    datatable('#veicle_classs_table');
-   //formulários //forms
+    datatable('#civil_states_table');
+    datatable('#veicle_classes_table');
+   //formulários //forms//
     $('select').selectric();
 
     const date = new Date('12/31/2001');
      date.setYear((new Date().getFullYear() - 15));
     console.log(date);
-    
+
     $('#birth_day').daterangepicker({
         singleDatePicker:true,
         maxDate:date

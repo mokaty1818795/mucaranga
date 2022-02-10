@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CivilStatesController;
 use App\Http\Controllers\Dashboard\RegistrationController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -33,3 +34,4 @@ Route::resource('veicle_class',\App\Http\Controllers\Dashboard\VeicleClassContro
 Route::resource('period',\App\Http\Controllers\Dashboard\PeriodController::class);
 Route::get('profile',[HomeController::class,'profile'])->middleware('auth')->name('profile');
 Route::resource('registration',RegistrationController::class);
+Route::resource('civil_state',CivilStatesController::class);

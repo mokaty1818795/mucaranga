@@ -14,6 +14,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * Class User
@@ -34,9 +36,9 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @package App\Models
  */
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable,HasPermissions,HasRoles;
+    use HasApiTokens, HasFactory, Notifiable,HasPermissions,HasRoles,InteractsWithMedia;
 	protected $table = 'users';
 
 	protected $casts = [

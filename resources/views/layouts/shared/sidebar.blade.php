@@ -50,6 +50,12 @@
                 <span class="align-middle">Horário de aulas</span>
                 </a>
             </li>
+            <li class="sidebar-item @if(request()->routeIs('civil_state.*')) active @endif">
+                <a class="sidebar-link " href="{{route('civil_state.index')}}">
+                <i class="align-middle" data-feather="loader"></i>
+                <span class="align-middle">Estados civis</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

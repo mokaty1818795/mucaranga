@@ -269,7 +269,8 @@ $(document).ready(function () {
 
     $('#birth_day').daterangepicker({
         singleDatePicker:true,
-        maxDate:date
+        maxDate:date,
+        startDate: date,
     });
 
     $('#init_at').timepicker({

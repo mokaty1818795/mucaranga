@@ -7,6 +7,7 @@ use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\CivilState;
+use App\Models\VeicleClass;
 
 class RegistrationController extends Controller
 {
@@ -31,7 +32,8 @@ class RegistrationController extends Controller
     public function create()
     {
         return view('dashboard.registration.create_edit')->with([
-            'civil_states' => CivilState::all()
+            'civil_states' => CivilState::all(),
+            'veicle_classes' => VeicleClass::all()
         ]);
     }
 

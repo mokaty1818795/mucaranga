@@ -272,7 +272,25 @@ $(document).ready(function () {
         singleDatePicker:true,
         maxDate:date,
         startDate: date,
+        showDropdowns: true,
+        autoUpdateInput:true,
+        drops: "auto"
     });
+
+    //id_emision_date
+
+    const biDate =  new Date();
+    biDate.setYear((new Date().getFullYear() - 5));
+    $('#id_emision_date').daterangepicker({
+        singleDatePicker:true,
+        maxDate:new Date(),
+        startDate: biDate,
+        minDate: biDate,
+        showDropdowns: true,
+        autoUpdateInput:true,
+        drops: "auto"
+    });
+
 
     $('#init_at').timepicker({
         use24hours: true,

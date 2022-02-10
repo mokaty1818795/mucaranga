@@ -17530,7 +17530,22 @@ $(document).ready(function () {
   $('#birth_day').daterangepicker({
     singleDatePicker: true,
     maxDate: date,
-    startDate: date
+    startDate: date,
+    showDropdowns: true,
+    autoUpdateInput: true,
+    drops: "auto"
+  }); //id_emision_date
+
+  var biDate = new Date();
+  biDate.setYear(new Date().getFullYear() - 5);
+  $('#id_emision_date').daterangepicker({
+    singleDatePicker: true,
+    maxDate: new Date(),
+    startDate: biDate,
+    minDate: biDate,
+    showDropdowns: true,
+    autoUpdateInput: true,
+    drops: "auto"
   });
   $('#init_at').timepicker({
     use24hours: true,

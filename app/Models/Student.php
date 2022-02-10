@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id
  * @property string|null $name
+ * @property Carbon $birth_day
+ * @property int $civil_state_id
  * @property string|null $natural_of
  * @property string|null $natural_location
  * @property string|null $natural_district
@@ -43,6 +45,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $result
  * @property bool|null $genre
  * 
+ * @property CivilState $civil_state
  * @property VeicleClass $veicle_class
  * @property Collection|ClassRoom[] $class_rooms
  * @property Collection|StudentPayment[] $student_payments
@@ -54,6 +57,7 @@ class Student extends Model
 	protected $table = 'students';
 
 	protected $casts = [
+		'civil_state_id' => 'int',
 		'veicle_classe_id' => 'int',
 		'test_1' => 'float',
 		'test_2' => 'float',
@@ -67,12 +71,15 @@ class Student extends Model
 	];
 
 	protected $dates = [
+		'birth_day',
 		'id_emision_date',
 		'admited_at'
 	];
 
 	protected $fillable = [
 		'name',
+		'birth_day',
+		'civil_state_id',
 		'natural_of',
 		'natural_location',
 		'natural_district',
@@ -99,6 +106,11 @@ class Student extends Model
 		'result',
 		'genre'
 	];
+
+	public function civil_state()
+	{
+		return $this->belongsTo(CivilState::class);
+	}
 
 	public function veicle_class()
 	{

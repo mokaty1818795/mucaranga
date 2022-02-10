@@ -1,7 +1,7 @@
 
 .form-control{
     padding: 0.6rem 0.85rem;
-    border-radius: 2px 2px;
+    border-radius: 5px 5px;
 }
 
 @each $color, $value in $theme-colors {

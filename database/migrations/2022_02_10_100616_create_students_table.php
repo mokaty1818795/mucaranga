@@ -16,6 +16,8 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
+            $table->timestamp('birth_day');
+            $table->unsignedBigInteger('civil_state_id')->index('fk_students_civil_states1_idx');
             $table->string('natural_of')->nullable();
             $table->string('natural_location')->nullable();
             $table->string('natural_district', 25)->nullable();

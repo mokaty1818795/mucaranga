@@ -23,6 +23,8 @@
   @include transition($input-transition);
 
   &[type="file"] {
+
+    
     overflow: hidden; // prevent pseudo element button overlap
 
     &:not(:disabled):not([readonly]) {

@@ -27,9 +27,9 @@ class HomeController extends Controller
     {
         return view('home')->with([
             'students' => Student::count(),
-            'administrators' => Role::with('users')->where('name','root')->first()->users->count(),
-            'intructors' => Role::with('users')->where('name','default')->first()->users->count(),
-            'employees' => Role::with('users')->where('name','funcionario')->first()->users->count()
+            'administrators' => Role::with('users')->where('name','Root')->first()->users->count(),
+            'intructors' => Role::with('users')->where('name','Intructor')->first()->users->count(),
+            'employees' => Role::with('users')->where('name','employee')->first()->users->count()
         ]);
     }
 

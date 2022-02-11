@@ -21,7 +21,6 @@
         "wulfheart/pretty_routes": "^0.3.0"
     },
     "require-dev": {
-        "spatie/laravel-ignition": "^1.0.3",
         "fakerphp/faker": "^1.9.1",
         "filp/whoops": "^2.14",
         "kitloong/laravel-migrations-generator": "^5.1",
@@ -29,8 +28,10 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
+        "orangehill/iseed": "^3.0",
         "phpunit/phpunit": "^9.5.10",
         "reliese/laravel": "^1.1",
+        "spatie/laravel-ignition": "^1.0.3",
         "thedoctor0/laravel-factory-generator": "^1.2"
     },
     "autoload": {

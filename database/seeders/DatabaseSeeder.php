@@ -15,18 +15,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(1)->create();
-        $user = User::find(1);
-        $role = Role::create(['name'=>'root']);
-        Role::create(['name'=>'director']);
-        Role::create(['name'=>'funcionario']);
-        Role::create(['name'=>'intrutor']);
-        Role::create(['name'=>'default']);
-        
-        $user->assignRole(['root']);
-
-
-
-
+        $this->call(UsersTableSeeder::class);
+        $this->call(RolesTableSeeder::class);
+        $this->call(CivilStatesTableSeeder::class);
+        $this->call(VeicleClassesTableSeeder::class);
+        $this->call(PeriodsTableSeeder::class);
+        $this->call(PaymentPhasesTableSeeder::class);
+        $root = User::where('email','administrator@ecm.com')->first();
+        $director = User::where('email','director@ecm.com')->first();
+        $root->assignRole(['Root']);
+        $director->assignRole(['Director']);
     }
 }

@@ -26,7 +26,7 @@ class UpdateVeicleClassRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required',Rule::unique('veicle_classes')->ignore(VeicleClass::find($this->id),'name')]
+            'name' => ['required',Rule::unique('veicle_classes')->ignore(VeicleClass::find(decrypt($this->unique_hash)),'name')]
         ];
     }
 }

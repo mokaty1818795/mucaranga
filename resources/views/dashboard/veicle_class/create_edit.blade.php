@@ -36,7 +36,7 @@
                             @if (request()->routeIs('veicle_class.edit'))
                                 <form action="{{ route('veicle_class.update', $veicle_class->id) }}" method="post">
                                     @method('PATCH')@csrf
-                                    <input type="hidden" name="id" value="{{$veicle_class->id}}">
+                                    <input type="hidden" name="unique_hash" value="{{encrypt($veicle_class->id)}}">
                                 @else
                                     <form action="{{ route('veicle_class.store') }}" method="post">
                                         @method('POST')@csrf

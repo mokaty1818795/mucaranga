@@ -36,7 +36,7 @@
                             @if (request()->routeIs('civil_state.edit'))
                                 <form action="{{ route('civil_state.update', $civil_state->id) }}" method="post">
                                     @method('PATCH')@csrf
-                                    <input type="hidden" name="id" value="{{$civil_state->id}}">
+                                    <input type="hidden" name="unique_hash" value="{{encrypt($civil_state->id)}}">
                                 @else
                                     <form action="{{ route('civil_state.store') }}" method="post">
                                         @method('POST')@csrf

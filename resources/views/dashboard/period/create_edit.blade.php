@@ -36,7 +36,7 @@
                             @if (request()->routeIs('period.edit'))
                                 <form action="{{ route('period.update', $period->id) }}" method="post">
                                     @method('PATCH')@csrf
-                                    <input type="hidden" name="id" value="{{ $period->id }}">
+                                    <input type="hidden" name="unique_hash" value="{{encrypt($period->id)}}">
                                 @else
                                     <form action="{{ route('period.store') }}" method="post">
                                         @method('POST')@csrf

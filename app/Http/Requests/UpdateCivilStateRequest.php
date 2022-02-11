@@ -26,7 +26,7 @@ class UpdateCivilStateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required',Rule::unique('civil_states')->ignore(CivilState::find($this->id),'name')]
+            'name' => ['required',Rule::unique('civil_states')->ignore(CivilState::find(decrypt($this->unique_hash)),'name')]
         ];
     }
 }

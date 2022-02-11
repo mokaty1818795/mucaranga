@@ -8,6 +8,7 @@ use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Models\CivilState;
 use App\Models\VeicleClass;
+use Symfony\Component\VarDumper\VarDumper;
 
 class RegistrationController extends Controller
 {
@@ -45,7 +46,10 @@ class RegistrationController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        //
+
+        var_dump(encrypt(34));
+        dd( decrypt(encrypt(34)));
+        dd($request->all());
     }
 
     /**

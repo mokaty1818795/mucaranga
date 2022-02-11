@@ -37,7 +37,7 @@
                             @if (request()->routeIs('registration.edit'))
                                 <form action="{{ route('registration.update', $registration->id) }}" method="post">
                                     @method('PATCH')@csrf
-                                    <input type="hidden" name="id" value="{{ $registration->id }}">
+                                    <input type="hidden" name="unique_hash" value="{{encrypt($registration->id)}}">
                                 @else
                                     <form action="{{ route('registration.store') }}" method="post">
                                         @method('POST')@csrf

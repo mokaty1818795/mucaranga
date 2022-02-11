@@ -18,10 +18,10 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        return view('dashboard.registration.index')->with([
-            'registrations'=>Registration::all(),
+        // return view('dashboard.registration.index')->with([
+        //     'registrations'=>Registration::all(),
 
-        ]);
+        // ]);
     }
 
     /**

@@ -5,9 +5,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <h1 class="h3 mb-3"><strong>{{auth()->user()->roles->first()->name}}</strong> Dashboard</h1>
-
-
-
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 d-flex">
                     <div class="w-100">
@@ -22,7 +19,7 @@
 
                                             <div class="col-auto">
                                                 <div class="stat text-primary">
-                                                    <i class="align-middle" data-feather="users"></i>
+                                                    @svg('phosphor-student-duotone' ,'feather align-middle')
                                                 </div>
                                             </div>
                                         </div>
@@ -41,7 +38,8 @@
 
                                             <div class="col-auto">
                                                 <div class="stat text-primary">
-                                                    <i class="align-middle" data-feather="users"></i>
+                                                    @svg('phosphor-chalkboard-teacher-duotone' ,'feather align-middle')
+
                                                 </div>
                                             </div>
                                         </div>
@@ -61,8 +59,8 @@
 
                                             <div class="col-auto">
                                                 <div class="stat text-primary">
-                                                    <i class="align-middle" data-feather="users"></i>
-                                                </div>
+                                                    @svg('fluentui-person-call-20-o','feather align-middle')
+                                                     </div>
                                             </div>
                                         </div>
                                         <h1 class="mt-1 mb-3">{{$employees}}</h1>
@@ -81,7 +79,7 @@
 
                                             <div class="col-auto">
                                                 <div class="stat text-primary">
-                                                    <i class="align-middle" data-feather="users"></i>
+                                                    @svg('phosphor-shield-check-bold' ,'feather align-middle')
                                                 </div>
                                             </div>
                                         </div>

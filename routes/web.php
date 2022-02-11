@@ -41,4 +41,6 @@ Route::resource('payment_phase',PaymentPhasesController::class);
 
 Route::controller(StudentController::class)->group(function () {
     Route::get('/student/{student}', 'show')->name('student.show');
+    Route::get('/student', 'index')->name('student.index');
+    Route::delete('/student/{student}', 'destroy')->name('student.destroy');
 });

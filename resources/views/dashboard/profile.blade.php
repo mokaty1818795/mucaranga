@@ -40,7 +40,7 @@
                                 <span class="align-middle mx-2">Contacto <strong class="mx-3">{{$user->contact}}</strong></span>
                             </li>
                             <li class="mb-1 p-2">
-                                <img src="{{ asset('img/gender.svg') }}" alt="" srcset="" width="20" height="20">
+                              @svg('phosphor-gender-intersex','feather align-middle')
 
                                 <span class="align-middle mx-2">Sexo <strong class="mx-3">{{$user->genre? __('Masculino'):__('Feminino')}}</strong></span>
                             </li>

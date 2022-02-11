@@ -25,13 +25,22 @@
                     @svg('radix-dashboard' ,'feather align-middle')<span class="align-middle">Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-item @if(request()->routeIs('registration.*')) active @endif">
+            <li class="sidebar-item @if(request()->routeIs('registration.create')) active @endif">
                 <a class="sidebar-link " href="{{route('registration.create')}}">
                     <i class="align-middle" data-feather="edit"></i> <span class="align-middle">Matricular</span>
                 </a>
             </li>
+            @if(request()->routeIs('registration.edit'))
+            <li class="sidebar-item active">
+                <a class="sidebar-link " href="{{route('registration.edit', $registration->id)}}">
+                    <i class="align-middle" data-feather="edit-3"></i> <span class="align-middle">
+                        Actuzação de matrícula
+                    </span>
+                </a>
+            </li>
+            @endif
             <li class="sidebar-item @if(request()->routeIs('student.*')) active @endif">
-                <a class="sidebar-link " href="{{route('dashboard')}}">
+                <a class="sidebar-link " href="{{route('student.index')}}">
 
                     @svg('phosphor-student-duotone' ,'feather align-middle') <span class="align-middle">Estudantes</span>
                 </a>
@@ -47,7 +56,7 @@
             </li>
             <li class="sidebar-item @if(request()->routeIs('veicle_class.*')) active @endif">
                 <a class="sidebar-link " href="{{route('veicle_class.index')}}">
-                    @svg('fluentui-contact-card-ribbon-16-o','feather align-middle')
+                    @svg('fluentui-contact-card-ribbon-16','feather align-middle')
 
                 <span class="align-middle">Tipo de carta</span>
                 </a>

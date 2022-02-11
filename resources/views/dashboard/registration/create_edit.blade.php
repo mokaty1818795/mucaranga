@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="card">
                     <div class="card-header row justify-content-between">
-                        <a href="{{ route('registration.index') }}" class="col-auto btn btn-info">
+                        <a href="{{ url()->previous()}}" class="col-auto btn btn-info">
                             <i class="align-middle" data-feather="corner-up-left"></i>&nbsp; Voltar
                         </a>
                     </div>

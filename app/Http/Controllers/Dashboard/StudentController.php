@@ -15,7 +15,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.student_status.index')->with([
+            'students'=>Student::all(),
+        ]);
     }
 
     /**

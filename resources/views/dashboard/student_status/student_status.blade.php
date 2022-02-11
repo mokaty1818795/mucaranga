@@ -29,6 +29,7 @@
                     <div class="card-body text-center">
                         <img src="{{ asset('img/avatar.svg') }}" alt="{{ $student->name }}"
                             class="img-fluid rounded-circle mb-2" width="128" height="128" />
+
                         <h5 class="card-title mb-0">{{ $student->name }}</h5>
                         <div class="text-muted mb-2 "><span
                                 class="badge bg-light  rounded-pill p-2 my-3 card-title shadow-sm">Estudante</span></div>

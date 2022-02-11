@@ -4,7 +4,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
+            <h1 class="h3 mb-3"><strong>{{auth()->user()->roles->first()->name}}</strong> Dashboard</h1>
+
+
 
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 d-flex">

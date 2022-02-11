@@ -8,7 +8,7 @@
                     <div class="card-header row justify-content-between">
                         <h5 class="card-title col-auto">Fâses de pagamento</h5>
                         <a href="{{ route('payment_phase.create') }}" class="col-auto btn btn-purple">
-                        <i class="fas fa-car-side align-middle" data-feather="dollar-sign"></i> &nbsp; <span class="align-middle">Nova fase de pagamento</span>
+                            @svg('fluentui-payment-16-o','feather align-middle') &nbsp; <span class="align-middle">Nova fase de pagamento</span>
                         </a>
                     </div>
                 </div>

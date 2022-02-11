@@ -8,7 +8,7 @@
                     <div class="card-header row justify-content-between">
                         <h5 class="card-title col-auto">Estados civis</h5>
                         <a href="{{ route('civil_state.create') }}" class="col-auto btn btn-purple">
-                        <i class="fas fa-car-side align-middle" data-feather="loader"></i> &nbsp; <span class="align-middle">Novo estado civil</span>
+                            @svg('css-ring','feather align-middle') &nbsp; <span class="align-middle">Novo estado civil</span>
                         </a>
                     </div>
                 </div>

@@ -19,9 +19,10 @@
             </li>
 
             @endif
+
             <li class="sidebar-item @if(request()->routeIs('dashboard')) active @endif">
                 <a class="sidebar-link " href="{{route('dashboard')}}">
-                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Dashboard</span>
+                    @svg('radix-dashboard' ,'feather align-middle')<span class="align-middle">Dashboard</span>
                 </a>
             </li>
             <li class="sidebar-item @if(request()->routeIs('registration.*')) active @endif">
@@ -31,7 +32,8 @@
             </li>
             <li class="sidebar-item @if(request()->routeIs('student.*')) active @endif">
                 <a class="sidebar-link " href="{{route('dashboard')}}">
-                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Estudantes</span>
+
+                    @svg('phosphor-student-duotone' ,'feather align-middle') <span class="align-middle">Estudantes</span>
                 </a>
             </li>
             <li class="sidebar-item @if(request()->routeIs('user.*')) active @endif">
@@ -45,7 +47,8 @@
             </li>
             <li class="sidebar-item @if(request()->routeIs('veicle_class.*')) active @endif">
                 <a class="sidebar-link " href="{{route('veicle_class.index')}}">
-                    <i class="far fa-car-side align-middle" data-feather="layers"></i>
+                    @svg('fluentui-contact-card-ribbon-16-o','feather align-middle')
+
                 <span class="align-middle">Tipo de carta</span>
                 </a>
             </li>
@@ -57,13 +60,15 @@
             </li>
             <li class="sidebar-item @if(request()->routeIs('civil_state.*')) active @endif">
                 <a class="sidebar-link " href="{{route('civil_state.index')}}">
-                <i class="align-middle" data-feather="loader"></i>
+                    @svg('css-ring','feather align-middle')
+
                 <span class="align-middle">Estados civis</span>
                 </a>
             </li>
             <li class="sidebar-item @if(request()->routeIs('payment_phase.*')) active @endif">
                 <a class="sidebar-link " href="{{route('payment_phase.index')}}">
-                <i class="align-middle" data-feather="dollar-sign"></i>
+                    @svg('fluentui-payment-16-o','feather align-middle')
+
                 <span class="align-middle">Fâses de pagamento</span>
                 </a>
             </li>

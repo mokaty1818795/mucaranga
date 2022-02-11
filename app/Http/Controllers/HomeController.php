@@ -29,7 +29,7 @@ class HomeController extends Controller
             'students' => Student::count(),
             'administrators' => Role::with('users')->where('name','Root')->first()->users->count(),
             'intructors' => Role::with('users')->where('name','Intructor')->first()->users->count(),
-            'employees' => Role::with('users')->where('name','employee')->first()->users->count()
+            'employees' => Role::with('users')->where('name','Employee')->first()->users->count()
         ]);
     }
 

@@ -260,7 +260,8 @@ $(document).ready(function () {
     datatable('#periods_table');
     datatable('#civil_states_table');
     datatable('#payment_phases_table');
-    datatable('#veicle_classes_table');//
+    datatable('#registrations_table');
+    datatable('#veicle_classes_table');
    //formulários //forms//
     $('select').selectric();
 

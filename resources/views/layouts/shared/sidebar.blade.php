@@ -24,9 +24,14 @@
                     <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Dashboard</span>
                 </a>
             </li>
-            <li class="sidebar-item @if(request()->routeIs('registration.create')) active @endif">
+            <li class="sidebar-item @if(request()->routeIs('registration.*')) active @endif">
                 <a class="sidebar-link " href="{{route('registration.create')}}">
                     <i class="align-middle" data-feather="edit"></i> <span class="align-middle">Matricular</span>
+                </a>
+            </li>
+            <li class="sidebar-item @if(request()->routeIs('student.*')) active @endif">
+                <a class="sidebar-link " href="{{route('dashboard')}}">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Estudantes</span>
                 </a>
             </li>
             <li class="sidebar-item @if(request()->routeIs('user.*')) active @endif">

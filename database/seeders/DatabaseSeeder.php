@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder
         $role = Role::create(['name'=>'root']);
         Role::create(['name'=>'director']);
         Role::create(['name'=>'funcionario']);
+        Role::create(['name'=>'intrutor']);
         Role::create(['name'=>'default']);
-
+        
         $user->assignRole(['root']);
 
 

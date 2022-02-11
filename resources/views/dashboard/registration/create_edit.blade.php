@@ -37,7 +37,7 @@
                             @if (request()->routeIs('registration.edit'))
                                 <form action="{{ route('registration.update', $registration->id) }}" method="post">
                                     @method('PATCH')@csrf
-                                    <input type="hidden" name="unique_hash" value="{{encrypt($registration->id)}}">
+                                    <input type="hidden" name="unique_hash" value="{{ encrypt($registration->id) }}">
                                 @else
                                     <form action="{{ route('registration.store') }}" method="post">
                                         @method('POST')@csrf
@@ -103,36 +103,37 @@
                                 <div class="col-md-4">
                                     <label for="id_identity">Número do B.I</label>
                                     <input name="id_identity" value="@if (old('id_identity')){{ old('id_identity') }}@elseif(request()->routeIs('registration.edit')){{ $registration->id_identity }}@endif" type="text"
-                                        class="form-control" placeholder="Número do B.I" autofocus autocomplete="" required
-                                        id="id_identity">
+                                        class="form-control" placeholder="Número do B.I" autofocus autocomplete=""
+                                        required id="id_identity">
                                 </div>
                             </div>
                             <div class="row justify-content-between mb-3">
                                 <div class="col-md-4">
                                     <label for="id_emision_date">Emitido em</label>
                                     <input name="id_emision_date" value="@if (old('id_emision_date')){{ old('id_emision_date') }}@elseif(request()->routeIs('registration.edit')){{ $registration->id_emision_date }}@endif" type="text"
-                                        class="form-control" placeholder="Emitido em" autofocus autocomplete=""
-                                        required id="id_emision_date">
+                                        class="form-control" placeholder="Emitido em" autofocus autocomplete="" required
+                                        id="id_emision_date">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="id_emited_with">Emitido por Arq.(Local)</label>
                                     <input name="id_emited_with" value="@if (old('id_emited_with')){{ old('id_emited_with') }}@elseif(request()->routeIs('registration.edit')){{ $registration->id_emited_with }}@endif" type="text"
-                                        class="form-control" placeholder="Emitido por Arq.(Local)" autofocus autocomplete="" required
-                                        id="id_emited_with">
+                                        class="form-control" placeholder="Emitido por Arq.(Local)" autofocus
+                                        autocomplete="" required id="id_emited_with">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="veicle_classe_id">Carta que pretende tirar</label>
 
                                     <select class="form-control" name="veicle_classe_id">
-                                        @foreach ($veicle_classes as $veicle_classe)
-                                            <option value="{{ $veicle_classe->id }}" @if (old('veicle_classe_id') && old('veicle_classe_id') == $veicle_classe->id) selected="true" @elseif(request()->routeIs('registration.edit') && $veicle_classe->id == $registration->veicle_classe_id) selected = "true" @endif>
-                                                {{ $veicle_classe->name }}</option>
+                                        @foreach ($veicle_classes as $veicle_class)
+                                            <option value="{{ $veicle_class->id }}" @if (old('veicle_classe_id') && old('veicle_classe_id') == $veicle_class->id) selected="true" @elseif(request()->routeIs('registration.edit') && $veicle_class->id == $registration->veicle_classe_id) selected = "true" @endif>
+                                                {{ $veicle_class->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="row container justify-content-center col-md-12">
-                                <input type="submit" class="btn btn-primary rounded-3 col" value="@if (request()->routeIs('registration.edit')) Actualizar @else Guardar @endif">
+                                <input type="submit" class="btn btn-primary rounded-3 col"
+                                    value="@if (request()->routeIs('registration.edit')) Actualizar @else Guardar @endif">
                             </div>
                         </div>
                     </div>

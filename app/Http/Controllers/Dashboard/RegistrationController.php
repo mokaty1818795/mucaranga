@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Models\Student;
-use App\Http\Requests\StoreStudentRequest;
-use App\Http\Requests\UpdateStudentRequest;
+use App\Models\Student as Registration;
+use App\Http\Requests\StoreStudentRequest as StoreRegistrationRequest;
+use App\Http\Requests\UpdateStudentRequest as UpdateRegistrationRequest;
 use App\Models\CivilState;
 use App\Models\VeicleClass;
-use Symfony\Component\VarDumper\VarDumper;
 
 class RegistrationController extends Controller
 {
@@ -20,7 +19,7 @@ class RegistrationController extends Controller
     public function index()
     {
         return view('dashboard.registration.index')->with([
-            'registrations'=>Student::all(),
+            'registrations'=>Registration::all(),
 
         ]);
     }
@@ -41,24 +40,29 @@ class RegistrationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreStudentRequest  $request
+     * @param  StoreRegistrationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStudentRequest $request)
+    public function store(StoreRegistrationRequest $request)
     {
-
-        var_dump(encrypt(34));
-        dd( decrypt(encrypt(34)));
-        dd($request->all());
+        try {
+            $registration =  Registration::create($request->all());
+            session()->flash('success', 'Estudante matriculado com sucesso.');
+           return redirect()->route('student.show',$registration);
+       } catch (\Throwable $e) {
+           throw $e;
+           session()->flash('error', 'Erro ao realizar matricula.');
+           return redirect()->back();
+       }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  Registration  $registration
      * @return \Illuminate\Http\Response
      */
-    public function show(Student $student)
+    public function show(Registration $registration)
     {
         return abort(404);
     }
@@ -66,33 +70,45 @@ class RegistrationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Student  $student
+     * @param  Registration  $registration
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $student)
+    public function edit(Registration $registration)
     {
-        //
+       // dd($registration);
+        return view('dashboard.registration.create_edit')->with([
+            'civil_states' => CivilState::all(),
+            'veicle_classes' => VeicleClass::all(),
+            'registration' => $registration
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateStudentRequest  $request
-     * @param  \App\Models\Student  $student
+     * @param  UpdateRegistrationRequest  $request
+     * @param  \App\Models\Student  $registration
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateStudentRequest $request, Student $student)
+    public function update(UpdateRegistrationRequest $request, Registration $registration)
     {
-        //
+        try {
+            $registration->update($request->all());
+            session()->flash('success', 'Estudante actualizado com sucesso.');
+            return redirect()->route('student.show',$registration);
+        } catch (\Throwable $e) {
+            session()->flash('error', 'Erro na actualização do estudante.');
+            return redirect()->back();
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Student  $student
+     * @param  Registration  $registration
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(Registration $registration)
     {
         //
     }

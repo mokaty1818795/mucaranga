@@ -16,6 +16,7 @@ use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * Class User
@@ -75,4 +76,12 @@ class User extends Authenticatable implements HasMedia
 	{
 		return $this->hasMany(StudentPayment::class, 'created_by_id');
 	}
+
+    function registerMediaCollections(): void
+    {
+        $this
+        ->addMediaCollection('avatar')
+        ->singleFile();
+    }
+
 }

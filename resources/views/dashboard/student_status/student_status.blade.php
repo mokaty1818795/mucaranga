@@ -8,15 +8,15 @@
             <h1 class="h3 d-inline align-middle"><strong>{{ $student->name }}</strong></h1>
         </div>
         <div class="col-auto ms-auto text-end mt-sm-2 mt-md-0">
-            <a href="#" class="btn btn-purple  me-2 mb-2">
+            <a href="#" class="btn btn-purple  me-2 mb-2" data-bs-toggle="modal" data-bs-target="#attach_document">
                 <i class="align-middle" data-feather="paperclip"></i>
                 Anexar documentos</a>
-            <a href="#" class="btn btn-purple  me-2 mb-2">
-                <i class="align-middle" data-feather="book"></i>
+            <a href="#" class="btn btn-purple  me-2 mb-2" data-bs-toggle="modal" data-bs-target="#academic_status">
+                @svg('phosphor-student-duotone' ,'feather align-middle')
                 Situação academica</a>
-            <a href="#" class="btn btn-purple mb-2">
+            <a href="#" class="btn btn-purple mb-2" data-bs-toggle="modal" data-bs-target="#financial_status">
                 <i class="align-middle" data-feather="dollar-sign"></i>
-                Situação academica</a>
+                Situação Financeira</a>
                 <a href="{{ route('registration.edit', $student->id) }}" class="btn btn-purple mb-2">
                     <i class="align-middle" data-feather="edit"></i>
                     Editar informação</a>
@@ -100,4 +100,35 @@
         </div>
 
     </div>
+@endsection
+@section('modals')
+<x-modal modal-title="Anexar Arquivos" modal-data-id="attach_document">
+    <x-slot name="modalBody">
+        <p class="mb-0">
+            Anexar arquivos
+        </p>
+    </x-slot>
+    <x-slot name="modalFooter">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+    </x-slot>
+</x-modal>
+
+
+<x-modal modal-title="Situação Financeira" modal-data-id="financial_status">
+    <x-slot name="modalBody">
+        <p class="mb-0">
+            Situação Financeira
+        </p>
+    </x-slot>
+</x-modal>
+
+
+<x-modal modal-title="Situação Acadámica" modal-data-id="academic_status">
+    <x-slot name="modalBody">
+        <p class="mb-0">
+            Situação academica
+        </p>
+    </x-slot>
+</x-modal>
 @endsection

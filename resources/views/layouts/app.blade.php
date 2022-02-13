@@ -33,6 +33,9 @@
                 <div class="container-fluid p-0">
                     @yield('content')
                 </div>
+                <div>
+                    @yield('modals')
+                </div>
             </main>
             @include('layouts.shared.footer')
         </div>

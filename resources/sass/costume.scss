@@ -1,12 +1,18 @@
-
-.form-control{
+.form-control {
     padding: 0.6rem 0.85rem;
     border-radius: 5px 5px;
 }
 
 @each $color, $value in $theme-colors {
     .btn-#{$color} {
-      @include button-variant($value, $value);
-      box-shadow :  0 0.05rem 0.19rem $value;
+        @include button-variant($value, $value);
+        box-shadow: 0 0.05rem 0.19rem $value;
     }
-  }
+}
+
+.modal-header {
+    border-bottom: 0px solid #fff !important;
+}
+.modal-footer {
+    border-top: 0px solid #fff !important;
+}

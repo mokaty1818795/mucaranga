@@ -8,6 +8,8 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * Class Exam
@@ -30,10 +32,10 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Exam extends Model
+class Exam extends Model implements HasMedia
 {
+    use InteractsWithMedia;
 	protected $table = 'exams';
-	public $incrementing = false;
 
 	protected $casts = [
 		'exam_tpye_id' => 'int',
@@ -70,7 +72,7 @@ class Exam extends Model
 		return $this->belongsTo(Student::class);
 	}
 
-	public function user()
+	public function processedBy()
 	{
 		return $this->belongsTo(User::class, 'processed_by_id');
 	}

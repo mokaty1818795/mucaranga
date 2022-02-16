@@ -8,10 +8,12 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * Class Registration
- * 
+ *
  * @property int $id
  * @property int $payment_phase_id
  * @property int $student_id
@@ -20,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property int|null $bank_invoice_id
- * 
+ *
  * @property Medium|null $medium
  * @property PaymentPhase $payment_phase
  * @property Student $student
@@ -28,8 +30,9 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Registration extends Model
+class Registration extends Model implements HasMedia
 {
+    use InteractsWithMedia;
 	protected $table = 'registrations';
 
 	protected $casts = [
@@ -48,10 +51,6 @@ class Registration extends Model
 		'bank_invoice_id'
 	];
 
-	public function medium()
-	{
-		return $this->belongsTo(Medium::class, 'bank_invoice_id');
-	}
 
 	public function payment_phase()
 	{
@@ -63,7 +62,7 @@ class Registration extends Model
 		return $this->belongsTo(Student::class);
 	}
 
-	public function user()
+	public function processedBy()
 	{
 		return $this->belongsTo(User::class, 'processed_by_id');
 	}

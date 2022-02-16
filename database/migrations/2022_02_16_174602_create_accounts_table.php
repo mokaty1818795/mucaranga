@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVeicleClassesTable extends Migration
+class CreateAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateVeicleClassesTable extends Migration
      */
     public function up()
     {
-        Schema::create('veicle_classes', function (Blueprint $table) {
+        Schema::create('accounts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable();
+            $table->double('debt')->nullable()->default(0);
+            $table->double('current_balance')->nullable()->default(0);
+            $table->double('payment_status')->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('student_id')->index('fk_accounts_students1_idx');
         });
     }
 
@@ -27,6 +30,6 @@ class CreateVeicleClassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('veicle_classes');
+        Schema::dropIfExists('accounts');
     }
 }

@@ -17,8 +17,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property float|null $price
  * 
- * @property Collection|StudentPayment[] $student_payments
+ * @property Collection|Registration[] $registrations
  *
  * @package App\Models
  */
@@ -26,12 +27,17 @@ class PaymentPhase extends Model
 {
 	protected $table = 'payment_phases';
 
-	protected $fillable = [
-		'name'
+	protected $casts = [
+		'price' => 'float'
 	];
 
-	public function student_payments()
+	protected $fillable = [
+		'name',
+		'price'
+	];
+
+	public function registrations()
 	{
-		return $this->hasMany(StudentPayment::class, 'payment_phases_id');
+		return $this->hasMany(Registration::class);
 	}
 }

@@ -35,14 +35,14 @@ class CreateStudentsTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('veicle_classe_id')->index('fk_students_veicle_classes1_idx');
             $table->string('student_code')->nullable();
-            $table->float('test_1', 10, 0)->nullable();
-            $table->float('test_2', 10, 0)->nullable();
-            $table->float('test_3', 10, 0)->nullable();
-            $table->float('test_4', 10, 0)->nullable();
+            $table->double('test_1')->nullable();
+            $table->double('test_2')->nullable();
+            $table->double('test_3')->nullable();
+            $table->double('test_4')->nullable();
             $table->integer('teoric_lessons')->nullable();
             $table->integer('pratice_lessons')->nullable();
             $table->integer('tecnic_lessons')->nullable();
-            $table->float('result', 10, 0)->nullable();
+            $table->double('result')->nullable();
             $table->boolean('genre')->nullable();
         });
     }

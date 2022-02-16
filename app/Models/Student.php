@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Student
- *
+ * 
  * @property int $id
  * @property string|null $name
  * @property Carbon $birth_day
@@ -44,11 +44,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $tecnic_lessons
  * @property float|null $result
  * @property bool|null $genre
- *
+ * 
  * @property CivilState $civil_state
  * @property VeicleClass $veicle_class
+ * @property Collection|Account[] $accounts
  * @property Collection|ClassRoom[] $class_rooms
- * @property Collection|StudentPayment[] $student_payments
+ * @property Exam $exam
+ * @property Collection|Registration[] $registrations
  *
  * @package App\Models
  */
@@ -117,6 +119,11 @@ class Student extends Model
 		return $this->belongsTo(VeicleClass::class, 'veicle_classe_id');
 	}
 
+	public function accounts()
+	{
+		return $this->hasMany(Account::class);
+	}
+
 	public function class_rooms()
 	{
 		return $this->belongsToMany(ClassRoom::class, 'class_room_students', 'students_id', 'class_rooms_id')
@@ -124,8 +131,13 @@ class Student extends Model
 					->withTimestamps();
 	}
 
-	public function student_payments()
+	public function exam()
 	{
-		return $this->hasMany(StudentPayment::class, 'students_id');
+		return $this->hasOne(Exam::class);
+	}
+
+	public function registrations()
+	{
+		return $this->hasMany(Registration::class);
 	}
 }

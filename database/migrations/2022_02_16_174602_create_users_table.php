@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->string('contact')->nullable();
             $table->boolean('active')->nullable()->default(false);
             $table->boolean('genre')->nullable();
-            $table->string('userscol', 45)->nullable();
         });
     }
 

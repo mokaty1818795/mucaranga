@@ -16,7 +16,6 @@ use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * Class User
@@ -32,14 +31,17 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property string|null $contact
  * @property bool|null $active
  * @property bool|null $genre
+ *
  * @property Collection|ClassRoom[] $class_rooms
- * @property Collection|StudentPayment[] $student_payments
+ * @property Exam $exam
+ * @property Collection|Registration[] $registrations
  *
  * @package App\Models
  */
 class User extends Authenticatable implements HasMedia
 {
     use HasApiTokens, HasFactory, Notifiable,HasPermissions,HasRoles,InteractsWithMedia;
+
 	protected $table = 'users';
 
 	protected $casts = [
@@ -64,7 +66,7 @@ class User extends Authenticatable implements HasMedia
 		'remember_token',
 		'contact',
 		'active',
-		'genre',
+		'genre'
 	];
 
 	public function class_rooms()
@@ -72,16 +74,13 @@ class User extends Authenticatable implements HasMedia
 		return $this->hasMany(ClassRoom::class, 'instructor');
 	}
 
-	public function student_payments()
+	public function exam()
 	{
-		return $this->hasMany(StudentPayment::class, 'created_by_id');
+		return $this->hasMany(Exam::class, 'processed_by_id');
 	}
 
-    function registerMediaCollections(): void
-    {
-        $this
-        ->addMediaCollection('avatar')
-        ->singleFile();
-    }
-
+	public function registrations()
+	{
+		return $this->hasMany(Registration::class, 'processed_by_id');
+	}
 }

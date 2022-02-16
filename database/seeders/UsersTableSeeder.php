@@ -34,7 +34,6 @@ class UsersTableSeeder extends Seeder
                 'contact' => '',
                 'active' => 1,
                 'genre' => 1,
-                'userscol' => NULL,
             ),
             1 =>
             array (
@@ -49,7 +48,6 @@ class UsersTableSeeder extends Seeder
                 'contact' => '',
                 'active' => 1,
                 'genre' => 1,
-                'userscol' => NULL,
             ),
         ));
 

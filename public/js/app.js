@@ -6218,6 +6218,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var timepicker__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! timepicker */ "./node_modules/timepicker/jquery.timepicker.min.js");
 /* harmony import */ var timepicker__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(timepicker__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _modules_datatables__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/datatables */ "./resources/js/modules/datatables.js");
+/* harmony import */ var _modules_datatables__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_modules_datatables__WEBPACK_IMPORTED_MODULE_9__);
 //import "../sass/app.scss";
 // AdminKit (required)
 
@@ -6253,7 +6254,7 @@ try {
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
   window.Popper = __webpack_require__(/*! @popperjs/core */ "./node_modules/@popperjs/core/lib/index.js");
   window.bootstrap = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-  Window.dt = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js")(window, $);
+  Window.dataTable = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js")(window, $);
 } catch (e) {}
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -6287,13 +6288,28 @@ window.Chart = chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"];
 /*!********************************************!*\
   !*** ./resources/js/modules/datatables.js ***!
   \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
-/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(datatables_net__WEBPACK_IMPORTED_MODULE_0__);
-
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-responsive-dt_js_responsive_dataTables_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-responsive-dt */ "./node_modules/datatables.net-responsive-dt/js/responsive.dataTables.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_jszip_dist_jszip_min_js").then(__webpack_require__.t.bind(__webpack_require__, /*! jszip */ "./node_modules/jszip/dist/jszip.min.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_pdfmake_build_pdfmake_js").then(__webpack_require__.t.bind(__webpack_require__, /*! pdfmake */ "./node_modules/pdfmake/build/pdfmake.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-autofill-bs5_js_autoFill_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-autofill-bs5 */ "./node_modules/datatables.net-autofill-bs5/js/autoFill.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-buttons-bs5_js_buttons_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-buttons-bs5/js/buttons.bootstrap5 */ "./node_modules/datatables.net-buttons-bs5/js/buttons.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-buttons_js_buttons_colVis_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-buttons/js/buttons.colVis.js */ "./node_modules/datatables.net-buttons/js/buttons.colVis.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-buttons_js_buttons_html5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-buttons/js/buttons.html5.js */ "./node_modules/datatables.net-buttons/js/buttons.html5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-buttons_js_buttons_print_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-buttons/js/buttons.print.js */ "./node_modules/datatables.net-buttons/js/buttons.print.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-colreorder-bs5_js_colReorder_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-colreorder-bs5/js/colReorder.bootstrap5 */ "./node_modules/datatables.net-colreorder-bs5/js/colReorder.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-datetime_dist_dataTables_dateTime_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-datetime */ "./node_modules/datatables.net-datetime/dist/dataTables.dateTime.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-fixedcolumns-bs5_js_fixedColumns_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5 */ "./node_modules/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-fixedheader-bs5_js_fixedHeader_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-fixedheader-bs5/js/fixedHeader.bootstrap5 */ "./node_modules/datatables.net-fixedheader-bs5/js/fixedHeader.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-keytable-bs5_js_keyTable_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-keytable-bs5 */ "./node_modules/datatables.net-keytable-bs5/js/keyTable.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-rowgroup-bs5_js_rowGroup_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-rowgroup-bs5/js/rowGroup.bootstrap5 */ "./node_modules/datatables.net-rowgroup-bs5/js/rowGroup.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-rowreorder-bs5_js_rowReorder_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-rowreorder-bs5 */ "./node_modules/datatables.net-rowreorder-bs5/js/rowReorder.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-scroller-bs5_js_scroller_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-scroller-bs5 */ "./node_modules/datatables.net-scroller-bs5/js/scroller.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-searchbuilder-bs5_js_searchBuilder_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-searchbuilder-bs5/js/searchBuilder.bootstrap5 */ "./node_modules/datatables.net-searchbuilder-bs5/js/searchBuilder.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-searchpanes-bs5_js_searchPanes_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-searchpanes-bs5 */ "./node_modules/datatables.net-searchpanes-bs5/js/searchPanes.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-select-bs5_js_select_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-select-bs5/js/select.bootstrap5 */ "./node_modules/datatables.net-select-bs5/js/select.bootstrap5.js", 23));
+__webpack_require__.e(/*! import() */ "node_modules_datatables_net-staterestore-bs5_js_stateRestore_bootstrap5_js").then(__webpack_require__.t.bind(__webpack_require__, /*! datatables.net-staterestore-bs5/js/stateRestore.bootstrap5 */ "./node_modules/datatables.net-staterestore-bs5/js/stateRestore.bootstrap5.js", 23));
 
 /***/ }),
 
@@ -11544,9 +11560,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _chunks_helpers_segment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chunks/helpers.segment.js */ "./node_modules/chart.js/dist/chunks/helpers.segment.js");
 /*!
- * Chart.js v3.7.0
+ * Chart.js v3.7.1
  * https://www.chartjs.org
- * (c) 2021 Chart.js Contributors
+ * (c) 2022 Chart.js Contributors
  * Released under the MIT License
  */
 
@@ -16828,7 +16844,7 @@ function needContext(proxy, names) {
   return false;
 }
 
-var version = "3.7.0";
+var version = "3.7.1";
 
 const KNOWN_POSITIONS = ['top', 'bottom', 'left', 'right', 'chartArea'];
 function positionIsHorizontal(position, axis) {
@@ -18928,9 +18944,28 @@ function resolveTarget(sources, index, propagate) {
   return false;
 }
 function _clip(ctx, target, clipY) {
+  const {segments, points} = target;
+  let first = true;
+  let lineLoop = false;
   ctx.beginPath();
-  target.path(ctx);
-  ctx.lineTo(target.last().x, clipY);
+  for (const segment of segments) {
+    const {start, end} = segment;
+    const firstPoint = points[start];
+    const lastPoint = points[findSegmentEnd(start, end, points)];
+    if (first) {
+      ctx.moveTo(firstPoint.x, firstPoint.y);
+      first = false;
+    } else {
+      ctx.lineTo(firstPoint.x, clipY);
+      ctx.lineTo(firstPoint.x, firstPoint.y);
+    }
+    lineLoop = !!target.pathSegment(ctx, segment, {move: lineLoop});
+    if (lineLoop) {
+      ctx.closePath();
+    } else {
+      ctx.lineTo(lastPoint.x, clipY);
+    }
+  }
   ctx.lineTo(target.first().x, clipY);
   ctx.closePath();
   ctx.clip();
@@ -22284,9 +22319,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "z": () => (/* binding */ _isPointInArea)
 /* harmony export */ });
 /*!
- * Chart.js v3.7.0
+ * Chart.js v3.7.1
  * https://www.chartjs.org
- * (c) 2021 Chart.js Contributors
+ * (c) 2022 Chart.js Contributors
  * Released under the MIT License
  */
 function fontString(pixelSize, fontStyle, fontFamily) {
@@ -28356,10 +28391,10 @@ var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
 (module.exports = function (key, value) {
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.20.3',
+  version: '3.21.0',
   mode: IS_PURE ? 'pure' : 'global',
   copyright: '© 2014-2022 Denis Pushkarev (zloirock.ru)',
-  license: 'https://github.com/zloirock/core-js/blob/v3.20.3/LICENSE',
+  license: 'https://github.com/zloirock/core-js/blob/v3.21.0/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });
 
@@ -104933,6 +104968,36 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/create fake namespace object */
+/******/ 	(() => {
+/******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
+/******/ 		var leafPrototypes;
+/******/ 		// create a fake namespace object
+/******/ 		// mode & 1: value is a module id, require it
+/******/ 		// mode & 2: merge all properties of value into the ns
+/******/ 		// mode & 4: return value when already ns object
+/******/ 		// mode & 16: return value when it's Promise-like
+/******/ 		// mode & 8|1: behave like require
+/******/ 		__webpack_require__.t = function(value, mode) {
+/******/ 			if(mode & 1) value = this(value);
+/******/ 			if(mode & 8) return value;
+/******/ 			if(typeof value === 'object' && value) {
+/******/ 				if((mode & 4) && value.__esModule) return value;
+/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
+/******/ 			}
+/******/ 			var ns = Object.create(null);
+/******/ 			__webpack_require__.r(ns);
+/******/ 			var def = {};
+/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
+/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
+/******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
+/******/ 			}
+/******/ 			def['default'] = () => (value);
+/******/ 			__webpack_require__.d(ns, def);
+/******/ 			return ns;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -104942,6 +105007,39 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames not based on template
+/******/ 			if ({"node_modules_datatables_net-responsive-dt_js_responsive_dataTables_js":1,"node_modules_jszip_dist_jszip_min_js":1,"node_modules_pdfmake_build_pdfmake_js":1,"node_modules_datatables_net-autofill-bs5_js_autoFill_bootstrap5_js":1,"node_modules_datatables_net-buttons-bs5_js_buttons_bootstrap5_js":1,"node_modules_datatables_net-buttons_js_buttons_colVis_js":1,"node_modules_datatables_net-buttons_js_buttons_html5_js":1,"node_modules_datatables_net-buttons_js_buttons_print_js":1,"node_modules_datatables_net-colreorder-bs5_js_colReorder_bootstrap5_js":1,"node_modules_datatables_net-datetime_dist_dataTables_dateTime_js":1,"node_modules_datatables_net-fixedcolumns-bs5_js_fixedColumns_bootstrap5_js":1,"node_modules_datatables_net-fixedheader-bs5_js_fixedHeader_bootstrap5_js":1,"node_modules_datatables_net-keytable-bs5_js_keyTable_bootstrap5_js":1,"node_modules_datatables_net-rowgroup-bs5_js_rowGroup_bootstrap5_js":1,"node_modules_datatables_net-rowreorder-bs5_js_rowReorder_bootstrap5_js":1,"node_modules_datatables_net-scroller-bs5_js_scroller_bootstrap5_js":1,"node_modules_datatables_net-searchbuilder-bs5_js_searchBuilder_bootstrap5_js":1,"node_modules_datatables_net-searchpanes-bs5_js_searchPanes_bootstrap5_js":1,"node_modules_datatables_net-select-bs5_js_select_bootstrap5_js":1,"node_modules_datatables_net-staterestore-bs5_js_stateRestore_bootstrap5_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			// return url for filenames based on template
+/******/ 			return undefined;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get mini-css chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference all chunks
+/******/ 		__webpack_require__.miniCssF = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -104960,6 +105058,52 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		// data-webpack is not used as build has no uniqueName
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 		
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			;
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -104982,6 +105126,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "/";
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
@@ -104995,7 +105144,44 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"frontend/errors/errors": 0
 /******/ 		};
 /******/ 		
-/******/ 		// no chunk on demand loading
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if(!/^(css\/app|frontend\/errors\/errors)$/.test(chunkId)) {
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						} else installedChunks[chunkId] = 0;
+/******/ 					}
+/******/ 				}
+/******/ 		};
 /******/ 		
 /******/ 		// no prefetching
 /******/ 		

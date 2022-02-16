@@ -1,0 +1,11 @@
+/*! Bootstrap 5 styling wrapper for ColReorder
+ * ©2018 SpryMedia Ltd - datatables.net/license
+ */
+
+/*! ColReorder 1.5.5
+ * ©2010-2021 SpryMedia Ltd - datatables.net/license
+ */
+
+/*! DataTables Bootstrap 5 integration
+ * 2020 SpryMedia Ltd - datatables.net/license
+ */

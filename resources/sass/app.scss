@@ -33,7 +33,7 @@
 @import "3-components/tables";
 @import "3-components/type";
 @import "3-components/wrapper";
-//@import "3-components/datatables";
+@import "3-components/datatables";
 @import "~select2/src/scss/core";
 
 // Theme utilities
@@ -47,8 +47,6 @@
 // 3rd party plugin styles
 @import "5-vendor/flatpickr";
 @import "5-vendor/simplebar";
-@import "~datatables.net-dt/css/jquery.dataTables.css";
-
 @import "3-components/datatables";
 
 //4th part plugin styles

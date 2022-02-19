@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\CivilStatesController;
+use App\Http\Controllers\Dashboard\ExamTypeController;
 use App\Http\Controllers\Dashboard\PaymentPhasesController;
 use App\Http\Controllers\Dashboard\RegistrationController;
 use App\Http\Controllers\Dashboard\StudentController;
@@ -38,6 +39,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('registration',RegistrationController::class);
     Route::resource('civil_state',CivilStatesController::class);
     Route::resource('payment_phase',PaymentPhasesController::class);
+    Route::resource('exam_type',ExamTypeController::class);
 
     Route::controller(StudentController::class)->group(function () {
         Route::get('/student/{student}', 'show')->name('student.show');

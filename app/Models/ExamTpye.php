@@ -11,13 +11,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ExamTpye
- * 
+ *
  * @property int $id
  * @property string $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property float|null $price
- * 
+ *
  * @property Exam $exam
  *
  * @package App\Models
@@ -35,8 +35,8 @@ class ExamTpye extends Model
 		'price'
 	];
 
-	public function exam()
+	public function exams()
 	{
-		return $this->hasOne(Exam::class);
+		return $this->hasMany(Exam::class);
 	}
 }

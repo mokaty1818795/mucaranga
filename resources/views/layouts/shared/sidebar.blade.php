@@ -61,6 +61,17 @@
                 <span class="align-middle">Tipo de carta</span>
                 </a>
             </li>
+
+            <li class="sidebar-item @if(request()->routeIs('exam_type.*')) active @endif">
+                <a class="sidebar-link " href="{{route('exam_type.index')}}">
+                    @svg('fluentui-text-bullet-list-square-edit-24-o','feather align-middle')
+
+                <span class="align-middle">Tipo de Exame</span>
+                </a>
+            </li>
+
+
+
             <li class="sidebar-item @if(request()->routeIs('period.*')) active @endif">
                 <a class="sidebar-link " href="{{route('period.index')}}">
                 <i class="fas fa-clock " data-feather="clock"></i>

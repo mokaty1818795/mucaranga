@@ -1,0 +1,115 @@
+<?php
+
+namespace App\Http\Controllers\Dashboard;
+
+use App\Http\Controllers\Controller;
+use App\Models\ExamTpye;
+use App\Http\Requests\StoreExamTpyeRequest;
+use App\Http\Requests\UpdateExamTpyeRequest;
+
+class ExamTypeController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('dashboard.exam_type.index')->with('exam_types',ExamTpye::all());
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('dashboard.exam_type.create_edit');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreExamTpyeRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreExamTpyeRequest $request)
+    {
+        try {
+            ExamTpye::create($request->all());
+            session()->flash('success', 'Tipo de exame criado com sucesso.');
+           return redirect()->route('exam_type.index');
+       } catch (\Throwable $e) {
+           throw $e;
+           session()->flash('error', 'Erro na criação da tipo de pagamento.');
+           return redirect()->route('exam_type.index');
+       }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\ExamTpye  $examTpye
+     * @return \Illuminate\Http\Response
+     */
+    public function show(ExamTpye $examTpye)
+    {
+        return abort(404);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\ExamTpye  $examTpye
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(ExamTpye $examTpye)
+    {
+        return view('dashboard.exam_type.create_edit')->with('exam_type',$examTpye);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateExamTpyeRequest  $request
+     * @param  \App\Models\ExamTpye  $examTpye
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateExamTpyeRequest $request, ExamTpye $examTpye)
+    {
+        try {
+            $examTpye->update($request->all());
+            session()->flash('success', 'Tipo de exame actualizado com sucesso.');
+            return redirect()->route('exam_type.index');
+        } catch (\Throwable $e) {
+            session()->flash('error', 'Erro na actualização do tipo de exame.');
+            return redirect()->route('exam_type.index');
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\ExamTpye  $examTpye
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(ExamTpye $examTpye)
+    {
+        if (!is_null($examTpye) || $examTpye->exams->count() <= 0) {
+            try {
+                $examTpye->delete();
+                session()->flash('success', 'Tipo de exame deletado com sucesso.');
+                return redirect()->route('exam_type.index');
+            } catch (\Throwable $e) {
+                session()->flash('error', 'Erro ao deletar o Tipo de exame.');
+                return redirect()->route('exam_type.index');
+            }
+        } else {
+            session()->flash('error', 'Erro ao deletar: " Contacte o administrador do sistema."');
+            return redirect()->route('exam_type.index');
+        }
+    }
+}

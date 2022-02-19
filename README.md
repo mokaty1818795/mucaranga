@@ -1,7 +1,11 @@
 # Mucaranga Driver School System
 
 - This is intern management system.
-## Licence 
+
+## Licence
+
     MIT
+
 ## Developer
+
 - Nelson Alexandre Mutane

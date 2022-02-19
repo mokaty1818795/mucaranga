@@ -262,6 +262,7 @@ $(document).ready(function () {
     datatable('#payment_phases_table');
     datatable('#students_table');
     datatable('#veicle_classes_table');
+    datatable('#exam_types_table');//
    //formulários //forms//
     $('select').selectric();
 

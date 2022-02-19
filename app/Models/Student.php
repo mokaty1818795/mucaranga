@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Student
- * 
+ *
  * @property int $id
  * @property string|null $name
  * @property Carbon $birth_day
@@ -44,7 +44,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $tecnic_lessons
  * @property float|null $result
  * @property bool|null $genre
- * 
+ *
  * @property CivilState $civil_state
  * @property VeicleClass $veicle_class
  * @property Collection|Account[] $accounts
@@ -119,9 +119,9 @@ class Student extends Model
 		return $this->belongsTo(VeicleClass::class, 'veicle_classe_id');
 	}
 
-	public function accounts()
+	public function account()
 	{
-		return $this->hasMany(Account::class);
+		return $this->hasOne(Account::class);
 	}
 
 	public function class_rooms()
@@ -131,12 +131,12 @@ class Student extends Model
 					->withTimestamps();
 	}
 
-	public function exam()
+	public function exams()
 	{
-		return $this->hasOne(Exam::class);
+		return $this->hasMany(Exam::class);
 	}
 
-	public function registrations()
+	public function payments()
 	{
 		return $this->hasMany(Registration::class);
 	}

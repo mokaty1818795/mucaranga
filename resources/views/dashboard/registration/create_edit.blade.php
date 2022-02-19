@@ -109,6 +109,29 @@
                             </div>
                             <div class="row justify-content-between mb-3">
                                 <div class="col-md-4">
+                                    <label for="natural_district">Morada Actual</label>
+                                    <input name="place_location" value="@if (old('place_location')){{ old('place_location') }}@elseif(request()->routeIs('registration.edit')){{ $registration->place_location }}@endif" type="text"
+                                        class="form-control" placeholder="Morada Actual" autofocus autocomplete="" required
+                                        id="place_location">
+                                </div>
+                                <input type="hidden" name="admited_at" value="@if(request()->routeIs('registration.edit')){{ $registration->admited_at }} @else {{now()}} @endif">
+                                <div class="col-md-4">
+                                    <label for="place_province">Província Actual</label>
+                                    <input name="place_province" value="@if (old('place_province')){{ old('place_province') }}@elseif(request()->routeIs('registration.edit')){{ $registration->place_province }}@endif" type="text"
+                                        class="form-control" placeholder="Província Actual" autofocus autocomplete="" required
+                                        id="place_province">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="place_district">Distrito actual</label>
+                                    <input name="place_district" value="@if (old('place_district')){{ old('place_district') }}@elseif(request()->routeIs('registration.edit')){{ $registration->place_district }}@endif" type="text"
+                                        class="form-control" placeholder="Distrito actual" autofocus autocomplete=""
+                                        required id="place_district">
+                                </div>
+                            </div>
+                            {{--place_location--}}
+                            <div class="row justify-content-between mb-3">
+                                <div class="col-md-4">
                                     <label for="id_emision_date">Emitido em</label>
                                     <input name="id_emision_date" value="@if (old('id_emision_date')){{ old('id_emision_date') }}@elseif(request()->routeIs('registration.edit')){{ $registration->id_emision_date }}@endif" type="text"
                                         class="form-control" placeholder="Emitido em" autofocus autocomplete="" required

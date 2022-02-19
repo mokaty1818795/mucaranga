@@ -52,10 +52,10 @@ class ExamTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ExamTpye  $examTpye
+     * @param  \App\Models\ExamTpye  $exam_type
      * @return \Illuminate\Http\Response
      */
-    public function show(ExamTpye $examTpye)
+    public function show(ExamTpye $exam_type)
     {
         return abort(404);
     }
@@ -63,25 +63,25 @@ class ExamTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ExamTpye  $examTpye
+     * @param  \App\Models\ExamTpye  $exam_type
      * @return \Illuminate\Http\Response
      */
-    public function edit(ExamTpye $examTpye)
+    public function edit(ExamTpye $exam_type)
     {
-        return view('dashboard.exam_type.create_edit')->with('exam_type',$examTpye);
+        return view('dashboard.exam_type.create_edit')->with('exam_type',$exam_type);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateExamTpyeRequest  $request
-     * @param  \App\Models\ExamTpye  $examTpye
+     * @param  \App\Models\ExamTpye  $exam_type
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateExamTpyeRequest $request, ExamTpye $examTpye)
+    public function update(UpdateExamTpyeRequest $request, ExamTpye $exam_type)
     {
         try {
-            $examTpye->update($request->all());
+            $exam_type->update($request->all());
             session()->flash('success', 'Tipo de exame actualizado com sucesso.');
             return redirect()->route('exam_type.index');
         } catch (\Throwable $e) {
@@ -93,14 +93,14 @@ class ExamTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ExamTpye  $examTpye
+     * @param  \App\Models\ExamTpye  $exam_type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ExamTpye $examTpye)
+    public function destroy(ExamTpye $exam_type)
     {
-        if (!is_null($examTpye) || $examTpye->exams->count() <= 0) {
+        if (!is_null($exam_type) || $exam_type->exams->count() <= 0) {
             try {
-                $examTpye->delete();
+                $exam_type->delete();
                 session()->flash('success', 'Tipo de exame deletado com sucesso.');
                 return redirect()->route('exam_type.index');
             } catch (\Throwable $e) {

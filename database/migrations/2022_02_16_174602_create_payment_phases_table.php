@@ -17,7 +17,6 @@ class CreatePaymentPhasesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->timestamps();
-            $table->double('price')->nullable()->default(0);
         });
     }
 

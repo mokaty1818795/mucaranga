@@ -33,7 +33,6 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Fâse</th>
-                                    <th>Valor</th>
                                     <th>Editar</th>
                                     <th>Deletar</th>
                                 </tr>
@@ -43,7 +42,6 @@
                                     <tr>
                                         <td>{{ $payment_phase->id }}</td>
                                         <td>{{ $payment_phase->name }}</td>
-                                        <td>{{ $payment_phase->price }} Mt's</td>
                                         <td><a class="btn btn-warning"
                                                 href="{{ route('payment_phase.edit', $payment_phase->id) }}">Editar</a></td>
                                         <td><button class="btn btn-danger"
@@ -61,7 +59,6 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>Fâse</th>
-                                    <th>Valor</th>
                                     <th>Editar</th>
                                     <th>Deletar</th>
                                 </tr>

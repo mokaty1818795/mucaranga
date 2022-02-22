@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Events\StudentRegistered;
 use App\Http\Controllers\Controller;
 use App\Models\Student as Registration;
 use App\Http\Requests\StoreStudentRequest as StoreRegistrationRequest;
@@ -18,10 +19,6 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        // return view('dashboard.registration.index')->with([
-        //     'registrations'=>Registration::all(),
-
-        // ]);
     }
 
     /**
@@ -48,6 +45,9 @@ class RegistrationController extends Controller
         try {
             $registration =  Registration::create($request->all());
             session()->flash('success', 'Estudante matriculado com sucesso.');
+
+            event(new StudentRegistered($registration));
+
            return redirect()->route('student.show',$registration);
        } catch (\Throwable $e) {
            throw $e;
@@ -110,6 +110,6 @@ class RegistrationController extends Controller
      */
     public function destroy(Registration $registration)
     {
-        //
+
     }
 }

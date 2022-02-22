@@ -45,17 +45,13 @@
                             <div class="row justify-content-between mb-3">
 
 
-                                <div class="row col-md-6">
+                                <div class="row col-md-12">
                                     <label for="name">Fâse de pagamento</label>
                                     <input name="name" value="@if(old('name')){{old('name')}}@elseif(request()->routeIs('payment_phase.edit')){{ $payment_phase->name }}@endif" type="text" class="form-control"
                                         placeholder="Fâse de pagamento" autofocus autocomplete="" required >
                                 </div>
 
-                                <div class="row col-md-6">
-                                    <label for="name">Valor a pagar (Mts)</label>
-                                    <input name="price" value="@if(old('price')){{old('price')}}@elseif(request()->routeIs('payment_phase.edit')){{ $payment_phase->price }}@endif" type="text" class="form-control"
-                                        placeholder="Valor a pagar" autofocus autocomplete="" required >
-                                </div>
+
                             </div>
 
                             <div class="row container justify-content-center col-md-12">

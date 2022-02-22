@@ -24,8 +24,7 @@ class StorePaymentPhaseRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:payment_phases,name',
-            'price' => 'numeric|nullable'
+            'name' => 'required|unique:payment_phases,name'
         ];
     }
 }

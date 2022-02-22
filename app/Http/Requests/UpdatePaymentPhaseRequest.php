@@ -27,7 +27,7 @@ class UpdatePaymentPhaseRequest extends FormRequest
     {
         return [
             'name' => ['required',Rule::unique('payment_phases')->ignore(PaymentPhase::find(decrypt($this->unique_hash)),'name')],
-            'price' => 'numeric|nullable'
+          
         ];
     }
 }

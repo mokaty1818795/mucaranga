@@ -40,7 +40,6 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('civil_state',CivilStatesController::class);
     Route::resource('payment_phase',PaymentPhasesController::class);
     Route::resource('exam_type',ExamTypeController::class);
-
     Route::controller(StudentController::class)->group(function () {
         Route::get('/student/{student}', 'show')->name('student.show');
         Route::get('/student', 'index')->name('student.index');

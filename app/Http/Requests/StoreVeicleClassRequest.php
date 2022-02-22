@@ -24,7 +24,8 @@ class StoreVeicleClassRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:veicle_classes,name'
+            'name' => 'required|unique:veicle_classes,name',
+            'price' => 'numeric|nullable'
         ];
     }
 }

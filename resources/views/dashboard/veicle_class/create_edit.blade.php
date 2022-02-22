@@ -44,10 +44,16 @@
 
                             <div class="row justify-content-between mb-3">
 
-                                <label for="name">Nome da carta</label>
-                                <div class="row col-md-12">
+
+                                <div class="row col-md-6">
+                                    <label for="name">Nome da carta</label>
                                     <input name="name" value="@if(old('name')){{old('name')}}@elseif(request()->routeIs('veicle_class.edit')){{ $veicle_class->name }}@endif" type="text" class="form-control"
                                         placeholder="Nome da carta" autofocus autocomplete="" required >
+                                </div>
+                                <div class="row col-md-6">
+                                    <label for="name">Preço da carta (Mts)</label>
+                                    <input name="price" value="@if(old('price')){{old('price')}}@elseif(request()->routeIs('veicle_class.edit')){{ $veicle_class->price }}@endif" type="text" class="form-control"
+                                        placeholder="Preço da carta" autofocus autocomplete="" required >
                                 </div>
                             </div>
 

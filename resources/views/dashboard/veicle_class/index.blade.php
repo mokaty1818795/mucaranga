@@ -29,6 +29,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nome da carta</th>
+                                <th>Preço da carta</th>
                                 <th>Editar</th>
                                 <th>Deletar</th>
                             </tr>
@@ -38,6 +39,7 @@
                             <tr>
                                 <td>{{$veicle_class->id}}</td>
                                 <td>{{$veicle_class->name}}</td>
+                                <td>{{ $veicle_class->price }} Mt's</td>
                                 <td><a class="btn btn-warning" href="{{route('veicle_class.edit',$veicle_class->id)}}">Editar</a></td>
                                 <td><button class="btn btn-danger" onclick="document.getElementById('veicle_class_{{$veicle_class->id}}_delete').submit()">Delete</button>
                                     <form action="{{route('veicle_class.destroy',$veicle_class->id)}}" method="post" id="veicle_class_{{$veicle_class->id}}_delete">
@@ -53,6 +55,7 @@
                                     <tr>
                                         <th>Id</th>
                                         <th>Nome da carta</th>
+                                        <th>Preço da carta</th>
                                         <th>Editar</th>
                                         <th>Deletar</th>
                                     </tr>

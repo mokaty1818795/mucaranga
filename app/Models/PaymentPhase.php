@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class PaymentPhase
- * 
+ *
  * @property int $id
  * @property string|null $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property float|null $price
- * 
+ *
  * @property Collection|Registration[] $registrations
  *
  * @package App\Models
@@ -33,7 +33,6 @@ class PaymentPhase extends Model
 
 	protected $fillable = [
 		'name',
-		'price'
 	];
 
 	public function registrations()

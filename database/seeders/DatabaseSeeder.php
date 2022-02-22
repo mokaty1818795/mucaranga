@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(VeicleClassesTableSeeder::class);
         $this->call(PeriodsTableSeeder::class);
         $this->call(PaymentPhasesTableSeeder::class);
+        $this->call(DocumentTypeSeeder::class);
         $root = User::where('email','administrator@ecm.com')->first();
         $director = User::where('email','director@ecm.com')->first();
         $root->assignRole(['Root']);

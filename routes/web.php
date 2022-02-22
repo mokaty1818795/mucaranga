@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\CivilStatesController;
+use App\Http\Controllers\Dashboard\DocumentUploadController;
 use App\Http\Controllers\Dashboard\ExamTypeController;
 use App\Http\Controllers\Dashboard\PaymentPhasesController;
 use App\Http\Controllers\Dashboard\RegistrationController;
@@ -40,9 +41,13 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('civil_state',CivilStatesController::class);
     Route::resource('payment_phase',PaymentPhasesController::class);
     Route::resource('exam_type',ExamTypeController::class);
+
     Route::controller(StudentController::class)->group(function () {
         Route::get('/student/{student}', 'show')->name('student.show');
         Route::get('/student', 'index')->name('student.index');
         Route::delete('/student/{student}', 'destroy')->name('student.destroy');
+    });
+    Route::controller(DocumentUploadController::class)->group(function(){
+        Route::post('document_upload/{student}','uploadFile')->name('document.upload');
     });
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\DocumentType;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -49,7 +50,10 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return view('dashboard.student_status.student_status')->with('student',$student);
+        return view('dashboard.student_status.student_status')->with([
+            'student'=>$student,
+            'documents' => DocumentType::all()
+        ]);
     }
 
     /**

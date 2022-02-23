@@ -2,10 +2,10 @@
     @csrf
     <div class="row">
         <div class="col-md-6">
-            <label>Tipo de documento</label>
+            <label>Prestações</label>
             <select class="form-control" name="document_type">
-                @foreach ($documents as $document)
-                    <option value="{{ $document->id }}"> {{ $document->name }}</option>
+                @foreach (\App\Models\PaymentPhase::all() as $phase)
+                    <option value="{{ $phase->id }}"> {{ $phase->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -14,7 +14,7 @@
         </div>
     </div>
 </form>
-@include('dashboard.student_status.shared.tables.upload_table')
+@include('dashboard.student_status.shared.tables.payment_table')
 <x-slot name="modalFooter">
     <button type="button" class="btn btn-secondary mr-0 " data-bs-dismiss="modal">Close</button>
     <button type="button" class="btn btn-primary mr-0"

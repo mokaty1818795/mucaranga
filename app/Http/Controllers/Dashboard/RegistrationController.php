@@ -50,7 +50,7 @@ class RegistrationController extends Controller
 
            return redirect()->route('student.show',$registration);
        } catch (\Throwable $e) {
-           throw $e;
+          // throw $e;
            session()->flash('error', 'Erro ao realizar matricula.');
            return redirect()->back();
        }

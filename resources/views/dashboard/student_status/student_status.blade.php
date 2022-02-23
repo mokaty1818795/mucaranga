@@ -4,22 +4,29 @@
     <div class="container-fluid p-0">
 
         @if ($errors->any())
-        <div class="alert alert-danger alert-dismissible " role="alert"
-            style="border-left: 5px solid darkred;">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"
-                aria-label="Close"></button>
-            <div class="alert-message">
-                <ul class="list-unstyled">
-                    @foreach ($errors->all() as $error)
-                        <li><i class="align-middle" data-feather="alert-triangle"></i> &nbsp;
-                            <strong>{{ $error }}</strong>
-                        </li>
-                    @endforeach
-                </ul>
+            <div class="alert alert-danger alert-dismissible " role="alert" style="border-left: 5px solid darkred;">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div class="alert-message">
+                    <ul class="list-unstyled">
+                        @foreach ($errors->all() as $error)
+                            <li><i class="align-middle" data-feather="alert-triangle"></i> &nbsp;
+                                <strong>{{ $error }}</strong>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
-        </div>
-    @endif
-    
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible show fade" role="alert"
+                style="border-left: 5px solid darkgreen;">
+                <div class="alert-body">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong>{{ session('success') }}</strong>
+                </div>
+            </div>
+        @endif
+
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
                 <h1 class="h3 d-inline align-middle"><strong>{{ $student->name }}</strong></h1>
@@ -31,12 +38,13 @@
                 <a href="#" class="btn btn-purple  me-2 mb-2" data-bs-toggle="modal" data-bs-target="#academic_status">
                     @svg('phosphor-student-duotone' ,'feather align-middle')
                     Dados do estudante</a>
-                <a href="#" class="btn btn-purple mb-2" data-bs-toggle="modal" data-bs-target="#financial_status">
-                    <i class="align-middle" data-feather="dollar-sign"></i>
-                    Situação Financeira</a>
+
                 <a href="{{ route('registration.edit', $student->id) }}" class="btn btn-purple mb-2">
                     <i class="align-middle" data-feather="edit"></i>
                     Editar informação</a>
+                <a href="#" class="btn btn-purple mb-2" data-bs-toggle="modal" data-bs-target="#financial_status">
+                    @svg('fluentui-person-money-20', 'feather align-middle')
+                    Efectuar Pagamentos</a>
             </div>
         </div>
 
@@ -113,17 +121,15 @@
 @endsection
 @section('modals')
     <x-modal modal-title="Anexar documentos" modal-data-id="attach_document">
-            <x-slot name="modalBody">
-                @include('dashboard.student_status.shared.upload_student_documents')
-            </x-slot>
+        <x-slot name="modalBody">
+            @include('dashboard.student_status.shared.upload_student_documents')
+        </x-slot>
     </x-modal>
 
 
-    <x-modal modal-title="Situação Financeira" modal-data-id="financial_status">
+    <x-modal modal-title="Efectuar pagamentos" modal-data-id="financial_status">
         <x-slot name="modalBody">
-            <p class="mb-0">
-                Situação Financeira
-            </p>
+            @include('dashboard.student_status.shared.student_payment')
         </x-slot>
     </x-modal>
 

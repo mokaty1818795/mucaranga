@@ -44,17 +44,19 @@ return [
         'images' => [
             'driver' => 'local',
             'root' => storage_path('app/public/images'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL').'/storage/images',
             'visibility' => 'public',
         ],
 
         'documents' => [
             'driver' => 'local',
-            'root' => storage_path('app/documents')
+            'root' => storage_path('app/public/documents'),
+            'url' => env('APP_URL').'/storage/documents',
         ],
         'invoices' => [
             'driver' => 'local',
-            'root' => storage_path('app/invoices')
+            'root' => storage_path('app/public/invoices'),
+            'url' => env('APP_URL').'/storage/invoices',
         ],
 
         's3' => [

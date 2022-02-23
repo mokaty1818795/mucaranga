@@ -3,6 +3,23 @@
 @section('content')
     <div class="container-fluid p-0">
 
+        @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible " role="alert"
+            style="border-left: 5px solid darkred;">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                aria-label="Close"></button>
+            <div class="alert-message">
+                <ul class="list-unstyled">
+                    @foreach ($errors->all() as $error)
+                        <li><i class="align-middle" data-feather="alert-triangle"></i> &nbsp;
+                            <strong>{{ $error }}</strong>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    @endif
+    
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
                 <h1 class="h3 d-inline align-middle"><strong>{{ $student->name }}</strong></h1>
@@ -95,10 +112,8 @@
     </div>
 @endsection
 @section('modals')
-    <x-modal modal-title="Anexar Arquivos" modal-data-id="attach_document">
-
+    <x-modal modal-title="Anexar documentos" modal-data-id="attach_document">
             <x-slot name="modalBody">
-
                 @include('dashboard.student_status.shared.upload_student_documents')
             </x-slot>
     </x-modal>

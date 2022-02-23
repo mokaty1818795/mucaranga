@@ -49,5 +49,6 @@ Route::middleware(['auth'])->group(function(){
     });
     Route::controller(DocumentUploadController::class)->group(function(){
         Route::post('document_upload/{student}','uploadFile')->name('document.upload');
+        Route::post('document_delete/{media}','removeFile')->name('document.remove');
     });
 });

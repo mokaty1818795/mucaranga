@@ -16,7 +16,8 @@
 </form>
 @include('dashboard.student_status.shared.tables.upload_table')
 <x-slot name="modalFooter">
-    <button type="button" class="btn btn-secondary mr-0 " data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-danger mr-0 " data-bs-dismiss="modal">Cancelar</button>
     <button type="button" class="btn btn-primary mr-0"
-        onclick="document.getElementById('upload_student_documents').submit()">Save changes</button>
+        onclick="document.getElementById('upload_student_documents').submit()">
+        <i class="align-middle" data-feather="paperclip"></i> Anexar</button>
 </x-slot>

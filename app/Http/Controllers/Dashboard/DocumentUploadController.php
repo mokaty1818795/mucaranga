@@ -12,7 +12,9 @@ class DocumentUploadController extends Controller
 {
     public function uploadFile(DocumentUploadRequest $request, Student $student)
     {
+        $existingMedia = $student->getMedia('documents',['document_type'=> "$request->document_type"])->first();
         try {
+            if(!is_null($existingMedia)) $existingMedia->delete();
             $student->addMedia($request->file('document_file'))
             ->withCustomProperties([
                 'document_type' => $request->document_type,

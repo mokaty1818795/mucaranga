@@ -1,8 +1,7 @@
 @extends('layouts.app')
-@section('title', $student->name . ' (Perfil)')
+@section('title', $student->name . ' (Estudante)')
 @section('content')
     <div class="container-fluid p-0">
-
         @if ($errors->any())
             <div class="alert alert-danger alert-dismissible " role="alert" style="border-left: 5px solid darkred;">
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -42,11 +41,12 @@
                 <a href="{{ route('registration.edit', $student->id) }}" class="btn btn-purple mb-2">
                     <i class="align-middle" data-feather="edit"></i>
                     Editar informação</a>
-                <a href="#" class="btn btn-purple mb-2" data-bs-toggle="modal" data-bs-target="#financial_status">
-                    @svg('fluentui-person-money-20', 'feather align-middle')
-                    Efectuar Pagamentos</a>
+            </div>
+            <div class="row mt-3">
+
             </div>
         </div>
+        {{-- </div>
 
         <div class="row">
             <div class="col-md-4 col-xl-3">
@@ -116,27 +116,26 @@
                 </div>
             </div>
         </div>
-
-    </div>
-@endsection
-@section('modals')
-    <x-modal modal-title="Anexar documentos" modal-data-id="attach_document">
-        <x-slot name="modalBody">
-            @include('dashboard.student_status.shared.upload_student_documents')
-        </x-slot>
-    </x-modal>
-
-
-    <x-modal modal-title="Efectuar pagamentos" modal-data-id="financial_status">
-        <x-slot name="modalBody">
-            @include('dashboard.student_status.shared.student_payment')
-        </x-slot>
-    </x-modal>
+    </div> --}}
+    @endsection
+    @section('modals')
+        <x-modal modal-title="Anexar documentos" modal-data-id="attach_document">
+            <x-slot name="modalBody">
+                @include('dashboard.student_status.shared.upload_student_documents')
+            </x-slot>
+        </x-modal>
 
 
-    <x-modal modal-title="Informação do estudante" modal-data-id="academic_status">
-        <x-slot name="modalBody">
-            @include('dashboard.student_status.shared.student_information')
-        </x-slot>
-    </x-modal>
-@endsection
+        <x-modal modal-title="Efectuar pagamentos" modal-data-id="financial_status">
+            <x-slot name="modalBody">
+                @include('dashboard.student_status.shared.student_payment')
+            </x-slot>
+        </x-modal>
+
+
+        <x-modal modal-title="Informação do estudante" modal-data-id="academic_status">
+            <x-slot name="modalBody">
+                @include('dashboard.student_status.shared.student_information')
+            </x-slot>
+        </x-modal>
+    @endsection

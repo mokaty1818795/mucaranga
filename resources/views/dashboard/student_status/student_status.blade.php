@@ -42,81 +42,52 @@
                     <i class="align-middle" data-feather="edit"></i>
                     Editar informação</a>
             </div>
-            <div class="row mt-3">
-
-            </div>
-        </div>
-        {{-- </div>
-
-        <div class="row">
-            <div class="col-md-4 col-xl-3">
-                <div class="card mb-3">
-                    <div class="card-body text-center">
-                        <img src="{{ asset('img/avatar.svg') }}" alt="{{ $student->name }}"
-                            class="img-fluid rounded-circle mb-2" width="128" height="128" />
-
-                        <h5 class="card-title mb-0">{{ $student->name }}</h5>
-                        <div class="text-muted mb-2 "><span
-                                class="badge bg-light  rounded-pill p-2 my-3 card-title shadow-sm">Estudante</span></div>
-                    </div>
-                    <hr class="my-0" />
-
-                </div>
-            </div>
-            <div class="col-md-8 col-xl-9 row">
-                <div class="col-md-4">
-                    <div class="card">
+            <div class="container row justify-content-between mt-3">
+                <div class="col-sm-5">
+                    <div class="card button" data-bs-toggle="modal" data-bs-target="#make_payments"
+                        style="cursor:pointer">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">Dívida</h5>
+                                <div class="col mt-2">
+                                    <h5 class="card-title">Pagamento de matrícula</h5>
                                 </div>
                                 <div class="col-auto">
                                     <div class="stat text-primary">
+                                        @svg('fluentui-payment-16-o','feather align-middle')
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="mt-1 mb-3 font-red">{{ $student->account->debt . ' (mts)' }}</h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-sm-5 ">
+                    <div class="card button" data-bs-toggle="modal" data-bs-target="#make_exams_payments"
+                        style="cursor:pointer">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">Saldo Actual</h5>
+                                <div class="col mt-2">
+                                    <h5 class="card-title">Pagamento de Exames</h5>
                                 </div>
                                 <div class="col-auto">
                                     <div class="stat text-primary">
+                                        @svg('fluentui-payment-16-o','feather align-middle')
                                     </div>
                                 </div>
                             </div>
-                            <h1 class="mt-1 mb-3 font-red">{{ $student->account->current_balance . ' (mts)' }}</h1>
                         </div>
                     </div>
                 </div>
-                @foreach ($student->payments as $payment)
-                @endforeach
-                <div class="col-md-4">
+            </div>
+            <div class="container row">
+                <div class="col-12 w-100">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col mt-0">
-                                    <h5 class="card-title">Status</h5>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="stat text-primary">
-                                    </div>
-                                </div>
-                            </div>
-                            <h1 class="mt-1 mb-3 font-red">{{ $student->account->payment_status . ' %' }}</h1>
+                            @include('dashboard.student_status.shared.tables.upload_table')
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> --}}
     @endsection
     @section('modals')
         <x-modal modal-title="Anexar documentos" modal-data-id="attach_document">
@@ -138,4 +109,28 @@
                 @include('dashboard.student_status.shared.student_information')
             </x-slot>
         </x-modal>
+        <x-modal modal-title="Efectuar pagamentos" modal-data-id="make_payments">
+            <x-slot name="modalBody">
+                Payments
+            </x-slot>
+        </x-modal>
+
+        <x-modal modal-title="Efectuar pagamentos de exames" modal-data-id="make_exams_payments">
+            <x-slot name="modalBody">
+                Exams Payments
+            </x-slot>
+        </x-modal>
     @endsection
+
+    @push('css')
+        <style>
+            .button {
+                cursor: pointer;
+
+            }
+            .button:hover {
+                box-shadow: 1rem 2.1rem 2.2rem rgba(0, 0, 0, .05) !important;
+            }
+
+        </style>
+    @endpush

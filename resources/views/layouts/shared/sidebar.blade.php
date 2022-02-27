@@ -15,10 +15,14 @@
                     </a>
                 </li>
             @endif
-
             <li class="sidebar-item @if (request()->routeIs('dashboard')) active @endif">
                 <a class="sidebar-link " href="{{ route('dashboard') }}">
                     @svg('radix-dashboard' ,'feather align-middle')<span class="align-middle">Dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-item @if (request()->routeIs('finances')) active @endif">
+                <a class="sidebar-link " href="{{ route('finances') }}">
+                    @svg('phosphor-chart-line-up-fill' ,'feather align-middle')<span class="align-middle">Relatórios</span>
                 </a>
             </li>
             <li class="sidebar-item @if (request()->routeIs('registration.create')) active @endif">

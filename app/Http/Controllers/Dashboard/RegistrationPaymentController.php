@@ -19,51 +19,7 @@ class RegistrationPaymentController extends Controller
      */
     public function store(StoreRegistrationRequest $request,Student $student)
     {
-        Registration::create($request->all());
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Registration  $registration
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Registration $registration)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Registration  $registration
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Registration $registration)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateRegistrationRequest  $request
-     * @param  \App\Models\Registration  $registration
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateRegistrationRequest $request, Registration $registration)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Registration  $registration
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Registration $registration)
-    {
-        //
+       $invoice =  Registration::create($request->all());
+        return view('dashboard.invoice.invoice')->with(['invoice' => $invoice,'student'=> $student]);
     }
 }

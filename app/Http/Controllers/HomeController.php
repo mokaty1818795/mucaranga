@@ -37,4 +37,8 @@ class HomeController extends Controller
     {
         return view('dashboard.profile')->with('user',auth()->user());
     }
+    public function finances()
+    {
+        return view('finances')->with([]);
+    }
 }

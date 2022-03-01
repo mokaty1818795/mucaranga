@@ -1,4 +1,4 @@
-<form action="{{ route('document.upload', $student->id) }}" method="post" id="upload_student_documents"  enctype="multipart/form-data">
+<form action="" method="post" id="student_registration_payment"  enctype="multipart/form-data">
     @csrf
     <div class="row">
         <div class="col-md-6">
@@ -9,14 +9,16 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-md-6"><label for="Carregar documento">Carregar documento</label>
-            <input type="file" name="document_file"  class="form-control">
+        <div class="col-md-6"><label for="Carregar documento">Valor a pagar</label>
+            <input type="text" name="amount"  class="form-control" disabled value="{{$student->veicle_class->price}} MZN">
         </div>
     </div>
 </form>
-@include('dashboard.student_status.shared.tables.payment_table')
+
 <x-slot name="modalFooter">
-    <button type="button" class="btn btn-secondary mr-0 " data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-danger mr-0 " data-bs-dismiss="modal">Cancelar</button>
     <button type="button" class="btn btn-primary mr-0"
-        onclick="document.getElementById('upload_student_documents').submit()">Save changes</button>
+        onclick="document.getElementById('student_registration_payment').submit()">
+@svg('fluentui-payment-16','feather align-middle')
+        Efectuar pagamento</button>
 </x-slot>

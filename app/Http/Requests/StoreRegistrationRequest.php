@@ -28,7 +28,8 @@ class StoreRegistrationRequest extends FormRequest
             'student_id' => 'required|numeric',
             'processed_by_id' => 'required|numeric',
             'invoice_id' => 'nullable|numeric',
-            'bank_invoice_id' => 'nullable|numeric'
+            'bank_invoice_id' => 'nullable|numeric',
+            'amount' => 'numeric|required'
         ];
     }
 }

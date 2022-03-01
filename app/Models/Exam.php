@@ -61,7 +61,7 @@ class Exam extends Model implements HasMedia
 		'done_at',
 		'result'
 	];
-
+    
 	public function exam_tpye()
 	{
 		return $this->belongsTo(ExamTpye::class);

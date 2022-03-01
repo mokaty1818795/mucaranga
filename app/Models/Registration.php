@@ -40,7 +40,8 @@ class Registration extends Model implements HasMedia
 		'student_id' => 'int',
 		'processed_by_id' => 'int',
 		'invoice_id' => 'int',
-		'bank_invoice_id' => 'int'
+		'bank_invoice_id' => 'int',
+        'amount' => 'float'
 	];
 
 	protected $fillable = [
@@ -48,7 +49,8 @@ class Registration extends Model implements HasMedia
 		'student_id',
 		'processed_by_id',
 		'invoice_id',
-		'bank_invoice_id'
+		'bank_invoice_id',
+        'amount'
 	];
 
 

@@ -45,7 +45,6 @@ class RegistrationController extends Controller
         try {
             $registration =  Registration::create($request->all());
             session()->flash('success', 'Estudante matriculado com sucesso.');
-
             event(new StudentRegistered($registration));
 
            return redirect()->route('student.show',$registration);

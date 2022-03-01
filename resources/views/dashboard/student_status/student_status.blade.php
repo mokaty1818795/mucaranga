@@ -82,7 +82,36 @@
                 <div class="col-12 w-100">
                     <div class="card">
                         <div class="card-body">
-                            @include('dashboard.student_status.shared.tables.upload_table')
+                           <table class="table table-striped table-inverse responsive">
+                               <thead class="thead-inverse">
+                                   <tr>
+                                       <th>Pagamento</th>
+                                       <th>Estudante</th>
+                                       <th>Atendido por</th>
+                                       <th>Data de atendimento</th>
+                                       <th>valor pago</th>
+                                       <th>Recibo</th>
+                                   </tr>
+                                   </thead>
+                                   <tbody>
+
+
+                                    @foreach ($payments as $item)
+                                    <tr>
+                                        <td scope="row"> {{$item->paymentOf->name}}</td>
+                                        <td> {{$item->student->name}}</td>
+                                        <td>{{$item->processedBy->name}}</td>
+                                        <td>{{ $item->date ?? ''}}</td>
+                                        <td> <strong>{{ $item->amount . ' MZN' }} </strong></td>
+                                        <td scope="row">
+                                            <a href="http://"> @svg('phosphor-printer','feather align-middle')</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+
+
+                                   </tbody>
+                           </table>
                         </div>
                     </div>
                 </div>
@@ -96,28 +125,23 @@
             </x-slot>
         </x-modal>
 
-
-        <x-modal modal-title="Efectuar pagamentos" modal-data-id="financial_status">
-            <x-slot name="modalBody">
-                @include('dashboard.student_status.shared.student_payment')
-            </x-slot>
-        </x-modal>
-
-
         <x-modal modal-title="Informação do estudante" modal-data-id="academic_status">
             <x-slot name="modalBody">
                 @include('dashboard.student_status.shared.student_information')
             </x-slot>
         </x-modal>
+
+
+
         <x-modal modal-title="Efectuar pagamentos" modal-data-id="make_payments">
             <x-slot name="modalBody">
-                Payments
+                @include('dashboard.student_status.shared.student_payment')
             </x-slot>
         </x-modal>
 
         <x-modal modal-title="Efectuar pagamentos de exames" modal-data-id="make_exams_payments">
             <x-slot name="modalBody">
-                Exams Payments
+                @include('dashboard.student_status.shared.student_exam_payment')
             </x-slot>
         </x-modal>
     @endsection

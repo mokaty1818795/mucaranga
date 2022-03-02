@@ -264,7 +264,7 @@ $(document).ready(function () {
     datatable('#veicle_classes_table');
     datatable('#exam_types_table');//
    //formulários //forms//
-    $('select').selectric();
+  //  $('select').selectric();
 
     const date = new Date('12/31/2001');
      date.setYear((new Date().getFullYear() - 15));

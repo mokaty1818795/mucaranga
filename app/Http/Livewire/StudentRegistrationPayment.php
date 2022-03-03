@@ -42,29 +42,39 @@ class StudentRegistrationPayment extends Component
                 case strtolower('1PR'):
                     $this->amount = $this->student->veicle_class->price / 2;
                     break;
-
                 case strtolower('2PR'):
                     $this->amount = $this->student->veicle_class->price / 2;
                     break;
                 case strtolower('UPR'):
                     $this->amount = $this->student->veicle_class->price;
                     break;
-
                 default:
                     $this->amount = $this->student->veicle_class->price;
                     break;
             }
+
         }
     }
 
 
     private function searchPhases(Student $student)
     {
-        return PaymentPhase::whereNotIn(
-                'id',
-                Registration::where('student_id', $student->id)
-                    ->pluck('payment_phase_id')
-            )
-            ->get();
+        if(Registration::where('student_id', $student->id)->get()->isEmpty()){
+            return PaymentPhase::all();
+        }else
+
+        $regists = PaymentPhase::whereNotIn(
+            'id',
+            Registration::where('student_id', $student->id)->pluck('payment_phase_id')
+        )->get();
+
+        if ($regists->contains(function ($value, $key) {
+            return strtolower($value->slug) == strtolower('1PR') || strtolower($value->slug) == strtolower('2PR');
+        })) {
+            $regists = $regists->reject(function ($value, $key) {
+                return strtolower($value->slug)  ==  strtolower('UPR');
+            });
+        }
+        return $regists;
     }
 }

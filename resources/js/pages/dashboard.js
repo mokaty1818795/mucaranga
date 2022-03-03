@@ -1,4 +1,5 @@
 const { now } = require("lodash");
+const printJS = require("print-js");
 
 $(document).ready(function () {
    function datatable(table) {

@@ -94,8 +94,6 @@
                                    </tr>
                                    </thead>
                                    <tbody>
-
-
                                     @foreach ($payments as $item)
                                     <tr>
                                         <td scope="row"> {{$item->paymentOf->name}}</td>
@@ -104,7 +102,11 @@
                                         <td>{{ $item->date ?? ''}}</td>
                                         <td> <strong>{{ $item->amount . ' MZN' }} </strong></td>
                                         <td scope="row">
-                                            <a href="http://"> @svg('phosphor-printer','feather align-middle')</a>
+                                            <a href="{{ route('payment_invoices', [
+                                                'exam_token' => Crypt::encrypt($item->isExam),
+                                                'invoice' => $item->id,
+                                                'student' => $student->id
+                                            ]) }}"> @svg('phosphor-printer','feather align-middle')</a>
                                         </td>
                                     </tr>
                                     @endforeach

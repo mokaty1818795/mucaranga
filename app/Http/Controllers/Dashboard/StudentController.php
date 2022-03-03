@@ -60,6 +60,7 @@ class StudentController extends Controller
         $payments = $student->payments->map(function(Registration $payment)
         {
             return new Payment(
+                $payment->id,
                 $payment->payment_phase,
                 $this->student,
                 $payment->processedBy,
@@ -72,6 +73,7 @@ class StudentController extends Controller
         $exams = $student->exams->map(function(Exam $exam)
         {
             return new Payment(
+                $exam->id,
                 $exam->exam_tpye,
                 $this->student,
                 $exam->processedBy,

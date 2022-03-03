@@ -16,14 +16,26 @@ class Payment
     public $bankInvoice;
     public $date;
     public $amount;
+    public $isExam;
+    public $id;
 
     public function __construct(
-        mixed $paymentOf, Student $student,
-        User $processedBy, Media $invoice = null,
-        Media $bankInvoice = null, Carbon $date,
+        int $id,
+        mixed $paymentOf,
+        Student $student,
+        User $processedBy,
+        Media $invoice = null,
+        Media $bankInvoice = null,
+        Carbon $date,
+
+
         $amount = 0
-         )
-    {
+    ) {
+        if (class_basename($paymentOf) != 'PaymentPhase') {
+            $this->isExam = 'Exam';
+        } else {
+            $this->isExam = 'NotExam';
+        }
         $this->paymentOf = $paymentOf;
         $this->student = $student;
         $this->processedBy = $processedBy;
@@ -31,5 +43,6 @@ class Payment
         $this->invoice = $bankInvoice;
         $this->date = $date;
         $this->amount = $amount;
+        $this->id = $id;
     }
 }

@@ -3,10 +3,13 @@
 use App\Http\Controllers\Dashboard\CivilStatesController;
 use App\Http\Controllers\Dashboard\DocumentUploadController;
 use App\Http\Controllers\Dashboard\ExamTypeController;
+use App\Http\Controllers\Dashboard\InvoiceController;
 use App\Http\Controllers\Dashboard\PaymentPhasesController;
 use App\Http\Controllers\Dashboard\RegistrationController;
+use App\Http\Controllers\Dashboard\RegistrationPaymentController;
 use App\Http\Controllers\Dashboard\StudentController;
 use App\Http\Controllers\HomeController;
+use App\Models\Registration;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -52,5 +55,13 @@ Route::middleware(['auth'])->group(function(){
     Route::controller(DocumentUploadController::class)->group(function(){
         Route::post('document_upload/{student}','uploadFile')->name('document.upload');
         Route::post('document_delete/{media}','removeFile')->name('document.remove');
+    });
+
+    Route::controller(RegistrationPaymentController::class)->group(function(){
+        Route::post('/registration_payment','store')->name('registration_payment.store');
+    });
+
+    Route::controller(InvoiceController::class)->group(function(){
+        Route::get('/payment_invoices/{invoice}/{student}/{exam_token}','index')->name('payment_invoices');
     });
 });

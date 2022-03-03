@@ -15,6 +15,16 @@
                     </a>
                 </li>
             @endif
+            @if (request()->routeIs('payment_invoices'))
+            <li class="sidebar-item  active">
+                <a class="sidebar-link " href="">
+                    @svg('phosphor-printer','feather align-middle')
+                    <span class="align-middle">Recibo</span>
+                </a>
+            </li>
+
+
+            @endif
             <li class="sidebar-item @if (request()->routeIs('dashboard')) active @endif">
                 <a class="sidebar-link " href="{{ route('dashboard') }}">
                     @svg('radix-dashboard' ,'feather align-middle')<span class="align-middle">Dashboard</span>

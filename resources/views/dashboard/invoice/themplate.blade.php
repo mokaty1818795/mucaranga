@@ -23,12 +23,14 @@
                     <h5 class="card-title">{{$student->name}}</h5>
                     <h5 class="card-title">{{$student->veicle_class->name}}</h5>
                     <h5 class="card-title">{{$student->id_identity}}</h5>
-
-
                 </div>
                 <div class="col-sm text-end">
                     <h3>Recibo</h3>
-                    <h5 class="card-title">{{$invoice->id}}</h5>
+                    @if ($isExam)
+                    <h5 class="card-title">#EXM-{{$invoice->id}}</h5>
+                    @else
+                    <h5 class="card-title">#PYM-{{$invoice->id}}</h5>
+                    @endif
                     <h4 class="mt-2">Data e hora</h4>
                     <h5 class="card-title">{{$invoice->created_at}}</h5>
 
@@ -42,6 +44,9 @@
                             <tr>
                                 <th>Pagamento</th>
                                 <th>Forma de pagamento</th>
+                                @if (!is_null($invoice->bank_invoice_code))
+                                    <th>Número do recibo bancário</th>
+                            @endif
                                 <th class="text-end">valor pago</th>
                             </tr>
                         </thead>
@@ -51,7 +56,16 @@
                                 <td scope="row">
                                     {{$invoice->exam_tpye->name}}
                                 </td>
-                                <td>Cash directo</td>
+
+                                    @if (is_null($invoice->bank_invoice_code))
+                                    <td>
+                                        Cash directo </td>
+                                        @else
+
+                                        <td>Pagamento Bancário</td>
+                                        <td class="text-start">{{$invoice->bank_invoice_code }}</td>
+                                    @endif
+                                </td>
                                 <td class="text-end text-success">+{{$invoice->exam_tpye->price}} MZN</td>
                                 @else
                                 <td scope="row">
@@ -66,7 +80,7 @@
                         <tfoot>
                             <tr class="fw-bold">
                                 <td colspan="2">Funcionário</td>
-                                <td>{{$invoice->processedBy->name}}</td>
+                                <td colspan=" @if (!is_null($invoice->bank_invoice_code)) 2 @endif" class="text-end">{{$invoice->processedBy->name}}</td>
                             </tr>
                         </tfoot>
                     </table>

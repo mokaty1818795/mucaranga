@@ -58,10 +58,11 @@ class Exam extends Model implements HasMedia
 		'invoice_id',
 		'processed_by_id',
 		'todo_at',
+        'bank_invoice_code',
 		'done_at',
 		'result'
 	];
-    
+
 	public function exam_tpye()
 	{
 		return $this->belongsTo(ExamTpye::class);

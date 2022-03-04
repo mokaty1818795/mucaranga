@@ -1,4 +1,14 @@
 <div>
+
+    @if ($paymentPhases->isEmpty())
+    <div class="alert alert-success  show fade" role="alert"
+                                style="border-left: 5px solid darkgreen;">
+                                <div class="alert-body">
+
+                                    <strong>Pagamento de Matrícula completo</strong>
+                                </div>
+                            </div>
+    @else
     <form action="{{ route('registration_payment.store') }}" method="post" id="student_registration_payment"
         enctype="multipart/form-data">
         @csrf
@@ -30,4 +40,5 @@
             @svg('fluentui-payment-16','feather align-middle')
             Efectuar pagamento</button>
     </x-slot>
+    @endif
 </div>

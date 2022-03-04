@@ -18,11 +18,14 @@ class RegistrationPaymentController extends Controller
      * @param  \App\Http\Requests\StoreRegistrationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRegistrationRequest $request, Student $student)
+    public function store(StoreRegistrationRequest $request)
     {
+        $student = Student::find($request->student_id);
         $invoice =  Registration::create($request->all());
+
         return redirect()->route('payment_invoices', [
-            'invoice' => $invoice, 'student' => $student,
+            'invoice' => $invoice,
+            'student' => $student,
             'exam_token' => Crypt::encrypt('NotExam')
         ]);
     }

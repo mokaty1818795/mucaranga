@@ -11,8 +11,8 @@
                 @include('layouts.shared.roles_links.default')
             @endhasanyrole
 
-            @hasanyrole(['Intructor'])
-                @include('layouts.shared.roles_links.intructor')
+            @hasanyrole(['Instructor'])
+                @include('layouts.shared.roles_links.instructor')
             @endhasanyrole
             @hasanyrole(['Employee'])
                 @include('layouts.shared.roles_links.employee')

@@ -25,7 +25,7 @@ class StoreClassRoomRequest extends FormRequest
     {
         return [
             'name' => 'required|string|unique:class_rooms,name',
-            'instructor' => 'required|numeric',
+            'instructor_id' => 'required|numeric',
             'period_id' => 'required|numeric'
         ];
     }

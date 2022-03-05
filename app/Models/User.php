@@ -71,7 +71,7 @@ class User extends Authenticatable implements HasMedia
 
 	public function class_rooms()
 	{
-		return $this->hasMany(ClassRoom::class, 'instructor');
+		return $this->hasMany(ClassRoom::class, 'instructor_id');
 	}
 
 	public function exam()

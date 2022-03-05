@@ -31,13 +31,13 @@ class ClassRoom extends Model
 	protected $table = 'class_rooms';
 
 	protected $casts = [
-		'instructor' => 'int',
+		'instructor_id' => 'int',
 		'period_id' => 'int'
 	];
 
 	protected $fillable = [
 		'name',
-		'instructor',
+		'instructor_id',
 		'period_id'
 	];
 
@@ -46,9 +46,9 @@ class ClassRoom extends Model
 		return $this->belongsTo(Period::class);
 	}
 
-	public function classInstructor()
+	public function instructor()
 	{
-		return $this->belongsTo(User::class, 'instructor');
+		return $this->belongsTo(User::class, 'instructor_id');
 	}
 
 	public function students()

@@ -50,12 +50,12 @@
                                         autocomplete="" required>
                                 </div>
                                 <div class="row col-md-4">
-                                    <label for="Instructor">Instructor</label>
-                                    <select class="form-select" name="instructor" id="instructor">
+                                    <label for="instructor_id">Instructor</label>
+                                    <select class="form-select" name="instructor_id" id="instructor_id">
                                         <optgroup label="Instructores">
                                             @foreach ($instructors as $instructor)
                                                 <option value="{{ $instructor->id }}"
-                                                    @if (request()->routeIs('class_room.edit') && ($class_room->instructor == $instructor->id)) selected="true" @endif>
+                                                    @if (request()->routeIs('class_room.edit') && ($class_room->instructor_id == $instructor->id)) selected="true" @endif>
                                                     {{ $instructor->name }}</option>
                                             @endforeach
                                         </optgroup>

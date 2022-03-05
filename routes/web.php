@@ -50,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('profile', [HomeController::class, 'profile'])->middleware('auth')->name('profile');
 });
 
-Route::middleware(['auth', 'role:Intructor|Employee|Director|Root'])->group(function () {
+Route::middleware(['auth', 'role:Instructor|Employee|Director|Root'])->group(function () {
     Route::controller(StudentController::class)->group(function () {
         Route::get('/student/{student}', 'show')->name('student.show');
         Route::get('/student', 'index')->name('student.index');

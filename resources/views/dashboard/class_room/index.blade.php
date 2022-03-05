@@ -42,7 +42,7 @@
                                     <tr>
                                         <td>{{ $class_room->id }}</td>
                                         <td>{{ $class_room->name }}</td>
-                                        <td>{{ $class_room->classInstructor->name }}</td>
+                                        <td>{{ $class_room->instructor->name }}</td>
                                         <td>{{ ' ' . $class_room->period->name}}
                                              ({{ 'das ' . $class_room->period->init_at->hour . ':' .$class_room->period->init_at->minute . ' até as '. $class_room->period->end_at->hour . ':' .$class_room->period->end_at->minute  }}) </td>
                                         <td><a class="btn btn-warning"

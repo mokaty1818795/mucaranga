@@ -23,6 +23,8 @@ class CreateExamsTable extends Migration
             $table->timestamp('todo_at')->nullable();
             $table->timestamp('done_at')->nullable();
             $table->double('result')->nullable()->default(0);
+            $table->bigIncrements('id');
+            $table->string('bank_invoice_code')->nullable();
         });
     }
 

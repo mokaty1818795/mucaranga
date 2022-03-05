@@ -21,6 +21,7 @@ class CreateRegistrationsTable extends Migration
             $table->unsignedBigInteger('invoice_id')->nullable()->index('fk_registrations_media1_idx');
             $table->timestamps();
             $table->unsignedBigInteger('bank_invoice_id')->nullable()->index('fk_registrations_media2_idx');
+            $table->double('amount');
         });
     }
 

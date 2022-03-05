@@ -15,7 +15,7 @@ class AddForeignKeysToClassRoomsTable extends Migration
     {
         Schema::table('class_rooms', function (Blueprint $table) {
             $table->foreign(['period_id'], 'fk_class_rooms_periods1')->references(['id'])->on('periods')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-            $table->foreign(['instructor'], 'fk_class_rooms_users1')->references(['id'])->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+            $table->foreign(['instructor_id'], 'fk_class_rooms_users1')->references(['id'])->on('users')->onUpdate('NO ACTION')->onDelete('NO ACTION');
         });
     }
 

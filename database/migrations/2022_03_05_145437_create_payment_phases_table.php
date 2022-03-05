@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateClassRoomsTable extends Migration
+class CreatePaymentPhasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateClassRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('class_rooms', function (Blueprint $table) {
+        Schema::create('payment_phases', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->unsignedBigInteger('instructor')->index('fk_class_rooms_users1_idx');
-            $table->unsignedBigInteger('period_id')->index('fk_class_rooms_periods1_idx');
             $table->timestamps();
+            $table->double('price')->nullable()->default(0);
+            $table->string('slug');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateClassRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('class_rooms');
+        Schema::dropIfExists('payment_phases');
     }
 }

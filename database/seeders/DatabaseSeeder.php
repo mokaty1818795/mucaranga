@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call(DocumentTypeSeeder::class);
         $root = User::where('email','administrator@ecm.com')->first();
         $director = User::where('email','director@ecm.com')->first();
+        $instructor  = User::where('email', 'instrutor@ecm.com')->first();
         $root->assignRole(['Root']);
         $director->assignRole(['Director']);
+        $instructor->assignRole(['Instructor']);
     }
 }

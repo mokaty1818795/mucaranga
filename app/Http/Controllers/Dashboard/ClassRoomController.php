@@ -32,7 +32,7 @@ class ClassRoomController extends Controller
     {
         return view('dashboard.class_room.create_edit')->with([
             'periods' => Period::all(),
-            'instructors' => User::role('Intructor')->get()
+            'instructors' => User::role('Instructor')->get()
         ]);
     }
 

@@ -12,14 +12,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ClassRoom
- * 
+ *
  * @property int $id
  * @property string|null $name
  * @property int $instructor
  * @property int $period_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * 
+ *
  * @property Period $period
  * @property User $user
  * @property Collection|Student[] $students
@@ -46,7 +46,7 @@ class ClassRoom extends Model
 		return $this->belongsTo(Period::class);
 	}
 
-	public function user()
+	public function classInstructor()
 	{
 		return $this->belongsTo(User::class, 'instructor');
 	}

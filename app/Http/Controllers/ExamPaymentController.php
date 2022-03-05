@@ -27,7 +27,7 @@ class ExamPaymentController extends Controller
                 'exam_type_id' => $request->exam_tpye_id,
                 'student_id' => $request->student_id
             ])
-            ->toMediaCollection('invoices', 'invoices');
+            ->toMediaCollection('bank_invoices', 'bank_invoices');
             return redirect()->route('payment_invoices', [
                 'invoice' => $exam,
                 'student' => Student::find($request->student_id),

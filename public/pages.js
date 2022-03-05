@@ -18520,7 +18520,8 @@ $(document).ready(function () {
   datatable('#students_table');
   datatable('#veicle_classes_table');
   datatable('#exam_types_table'); //
-  //formulários //forms//
+
+  datatable('#class_rooms_table'); //formulários //forms//
   //  $('select').selectric();
 
   var date = new Date('12/31/2001');

@@ -109,6 +109,29 @@ class RegistrationController extends Controller
      */
     public function destroy(Registration $registration)
     {
+        if (!is_null($registration)) {
+            try {
 
+                if(!is_null( $registration->account))$registration->account->delete();
+
+                $registration->class_rooms()->sync([]);
+                foreach ($registration->exams as $value) {
+                    $value->delete();
+                }
+                foreach ($registration->payments as $value) {
+                    $value->delete();
+                }
+                $registration->delete();
+                session()->flash('success', 'Estudante deletado com sucesso.');
+                return redirect()->back();
+            } catch (\Throwable $e) {
+                throw $e;
+                session()->flash('error', 'Erro ao deletar estudante.');
+                return redirect()->back();
+            }
+        } else {
+            session()->flash('error', 'Erro ao deletar: " Contacte o administrador do sistema."');
+            return redirect()->back();
+        }
     }
 }

@@ -264,6 +264,7 @@ $(document).ready(function () {
     datatable('#students_table');
     datatable('#veicle_classes_table');
     datatable('#exam_types_table');//
+    datatable('#class_rooms_table');
    //formulários //forms//
   //  $('select').selectric();
 

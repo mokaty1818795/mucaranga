@@ -58,7 +58,11 @@ return [
             'root' => storage_path('app/public/invoices'),
             'url' => env('APP_URL').'/storage/invoices',
         ],
-
+        'bank_invoices' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/bank_invoices'),
+            'url' => env('APP_URL').'/storage/bank_invoices',
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

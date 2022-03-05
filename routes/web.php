@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\CivilStatesController;
+use App\Http\Controllers\Dashboard\ClassRoomController;
 use App\Http\Controllers\Dashboard\DocumentUploadController;
 use App\Http\Controllers\Dashboard\ExamTypeController;
 use App\Http\Controllers\Dashboard\InvoiceController;
@@ -35,38 +36,56 @@ Auth::routes([
     'confirm' => false
 ]);
 
-Route::middleware(['auth'])->group(function(){
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-    Route::get('/finances', [App\Http\Controllers\HomeController::class, 'finances'])->name('finances');
-    //finances
-    Route::resource('user',\App\Http\Controllers\Dashboard\UserController::class);
-    Route::resource('veicle_class',\App\Http\Controllers\Dashboard\VeicleClassController::class);
-    Route::resource('period',\App\Http\Controllers\Dashboard\PeriodController::class);
-    Route::get('profile',[HomeController::class,'profile'])->middleware('auth')->name('profile');
-    Route::resource('registration',RegistrationController::class);
-    Route::resource('civil_state',CivilStatesController::class);
-    Route::resource('payment_phase',PaymentPhasesController::class);
-    Route::resource('exam_type',ExamTypeController::class);
+/*
+|--------------------------------------------------------------------------
+| Route organization by permissions
+|--------------------------------------------------------------------------
+|
+| Only User of the group permissions or roles can view or vistit
+| that routes.
+*/
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::get('profile', [HomeController::class, 'profile'])->middleware('auth')->name('profile');
+});
+
+Route::middleware(['auth', 'role:Intructor|Employee|Director|Root'])->group(function () {
     Route::controller(StudentController::class)->group(function () {
         Route::get('/student/{student}', 'show')->name('student.show');
         Route::get('/student', 'index')->name('student.index');
         Route::delete('/student/{student}', 'destroy')->name('student.destroy');
     });
-    Route::controller(DocumentUploadController::class)->group(function(){
-        Route::post('document_upload/{student}','uploadFile')->name('document.upload');
-        Route::post('document_delete/{media}','removeFile')->name('document.remove');
-    });
+});
 
-    Route::controller(RegistrationPaymentController::class)->group(function(){
-        Route::post('/registration_payment','store')->name('registration_payment.store');
+Route::middleware(['auth', 'role:Employee|Director|Root'])->group(function () {
+    Route::get('/finances', [App\Http\Controllers\HomeController::class, 'finances'])->name('finances');
+    Route::controller(DocumentUploadController::class)->group(function () {
+        Route::post('document_upload/{student}', 'uploadFile')->name('document.upload');
+        Route::post('document_delete/{media}', 'removeFile')->name('document.remove');
     });
+    Route::controller(RegistrationPaymentController::class)->group(function () {
+        Route::post('/registration_payment', 'store')->name('registration_payment.store');
+    });
+    Route::controller(InvoiceController::class)->group(function () {
+        Route::get('/payment_invoices/{invoice}/{student}/{exam_token}', 'index')->name('payment_invoices');
+        Route::get('/print_payment_invoice/{invoice}/{student}/{exam_token}', 'printInvoice')->name('print_payment_invoice');
+    });
+    Route::controller(ExamPaymentController::class)->group(function () {
+        Route::post('store_exam_payment', 'store')->name('store.exam_payment');
+    });
+    Route::resource('registration', RegistrationController::class);
+});
 
-    Route::controller(InvoiceController::class)->group(function(){
-        Route::get('/payment_invoices/{invoice}/{student}/{exam_token}','index')->name('payment_invoices');
-        Route::get('/print_payment_invoice/{invoice}/{student}/{exam_token}','printInvoice')->name('print_payment_invoice');
-    });
-    Route::controller(ExamPaymentController::class)->group(function(){
-        Route::post('store_exam_payment','store')->name('store.exam_payment');
-    });
+Route::middleware(['auth', 'role:Director|Root'])->group(function () {
+    Route::resource('user', \App\Http\Controllers\Dashboard\UserController::class);
+    Route::resource('veicle_class', \App\Http\Controllers\Dashboard\VeicleClassController::class);
+    Route::resource('exam_type', ExamTypeController::class);
+});
+
+Route::middleware(['auth', 'role:Root'])->group(function () {
+    Route::resource('civil_state', CivilStatesController::class);
+    Route::resource('period', \App\Http\Controllers\Dashboard\PeriodController::class);
+    Route::resource('payment_phase', PaymentPhasesController::class);
+    Route::resource('class_room', ClassRoomController::class);
 });

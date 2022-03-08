@@ -253,6 +253,8 @@ $(document).ready(function () {
                [5,10,15,20, 25, 50,100, -1 ],
                ['5', '10','15','20', '25', '50','100', 'Show all' ]
            ],
+           "bLengthChange" : false,
+           "bInfo":false,
        });
        //$('select').select2();
    }
@@ -263,10 +265,10 @@ $(document).ready(function () {
     datatable('#payment_phases_table');
     datatable('#students_table');
     datatable('#veicle_classes_table');
-    datatable('#exam_types_table');//
+    datatable('#exam_types_table');
     datatable('#class_rooms_table');
-   //formulários //forms//
-  //  $('select').selectric();
+    datatable('#dashboard_payments_tables');
+
 
     const date = new Date('12/31/2001');
      date.setYear((new Date().getFullYear() - 15));

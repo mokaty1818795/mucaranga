@@ -15,6 +15,11 @@
 @section('content')
     <div class="container">
         <div class="row mb-2 mb-xl-3">
+            <div class="col-auto d-none d-sm-block">
+                <a href="{{ url()->previous()}}" class="col-auto btn btn-info">
+                    <i class="align-middle" data-feather="corner-up-left"></i>&nbsp; Voltar
+                </a>
+            </div>
             <div class="col-auto ms-auto text-end mt-sm-2 mt-md-0">
                 <a href="{{ route('print_payment_invoice', [
                     'exam_token' => $isExam ?  Crypt::encrypt('Exam') : Crypt::encrypt('isExam'),

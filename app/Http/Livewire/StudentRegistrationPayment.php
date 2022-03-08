@@ -68,14 +68,13 @@ class StudentRegistrationPayment extends Component
                 'id', Registration::where('student_id', $student->id)->pluck('payment_phase_id')
             )->get();
 
-            if (!$this->contains($regists, 'UPR')) {
+            if (!$this->contains($regists, 'UPR') || (!$this->contains($regists, '1PR') && !$this->contains($regists, '2PR'))) {
                 return $regists =  collect([]);
             } else if ($this->contains($regists, '1PR') || $this->contains($regists, '2PR')) {
                 $regists = $regists->reject(function ($value, $key) {
                     return strtolower($value->slug)  ==  strtolower('UPR');
                 });
             }
-
             return $regists;
         }
     }

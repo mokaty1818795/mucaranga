@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use App\Services\Payment;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,7 @@ use Spatie\Permission\Traits\HasPermissions;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * Class User
@@ -74,7 +76,7 @@ class User extends Authenticatable implements HasMedia
 		return $this->hasMany(ClassRoom::class, 'instructor_id');
 	}
 
-	public function exam()
+	public function exams()
 	{
 		return $this->hasMany(Exam::class, 'processed_by_id');
 	}
@@ -83,4 +85,5 @@ class User extends Authenticatable implements HasMedia
 	{
 		return $this->hasMany(Registration::class, 'processed_by_id');
 	}
+
 }

@@ -11,6 +11,7 @@ $small-font-size: 80% !default;
 // Spacer
 $spacer: 1rem !default;
 
+
 $spacers: (
     0: 0,
     1: ($spacer * .25),
@@ -19,7 +20,7 @@ $spacers: (
     4: ($spacer * 1.5),
     5: ($spacer * 3),
     6: ($spacer * 4.5),
-    7: ($spacer * 6)
+    7: ($spacer * 6),
 ) !default;
 
 // Grid breakpoints

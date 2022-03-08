@@ -7,11 +7,12 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Account
- * 
+ *
  * @property int $id
  * @property float|null $debt
  * @property float|null $current_balance
@@ -19,13 +20,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property int $student_id
- * 
+ *
  * @property Student $student
  *
  * @package App\Models
  */
 class Account extends Model
 {
+    use HasFactory;
 	protected $table = 'accounts';
 
 	protected $casts = [

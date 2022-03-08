@@ -8,9 +8,12 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
 /**
  * Class Student
@@ -56,10 +59,10 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  *
  * @package App\Models
  */
-class Student extends Model implements HasMedia
+class Student extends Model implements HasMedia,Searchable
 {
-    use InteractsWithMedia;
-    
+    use InteractsWithMedia,HasFactory;
+
 	protected $table = 'students';
 
 	protected $casts = [
@@ -144,4 +147,15 @@ class Student extends Model implements HasMedia
 	{
 		return $this->hasMany(Registration::class);
 	}
+
+    public function getSearchResult(): SearchResult
+    {
+       $url = route('student.show', $this->id);
+
+        return new \Spatie\Searchable\SearchResult(
+           $this,
+           $this->name,
+           $url
+        );
+    }
 }

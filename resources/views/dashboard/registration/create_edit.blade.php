@@ -72,7 +72,7 @@
                                 <div class="col-md-4">
                                     <label for="civil_state_id">Estado civil</label>
 
-                                    <select class="form-control" name="civil_state_id">
+                                    <select class="form-select form-control" name="civil_state_id">
                                         @foreach ($civil_states as $civil_state)
                                             <option value="{{ $civil_state->id }}" @if (old('civil_state_id') && old('civil_state_id') == $civil_state->id) selected="true" @elseif(request()->routeIs('registration.edit') && $civil_state->id == $registration->civil_state_id) selected = "true" @endif>
                                                 {{ $civil_state->name }}</option>
@@ -146,7 +146,7 @@
                                 <div class="col-md-4">
                                     <label for="veicle_classe_id">Carta que pretende tirar</label>
 
-                                    <select class="form-control" name="veicle_classe_id">
+                                    <select class="form-select form-control" name="veicle_classe_id">
                                         @foreach ($veicle_classes as $veicle_class)
                                             <option value="{{ $veicle_class->id }}" @if (old('veicle_classe_id') && old('veicle_classe_id') == $veicle_class->id) selected="true" @elseif(request()->routeIs('registration.edit') && $veicle_class->id == $registration->veicle_classe_id) selected = "true" @endif>
                                                 {{ $veicle_class->name }}</option>

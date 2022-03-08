@@ -8,6 +8,17 @@
         @include button-variant($value, $value);
         box-shadow: 0 0.05rem 0.19rem $value;
     }
+    .badge-#{$color}-light{
+        background-color: rgba($value, 0.15);
+        color: $value;
+    }
+    .btn-#{$color}-light{
+        background-color: rgba($value, 0.15);
+        color: $value;
+    }
+    bg-#{$color}-light{
+        background-color: rgba($value, 0.33);
+    }
 }
 
 .modal-header {

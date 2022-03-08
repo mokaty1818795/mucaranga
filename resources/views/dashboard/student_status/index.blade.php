@@ -93,22 +93,6 @@
     </button>
 </div>
 
-<x-modal modal-title="Pesquisar estudantes" modal-data-id="search_bar">
-
-    <x-slot name="modalBody">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <form action="">
-
-                    @csrf
-
-                    <input type="text" class="form-control" placeholder="Pesquisar ..." aria-label="Search"
-                    style="background: #faf6ff;border: none;" autofocus >
-                </form>
-            </div>
-        </div>
-    </x-slot>
-</x-modal>
 @endsection
 
 

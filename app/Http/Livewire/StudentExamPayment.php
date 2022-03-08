@@ -32,7 +32,7 @@ class StudentExamPayment extends Component
 
         ]);
         $this->paymentTypeId =  $this->paymentTypes->first()->id;
-        $this->examId = !$this->exams->isEmpty() ? $this->exams->first()->id : null;
+        $this->examId = !$this->exams->isEmpty() ? $this->exams->first()->id : 0;
         $this->updateAmount($this->examId);
     }
 
@@ -48,7 +48,7 @@ class StudentExamPayment extends Component
     }
     private function updateAmount(int $examId)
     {
-        $this->amount = ExamTpye::find($examId)->price;
+        $this->amount = ExamTpye::find($examId)->price ?? 0;
     }
     public function updated()
     {

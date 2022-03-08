@@ -22100,6 +22100,20 @@ textarea.form-control-lg {
   border-color: #3B7DDD;
 }
 
+.badge-primary-light {
+  background-color: rgba(59, 125, 221, 0.15);
+  color: #3B7DDD;
+}
+
+.btn-primary-light {
+  background-color: rgba(59, 125, 221, 0.15);
+  color: #3B7DDD;
+}
+
+bg-primary-light {
+  background-color: rgba(59, 125, 221, 0.33);
+}
+
 .btn-secondary {
   color: #fff;
   background-color: #6c757d;
@@ -22129,6 +22143,20 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
+}
+
+.badge-secondary-light {
+  background-color: rgba(108, 117, 125, 0.15);
+  color: #6c757d;
+}
+
+.btn-secondary-light {
+  background-color: rgba(108, 117, 125, 0.15);
+  color: #6c757d;
+}
+
+bg-secondary-light {
+  background-color: rgba(108, 117, 125, 0.33);
 }
 
 .btn-success {
@@ -22162,6 +22190,20 @@ textarea.form-control-lg {
   border-color: #1cbb8c;
 }
 
+.badge-success-light {
+  background-color: rgba(28, 187, 140, 0.15);
+  color: #1cbb8c;
+}
+
+.btn-success-light {
+  background-color: rgba(28, 187, 140, 0.15);
+  color: #1cbb8c;
+}
+
+bg-success-light {
+  background-color: rgba(28, 187, 140, 0.33);
+}
+
 .btn-info {
   color: #fff;
   background-color: #17a2b8;
@@ -22191,6 +22233,20 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #17a2b8;
   border-color: #17a2b8;
+}
+
+.badge-info-light {
+  background-color: rgba(23, 162, 184, 0.15);
+  color: #17a2b8;
+}
+
+.btn-info-light {
+  background-color: rgba(23, 162, 184, 0.15);
+  color: #17a2b8;
+}
+
+bg-info-light {
+  background-color: rgba(23, 162, 184, 0.33);
 }
 
 .btn-warning {
@@ -22224,6 +22280,20 @@ textarea.form-control-lg {
   border-color: #fcb92c;
 }
 
+.badge-warning-light {
+  background-color: rgba(252, 185, 44, 0.15);
+  color: #fcb92c;
+}
+
+.btn-warning-light {
+  background-color: rgba(252, 185, 44, 0.15);
+  color: #fcb92c;
+}
+
+bg-warning-light {
+  background-color: rgba(252, 185, 44, 0.33);
+}
+
 .btn-danger {
   color: #fff;
   background-color: #dc3545;
@@ -22253,6 +22323,20 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #dc3545;
   border-color: #dc3545;
+}
+
+.badge-danger-light {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: #dc3545;
+}
+
+.btn-danger-light {
+  background-color: rgba(220, 53, 69, 0.15);
+  color: #dc3545;
+}
+
+bg-danger-light {
+  background-color: rgba(220, 53, 69, 0.33);
 }
 
 .btn-light {
@@ -22286,6 +22370,20 @@ textarea.form-control-lg {
   border-color: #f5f7fb;
 }
 
+.badge-light-light {
+  background-color: rgba(245, 247, 251, 0.15);
+  color: #f5f7fb;
+}
+
+.btn-light-light {
+  background-color: rgba(245, 247, 251, 0.15);
+  color: #f5f7fb;
+}
+
+bg-light-light {
+  background-color: rgba(245, 247, 251, 0.33);
+}
+
 .btn-dark {
   color: #fff;
   background-color: #212529;
@@ -22317,6 +22415,20 @@ textarea.form-control-lg {
   border-color: #212529;
 }
 
+.badge-dark-light {
+  background-color: rgba(33, 37, 41, 0.15);
+  color: #212529;
+}
+
+.btn-dark-light {
+  background-color: rgba(33, 37, 41, 0.15);
+  color: #212529;
+}
+
+bg-dark-light {
+  background-color: rgba(33, 37, 41, 0.33);
+}
+
 .btn-purple {
   color: #fff;
   background-color: #6f42c1;
@@ -22346,6 +22458,20 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #6f42c1;
   border-color: #6f42c1;
+}
+
+.badge-purple-light {
+  background-color: rgba(111, 66, 193, 0.15);
+  color: #6f42c1;
+}
+
+.btn-purple-light {
+  background-color: rgba(111, 66, 193, 0.15);
+  color: #6f42c1;
+}
+
+bg-purple-light {
+  background-color: rgba(111, 66, 193, 0.33);
 }
 
 .modal-header {

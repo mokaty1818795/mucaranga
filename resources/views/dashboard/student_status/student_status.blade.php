@@ -28,7 +28,10 @@
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h1 class="h3 d-inline align-middle"><strong>{{ $student->name }}</strong></h1>
+                <a href="{{ url()->previous()}}" class="col-auto btn btn-info">
+                    <i class="align-middle" data-feather="corner-up-left"></i>&nbsp; Voltar
+                </a>
+
             </div>
             <div class="col-auto ms-auto text-end mt-sm-2 mt-md-0">
                 <a href="#" class="btn btn-purple  me-2 mb-2" data-bs-toggle="modal" data-bs-target="#attach_document">
@@ -81,6 +84,9 @@
             <div class="container row">
                 <div class="col-12 w-100">
                     <div class="card">
+                        <div class="card-header">
+                            <h5 class="h3 d-inline align-middle text-muted"><strong>{{ $student->name }}</strong></h5>
+                        </div>
                         <div class="card-body">
                            <table class="table table-striped table-inverse responsive">
                                <thead class="thead-inverse">

@@ -22,6 +22,10 @@
             @hasanyrole('Instructor')
                 @include('home.instructor')
             @endhasanyrole
+
+            @hasanyrole('Root')
+                @include('home.root')
+            @endhasanyrole
         </div>
     </div>
     <script>

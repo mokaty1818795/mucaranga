@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\ClassRoom;
 use App\Models\DocumentType;
 use App\Models\Exam;
 use App\Models\Registration;
@@ -22,9 +23,18 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('dashboard.student_status.index')->with([
-            'students'=>Student::all(),
-        ]);
+
+        if (auth()->user()->hasRole('Instructor')) {
+            return view('dashboard.student_status.index')->with([
+                'students' => Student::whereHas('class_rooms', function ($query) {
+                    $query->where('instructor_id', auth()->user()->id);
+                })->get(),
+            ]);
+        } else {
+            return view('dashboard.student_status.index')->with([
+                'students' => Student::all(),
+            ]);
+        }
     }
 
     /**
@@ -56,41 +66,45 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        $this->student = $student;
-        $payments = $student->payments->map(function(Registration $payment)
-        {
-            return new Payment(
-                $payment->id,
-                $payment->payment_phase,
-                $this->student,
-                $payment->processedBy,
-                Media::where('id',$payment->invoice_id)->first(),
-                Media::where('id',$payment->bank_invoice_id)->first(),
-                $payment->created_at,
-                $payment->amount
-            );
-        });
-        $exams = $student->exams->map(function(Exam $exam)
-        {
-            return new Payment(
-                $exam->id,
-                $exam->exam_tpye,
-                $this->student,
-                $exam->processedBy,
-                Media::where('id',$exam->invoice_id)->first(),
-                Media::where('id',$exam->bank_invoice_id)->first(),
-                $exam->created_at,
-                $exam->exam_tpye->price
-            );
-        });
+        if (auth()->user()->hasRole('Instructor')) {
+            return view('dashboard.student_status.student_status')->with([
+                'student' => $student
+            ]);
+        } else {
+            $this->student = $student;
+            $payments = $student->payments->map(function (Registration $payment) {
+                return new Payment(
+                    $payment->id,
+                    $payment->payment_phase,
+                    $this->student,
+                    $payment->processedBy,
+                    Media::where('id', $payment->invoice_id)->first(),
+                    Media::where('id', $payment->bank_invoice_id)->first(),
+                    $payment->created_at,
+                    $payment->amount
+                );
+            });
+            $exams = $student->exams->map(function (Exam $exam) {
+                return new Payment(
+                    $exam->id,
+                    $exam->exam_tpye,
+                    $this->student,
+                    $exam->processedBy,
+                    Media::where('id', $exam->invoice_id)->first(),
+                    Media::where('id', $exam->bank_invoice_id)->first(),
+                    $exam->created_at,
+                    $exam->exam_tpye->price
+                );
+            });
 
-        return view('dashboard.student_status.student_status')->with([
-            'student'=>$student,
-            'documents' => DocumentType::all(),
-            'payments' => collect([
-                $payments,$exams
-            ])->collapse()
-        ]);
+            return view('dashboard.student_status.student_status')->with([
+                'student' => $student,
+                'documents' => DocumentType::all(),
+                'payments' => collect([
+                    $payments, $exams
+                ])->collapse()
+            ]);
+        }
     }
 
     /**

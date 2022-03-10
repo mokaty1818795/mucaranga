@@ -61,5 +61,18 @@ class ExamPaymentController extends Controller
      */
     public function update(UpdateExamRequest $request, Exam $exam)
     {
+        try {
+            $exam->update([
+                'result' => $request->result,
+                'todo_at' => now(),
+                'done_at' => now()
+            ]);
+            session()->flash('success', 'Nota de estudante actualiza com sucesso.');
+            return redirect()->route('student.show',$exam->student_id);
+        } catch (\Throwable $th) {
+            throw $th;
+            session()->flash('error', 'Erro ao actualizar nota de estudante');
+            return redirect()->route('student.show',$exam->student_id);
+        }
     }
 }

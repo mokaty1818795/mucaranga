@@ -46,7 +46,9 @@ class RegistrationController extends Controller
             $registration =  Registration::create($request->all());
             $registration->student_code =  'EC'.now()->year.$registration->id.'M';
             $registration->save();
-            ;
+            $registration->class_rooms()->sync([
+                $request->class_room_id
+            ]);
             session()->flash('success', 'Estudante matriculado com sucesso.');
             event(new StudentRegistered($registration));
 

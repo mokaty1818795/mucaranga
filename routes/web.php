@@ -56,6 +56,9 @@ Route::middleware(['auth', 'role:Instructor|Employee|Director|Root'])->group(fun
         Route::get('/student', 'index')->name('student.index');
         Route::delete('/student/{student}', 'destroy')->name('student.destroy');
     });
+    Route::controller(ExamPaymentController::class)->group(function () {
+        Route::patch('update_exam_result/{exam}', 'update')->name('update.exam');
+    });
 });
 
 Route::middleware(['auth', 'role:Employee|Director|Root'])->group(function () {

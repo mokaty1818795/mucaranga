@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\ClassRoom;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateClassRoomRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class UpdateClassRoomRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,9 @@ class UpdateClassRoomRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => ['required',Rule::unique('class_rooms')->ignore(ClassRoom::find(decrypt($this->unique_hash)),'name')],
+            'instructor_id' => 'required|numeric',
+            'period_id' => 'required|numeric'
         ];
     }
 }

@@ -129,7 +129,9 @@
                                             Dívida
                                         </small>
                                         <small class="col-sm-6 fs-6 fw-bold text-end text-danger">
-                                            {{$student->veicle_class->price - $invoice->amount}} MZN
+
+
+                                            {{$student->veicle_class->price - $student->payments->pluck('amount')->sum()}} MZN
                                         </small>
                                     </div>
                                     <hr>

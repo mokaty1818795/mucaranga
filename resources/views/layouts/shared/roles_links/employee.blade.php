@@ -15,7 +15,7 @@
             </a>
         </li>
     @endif
-    <li class="sidebar-item @if (request()->routeIs('finances')) active @endif">
+    <li class="sidebar-item @if (request()->routeIs('finances*')) active @endif">
         <a class="sidebar-link " href="{{ route('finances') }}">
             @svg('phosphor-chart-line-up-fill' ,'feather align-middle')<span
                 class="align-middle">Relatórios</span>

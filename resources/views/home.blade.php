@@ -23,7 +23,7 @@
                 @include('home.instructor')
             @endhasanyrole
 
-            @hasanyrole('Root')
+            @hasanyrole('Root|Employee|Director')
                 @include('home.root')
             @endhasanyrole
         </div>

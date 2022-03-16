@@ -1,5 +1,6 @@
 <div class="row">
-    <div class="col-sm-6 col-xl-3">
+
+    <div class="col-sm-6 col-xl-4">
         <a href="{{ route('registration.create') }}">
             <div class="card">
                 <div class="card-body">
@@ -18,7 +19,7 @@
             </div>
         </a>
     </div>
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-sm-6 col-xl-4">
        <a href="#" data-bs-toggle="modal" data-bs-target="#search_student_bar">
         <div class="card">
             <div class="card-body">
@@ -37,7 +38,7 @@
         </div>
     </a>
     </div>
-    <div class="col-sm-6 col-xl-3">
+    <div class="col-sm-6 col-xl-4">
         <a href="{{ route('finances') }}">
             <div class="card">
                 <div class="card-body">
@@ -55,22 +56,6 @@
                 </div>
             </div>
         </a>
-    </div>
-    <div class="col-sm-6 col-xl-3">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-auto">
-                        <div class="stat text-primary">
-                        </div>
-                    </div>
-                </div>
-                <h4 class="mt-1 mb-3 text-muted"></h4>
-                <div class="mb-0">
-                    <span class="badge badge-warning-light"> <i class="mdi mdi-arrow-bottom-right"></i>  </span>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

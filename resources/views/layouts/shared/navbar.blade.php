@@ -6,6 +6,7 @@
         @csrf
         @yield('search-bar')
     </form>
+    <h5 class="card-title pt-2">   {{ $title ?? ''}}</h5>
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav navbar-align">
             <li class="nav-item dropdown">

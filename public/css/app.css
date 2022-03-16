@@ -22110,7 +22110,7 @@ textarea.form-control-lg {
   color: #3B7DDD;
 }
 
-bg-primary-light {
+.bg-primary-light {
   background-color: rgba(59, 125, 221, 0.33);
 }
 
@@ -22155,7 +22155,7 @@ bg-primary-light {
   color: #6c757d;
 }
 
-bg-secondary-light {
+.bg-secondary-light {
   background-color: rgba(108, 117, 125, 0.33);
 }
 
@@ -22200,7 +22200,7 @@ bg-secondary-light {
   color: #1cbb8c;
 }
 
-bg-success-light {
+.bg-success-light {
   background-color: rgba(28, 187, 140, 0.33);
 }
 
@@ -22245,7 +22245,7 @@ bg-success-light {
   color: #17a2b8;
 }
 
-bg-info-light {
+.bg-info-light {
   background-color: rgba(23, 162, 184, 0.33);
 }
 
@@ -22290,7 +22290,7 @@ bg-info-light {
   color: #fcb92c;
 }
 
-bg-warning-light {
+.bg-warning-light {
   background-color: rgba(252, 185, 44, 0.33);
 }
 
@@ -22335,7 +22335,7 @@ bg-warning-light {
   color: #dc3545;
 }
 
-bg-danger-light {
+.bg-danger-light {
   background-color: rgba(220, 53, 69, 0.33);
 }
 
@@ -22380,7 +22380,7 @@ bg-danger-light {
   color: #f5f7fb;
 }
 
-bg-light-light {
+.bg-light-light {
   background-color: rgba(245, 247, 251, 0.33);
 }
 
@@ -22425,7 +22425,7 @@ bg-light-light {
   color: #212529;
 }
 
-bg-dark-light {
+.bg-dark-light {
   background-color: rgba(33, 37, 41, 0.33);
 }
 
@@ -22470,7 +22470,7 @@ bg-dark-light {
   color: #6f42c1;
 }
 
-bg-purple-light {
+.bg-purple-light {
   background-color: rgba(111, 66, 193, 0.33);
 }
 

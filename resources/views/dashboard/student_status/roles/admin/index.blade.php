@@ -1,7 +1,9 @@
 <div class="row">
     <div class="card">
         <div class="card-header row justify-content-between">
-            <h5 class="card-title col-auto">Estudantes matricluados</h5>
+            <a href="{{ url()->previous()}}" class="col-auto btn btn-info">
+                <i class="align-middle" data-feather="corner-up-left"></i>&nbsp; Voltar
+            </a>
             <a href="{{ route('registration.create') }}" class="col-auto btn btn-purple">
                 <i class="fas fa-car-side align-middle" data-feather="edit"></i> &nbsp; <span
                     class="align-middle">Matricular estudante</span>

@@ -2,10 +2,10 @@
     "/js/app.js": "/js/app.js",
     "/pages.js": "/pages.js",
     "/frontend/errors/errors.js": "/frontend/errors/errors.js",
+    "/css/app.css": "/css/app.css",
     "/frontend/errors/errors.css": "/frontend/errors/errors.css",
     "/img/auth.svg": "/img/auth.svg",
     "/img/avatar.svg": "/img/avatar.svg",
     "/img/gender.svg": "/img/gender.svg",
-    "/img/rings.svg": "/img/rings.svg",
-    "/css/app.css": "/css/app.css"
+    "/img/rings.svg": "/img/rings.svg"
 }

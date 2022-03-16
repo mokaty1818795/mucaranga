@@ -46,8 +46,9 @@ Auth::routes([
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::get('profile', [HomeController::class, 'profile'])->middleware('auth')->name('profile');
+    // debitStudents
 });
 
 Route::middleware(['auth', 'role:Instructor|Employee|Director|Root'])->group(function () {
@@ -63,6 +64,10 @@ Route::middleware(['auth', 'role:Instructor|Employee|Director|Root'])->group(fun
 
 Route::middleware(['auth', 'role:Employee|Director|Root'])->group(function () {
     Route::get('/finances', [App\Http\Controllers\HomeController::class, 'finances'])->name('finances');
+    Route::get('finances/students-with-debit', [HomeController::class, 'debitStudents'])->name('finances.debits');
+    Route::get('finances/students-with-out-debit', [HomeController::class, 'noDebitStudents'])->name('finances.no_debits');
+
+
     Route::controller(DocumentUploadController::class)->group(function () {
         Route::post('document_upload/{student}', 'uploadFile')->name('document.upload');
         Route::post('document_delete/{media}', 'removeFile')->name('document.remove');

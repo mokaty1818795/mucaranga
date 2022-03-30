@@ -53,7 +53,6 @@ class Registration extends Model implements HasMedia
         'amount'
 	];
 
-
 	public function payment_phase()
 	{
 		return $this->belongsTo(PaymentPhase::class);

@@ -162,104 +162,10 @@
                             </div>
                         </div>
 
-                        <div class="row w-80">
-                            <div class="col-12 d-flex">
-                                <div class="card flex-fill w-100">
-                                    <div class="card-header">
-                                        <div class="float-end">
-                                            <form class="row g-2">
-                                                <div class="col-auto">
-                                                    <input type="text" class="form-control bg-light border-0 py-2"
-                                                        id="date_range">
-
-                                                </div>
-                                                <div class="col-auto">
-                                                    <a href="" class="btn btn-primary-light">
-                                                        Baixar relatório</a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <h5 class="card-title mb-0">Relatório financeiro</h5>
-                                    </div>
-                                    <div class="card-body pt-2 pb-3">
-                                        <div class="chart chart-md">
-                                            <canvas id="chartjs-dashboard-line"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @livewire('financial-chart')
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-            var gradientLight = ctx.createLinearGradient(0, 0, 0, 225);
-            gradientLight.addColorStop(0, "rgba(215, 227, 244, 1)");
-            gradientLight.addColorStop(1, "rgba(215, 227, 244, 0)");
-            // Line chart
-            new Chart(document.getElementById("chartjs-dashboard-line"), {
-                type: "line",
-                data: {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov",
-                        "Dec"
-                    ],
-                    datasets: [{
-                        label: "Entradas (MZN)",
-                        tension: 0.3,
-                        fill: true,
-                        backgroundColor: gradientLight,
-                        borderColor: window.theme.primary,
-                        data: [
-                            2115,
-                            1562,
-                            1584,
-                            1892,
-                            1587,
-                            1923,
-                            2566,
-                            2448,
-                            2805,
-                            3438,
-                            2917,
-                            3327
-                        ]
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    },
-                    tooltips: {
-                        intersect: false
-                    },
-                    hover: {
-                        intersect: true
-                    },
-                    plugins: {
-                        filler: {
-                            propagate: false
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            gridLines: {
-                                show: false
-                            }
-                        }],
-                        yAxes: [{
-                            gridLines: {
-                                show: false
-                            }
-                        }]
-                    },
-                }
-            });
-        });
-    </script>
 @endsection

@@ -40014,9 +40014,8 @@ $(document).ready(function () {
     showDropdowns: true,
     autoUpdateInput: true,
     drops: "auto"
-  }); //
-
-  $('#date_range').daterangepicker({
+  });
+  $('#dates').daterangepicker({
     showDropdowns: true,
     autoUpdateInput: true,
     ranges: {
@@ -40027,10 +40026,7 @@ $(document).ready(function () {
       'Este mês': [moment__WEBPACK_IMPORTED_MODULE_0___default()().startOf('month'), moment__WEBPACK_IMPORTED_MODULE_0___default()().endOf('month')],
       'Mês passado': [moment__WEBPACK_IMPORTED_MODULE_0___default()().subtract(1, 'month').startOf('month'), moment__WEBPACK_IMPORTED_MODULE_0___default()().subtract(1, 'month').endOf('month')]
     }
-  }).on('apply.daterangepicker', function (ev, picker) {
-    console.log(picker);
-  }); //id_emision_date
-
+  });
   var biDate = new Date();
   biDate.setYear(new Date().getFullYear() - 5);
   $('#id_emision_date').daterangepicker({

@@ -285,8 +285,8 @@ $(document).ready(function () {
         autoUpdateInput:true,
         drops: "auto"
     });
-//
-    $('#date_range').daterangepicker({
+
+    $('#dates').daterangepicker({
         showDropdowns : true,
         autoUpdateInput:true,
         ranges: {
@@ -297,10 +297,7 @@ $(document).ready(function () {
             'Este mês': [moment().startOf('month'), moment().endOf('month')],
             'Mês passado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
          }
-    }).on('apply.daterangepicker', function(ev, picker) {
-        console.log(picker);
     });
-    //id_emision_date
 
     const biDate =  new Date();
     biDate.setYear((new Date().getFullYear() - 5));

@@ -57,6 +57,7 @@
         "jquery": "^3.6.0",
         "jsvectormap": "^1.4.2",
         "jszip": "^3.7.1",
+        "moment": "^2.29.1",
         "npm": "^8.5.0",
         "pdfmake": "^0.2.4",
         "print-js": "^1.6.0",

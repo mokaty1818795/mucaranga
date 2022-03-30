@@ -1,5 +1,8 @@
 const { now } = require("lodash");
 const printJS = require("print-js");
+import "moment";
+import moment from "moment";
+
 
 $(document).ready(function () {
    function datatable(table) {
@@ -282,7 +285,21 @@ $(document).ready(function () {
         autoUpdateInput:true,
         drops: "auto"
     });
-
+//
+    $('#date_range').daterangepicker({
+        showDropdowns : true,
+        autoUpdateInput:true,
+        ranges: {
+            'Hoje': [moment(), moment()],
+            'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
+            'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
+            'Este mês': [moment().startOf('month'), moment().endOf('month')],
+            'Mês passado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+         }
+    }).on('apply.daterangepicker', function(ev, picker) {
+        console.log(picker);
+    });
     //id_emision_date
 
     const biDate =  new Date();

@@ -56,7 +56,7 @@ class InvoiceController extends Controller
             'student' => $this->student,
             'isExam' => $this->isExame
         ]);
-        $pdf->setOptions(['defaultFont' => 'sans-serif']);
+        $pdf->setOptions(['defaultFont' => 'sans-serif','isRemoteEnabled' => true]);
         return $pdf->stream();
     //    return $pdf->save(storage_path('/publictang.pdf'));
     }

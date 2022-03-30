@@ -16,6 +16,8 @@ import "timepicker";
 //Datatables
 import "./modules/datatables";
 import printJs from "print-js";
+
+
 //import "fontawesome-pro/js/all";
 
 

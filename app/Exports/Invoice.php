@@ -6,13 +6,15 @@ use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
+use Maatwebsite\Excel\Concerns\WithProperties;
 use Maatwebsite\Excel\Concerns\WithStyles;
+use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Calculation\TextData\Format;
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class Invoice implements FromCollection, WithStyles,ShouldAutoSize,WithColumnWidths
+class Invoice implements FromCollection, WithStyles,ShouldAutoSize,WithColumnWidths,WithTitle,WithProperties
 {
     /**
      * @return \Illuminate\Support\Collection
@@ -109,4 +111,27 @@ class Invoice implements FromCollection, WithStyles,ShouldAutoSize,WithColumnWid
     {
         return $this->collection;
     }
+
+    public function title(): string
+    {
+        return "Relatório";
+    }
+
+    public function properties(): array
+    {
+        return [
+            'creator'        => 'Nelson Alexandre Mutane',
+            'lastModifiedBy' => 'Nelson Alexandre Mutane',
+            'title'          => 'Relatório  financeiro',
+            'description'    => 'Relatório de pagamentos',
+            'subject'        => 'Relatórios',
+            'keywords'       => 'Relatórios,Biosp,excel',
+            'category'       => 'Relatórios',
+            'manager'        => 'Nelson Alexandre Mutane',
+            'company'        => 'Escola de Condução Mucaranga',
+            'developer contact'     => '+258 861710193',
+            'version number' => '1.0'
+        ];
+    }
+
 }

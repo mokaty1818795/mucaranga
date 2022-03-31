@@ -1,18 +1,19 @@
 <div>
     <div class="row w-80">
         <div class="col-12 d-flex">
-            <div class="card flex-fill w-100">
+            <div class="card flex-fill w-10">
                 <div class="card-header">
                     <div class="float-end">
-                        <form class="row g-2">
+                        <form class="row g-2" action="{{ route('excel_invoices') }}" method="POST" >
                             @csrf
+                            @method('POST')
                             <div class="col-auto">
                                 <input type="text" name="dates" class="form-control bg-light border-0 py-2"
                                     id="dates"  value="">
                             </div>
                             <div class="col-auto">
-                                <a href="" class="btn btn-primary-light">
-                                    Baixar relatório</a>
+                                <button  type="submit" class="btn btn-primary-light">
+                                    Baixar relatório</button>
                             </div>
                         </form>
                     </div>
@@ -27,7 +28,6 @@
             </div>
         </div>
     </div>
-
     @push('js')
     <script>
 

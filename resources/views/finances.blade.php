@@ -85,29 +85,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-6 col-xl-4">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col mt-0">
-                                                <h5 class="card-title">Intructores</h5>
-                                            </div>
 
-                                            <div class="col-auto">
-                                                <div class="stat text-primary">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h4 class="text-muted mt-1 mb-3">{{ \App\Models\User::role('Instructor')->count() }}
-                                        </h4>
-                                        <div class="mb-0">
-                                            <span class="badge badge-success-light"> <i
-                                                    class="mdi mdi-arrow-bottom-right"></i> </span>
-                                            <span class="text-muted"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-sm-6 col-xl-4">
                                 <a href="{{ route('finances.debits') }}">
                                     <div class="card ">
@@ -159,6 +137,29 @@
                                         </div>
                                     </div>
                                 </a>
+                            </div>
+                            <div class="col-sm-6 col-xl-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col mt-0">
+                                                <h5 class="card-title">Intructores</h5>
+                                            </div>
+
+                                            <div class="col-auto">
+                                                <div class="stat text-primary">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h4 class="text-muted mt-1 mb-3">{{ \App\Models\User::role('Instructor')->count() }}
+                                        </h4>
+                                        <div class="mb-0">
+                                            <span class="badge badge-success-light"> <i
+                                                    class="mdi mdi-arrow-bottom-right"></i> </span>
+                                            <span class="text-muted"></span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

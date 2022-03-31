@@ -6,7 +6,6 @@ use App\Models\Exam;
 use App\Models\Registration;
 use App\Services\Payment;
 use Livewire\Component;
-use phpDocumentor\Reflection\Types\This;
 
 class FinancialChart extends Component
 {

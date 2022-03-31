@@ -18,6 +18,7 @@ class Payment
     public $amount;
     public $isExam;
     public $id;
+    public  $original;
 
     public function __construct(
         int $id,
@@ -27,9 +28,8 @@ class Payment
         Media $invoice = null,
         Media $bankInvoice = null,
         Carbon $date,
-
-
-        $amount = 0
+        $amount = 0,
+        mixed $original =null,
     ) {
         if (class_basename($paymentOf) != 'PaymentPhase') {
             $this->isExam = 'Exam';
@@ -44,5 +44,6 @@ class Payment
         $this->date = $date;
         $this->amount = $amount;
         $this->id = $id;
+        $this->original = $original;
     }
 }

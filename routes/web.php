@@ -78,6 +78,7 @@ Route::middleware(['auth', 'role:Employee|Director|Root'])->group(function () {
     Route::controller(InvoiceController::class)->group(function () {
         Route::get('/payment_invoices/{invoice}/{student}/{exam_token}', 'index')->name('payment_invoices');
         Route::get('/print_payment_invoice/{invoice}/{student}/{exam_token}', 'printInvoice')->name('print_payment_invoice');
+        Route::post('/excel_ivoices','paymentReports')->name('excel_invoices');
     });
     Route::controller(ExamPaymentController::class)->group(function () {
         Route::post('store_exam_payment', 'store')->name('store.exam_payment');

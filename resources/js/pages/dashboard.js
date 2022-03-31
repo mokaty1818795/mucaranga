@@ -289,6 +289,10 @@ $(document).ready(function () {
     $('#dates').daterangepicker({
         showDropdowns : true,
         autoUpdateInput:true,
+        locale: {
+            format: 'D-MM-Y',
+            separator: " to "
+        },
         ranges: {
             'Hoje': [moment(), moment()],
             'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],

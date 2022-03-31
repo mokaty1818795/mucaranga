@@ -40018,6 +40018,10 @@ $(document).ready(function () {
   $('#dates').daterangepicker({
     showDropdowns: true,
     autoUpdateInput: true,
+    locale: {
+      format: 'D-MM-Y',
+      separator: " to "
+    },
     ranges: {
       'Hoje': [moment__WEBPACK_IMPORTED_MODULE_0___default()(), moment__WEBPACK_IMPORTED_MODULE_0___default()()],
       'Ontem': [moment__WEBPACK_IMPORTED_MODULE_0___default()().subtract(1, 'days'), moment__WEBPACK_IMPORTED_MODULE_0___default()().subtract(1, 'days')],

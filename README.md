@@ -9,3 +9,8 @@
 ## Developer
 
 - Nelson Alexandre Mutane
+## Next Features
+ - Cashier money Flow
+ - Mpesa Payment
+ - MBIM
+ - Stripe

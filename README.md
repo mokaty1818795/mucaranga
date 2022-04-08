@@ -1,4 +1,4 @@
-# Mucaranga Driver School System
+# Mucaranga Driving School System
 
 - This is intern management system.
 

@@ -3,330 +3,338 @@ const printJS = require("print-js");
 import "moment";
 import moment from "moment";
 
-
 $(document).ready(function () {
-   function datatable(table) {
-       $(table).DataTable({
-           language: {
-               "emptyTable": "Nenhum registro encontrado",
-               "info": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-               "infoEmpty": "Mostrando 0 até 0 de 0 registros",
-               "infoFiltered": "(Filtrados de _MAX_ registros)",
-               "infoThousands": ".",
-               "loadingRecords": "Carregando...",
-               "processing": "Processando...",
-               "zeroRecords": "Nenhum registro encontrado",
-               "search": "Pesquisar",
-               "paginate": {
-                   "next": "Próximo",
-                   "previous": "Anterior",
-                   "first": "Primeiro",
-                   "last": "Último"
-               },
-               "aria": {
-                   "sortAscending": ": Ordenar colunas de forma ascendente",
-                   "sortDescending": ": Ordenar colunas de forma descendente"
-               },
-               "select": {
-                   "rows": {
-                       "_": "Selecionado %d linhas",
-                       "1": "Selecionado 1 linha"
-                   },
-                   "cells": {
-                       "1": "1 célula selecionada",
-                       "_": "%d células selecionadas"
-                   },
-                   "columns": {
-                       "1": "1 coluna selecionada",
-                       "_": "%d colunas selecionadas"
-                   }
-               },
-               "buttons": {
-                   "copySuccess": {
-                       "1": "Uma linha copiada com sucesso",
-                       "_": "%d linhas copiadas com sucesso"
-                   },
-                   "collection": "Coleção  <span class=\"ui-button-icon-primary ui-icon ui-icon-triangle-1-s\"><\/span>",
-                   "colvis": "Visibilidade da Coluna",
-                   "colvisRestore": "Restaurar Visibilidade",
-                   "copy": "Copiar",
-                   "copyKeys": "Pressione ctrl ou u2318 + C para copiar os dados da tabela para a área de transferência do sistema. Para cancelar, clique nesta mensagem ou pressione Esc..",
-                   "copyTitle": "Copiar para a Área de Transferência",
-                   "csv": "CSV",
-                   "excel": "Excel",
-                   "pageLength": {
-                       "-1": "Mostrar todos os registros",
-                       "_": "Mostrar %d registros"
-                   },
-                   "pdf": "PDF",
-                   "print": "Imprimir",
-                   "createState": "Criar estado",
-                   "removeAllStates": "Remover todos os estados",
-                   "removeState": "Remover",
-                   "renameState": "Renomear",
-                   "savedStates": "Estados salvos",
-                   "stateRestore": "Estado %d",
-                   "updateState": "Atualizar"
-               },
-               "autoFill": {
-                   "cancel": "Cancelar",
-                   "fill": "Preencher todas as células com",
-                   "fillHorizontal": "Preencher células horizontalmente",
-                   "fillVertical": "Preencher células verticalmente"
-               },
-               "lengthMenu": "Exibir _MENU_ resultados por página",
-               "searchBuilder": {
-                   "add": "Adicionar Condição",
-                   "button": {
-                       "0": "Construtor de Pesquisa",
-                       "_": "Construtor de Pesquisa (%d)"
-                   },
-                   "clearAll": "Limpar Tudo",
-                   "condition": "Condição",
-                   "conditions": {
-                       "date": {
-                           "after": "Depois",
-                           "before": "Antes",
-                           "between": "Entre",
-                           "empty": "Vazio",
-                           "equals": "Igual",
-                           "not": "Não",
-                           "notBetween": "Não Entre",
-                           "notEmpty": "Não Vazio"
-                       },
-                       "number": {
-                           "between": "Entre",
-                           "empty": "Vazio",
-                           "equals": "Igual",
-                           "gt": "Maior Que",
-                           "gte": "Maior ou Igual a",
-                           "lt": "Menor Que",
-                           "lte": "Menor ou Igual a",
-                           "not": "Não",
-                           "notBetween": "Não Entre",
-                           "notEmpty": "Não Vazio"
-                       },
-                       "string": {
-                           "contains": "Contém",
-                           "empty": "Vazio",
-                           "endsWith": "Termina Com",
-                           "equals": "Igual",
-                           "not": "Não",
-                           "notEmpty": "Não Vazio",
-                           "startsWith": "Começa Com",
-                           "notContains": "Não contém",
-                           "notStarts": "Não começa com",
-                           "notEnds": "Não termina com"
-                       },
-                       "array": {
-                           "contains": "Contém",
-                           "empty": "Vazio",
-                           "equals": "Igual à",
-                           "not": "Não",
-                           "notEmpty": "Não vazio",
-                           "without": "Não possui"
-                       }
-                   },
-                   "data": "Data",
-                   "deleteTitle": "Excluir regra de filtragem",
-                   "logicAnd": "E",
-                   "logicOr": "Ou",
-                   "title": {
-                       "0": "Construtor de Pesquisa",
-                       "_": "Construtor de Pesquisa (%d)"
-                   },
-                   "value": "Valor",
-                   "leftTitle": "Critérios Externos",
-                   "rightTitle": "Critérios Internos"
-               },
-               "searchPanes": {
-                   "clearMessage": "Limpar Tudo",
-                   "collapse": {
-                       "0": "Painéis de Pesquisa",
-                       "_": "Painéis de Pesquisa (%d)"
-                   },
-                   "count": "{total}",
-                   "countFiltered": "{shown} ({total})",
-                   "emptyPanes": "Nenhum Painel de Pesquisa",
-                   "loadMessage": "Carregando Painéis de Pesquisa...",
-                   "title": "Filtros Ativos",
-                   "showMessage": "Mostrar todos",
-                   "collapseMessage": "Fechar todos"
-               },
-               "thousands": ".",
-               "datetime": {
-                   "previous": "Anterior",
-                   "next": "Próximo",
-                   "hours": "Hora",
-                   "minutes": "Minuto",
-                   "seconds": "Segundo",
-                   "amPm": [
-                       "am",
-                       "pm"
-                   ],
-                   "unknown": "-",
-                   "months": {
-                       "0": "Janeiro",
-                       "1": "Fevereiro",
-                       "10": "Novembro",
-                       "11": "Dezembro",
-                       "2": "Março",
-                       "3": "Abril",
-                       "4": "Maio",
-                       "5": "Junho",
-                       "6": "Julho",
-                       "7": "Agosto",
-                       "8": "Setembro",
-                       "9": "Outubro"
-                   },
-                   "weekdays": [
-                       "Domingo",
-                       "Segunda-feira",
-                       "Terça-feira",
-                       "Quarta-feira",
-                       "Quinte-feira",
-                       "Sexta-feira",
-                       "Sábado"
-                   ]
-               },
-               "editor": {
-                   "close": "Fechar",
-                   "create": {
-                       "button": "Novo",
-                       "submit": "Criar",
-                       "title": "Criar novo registro"
-                   },
-                   "edit": {
-                       "button": "Editar",
-                       "submit": "Atualizar",
-                       "title": "Editar registro"
-                   },
-                   "error": {
-                       "system": "Ocorreu um erro no sistema (<a target=\"\\\" rel=\"nofollow\" href=\"\\\">Mais informações<\/a>)."
-                   },
-                   "multi": {
-                       "noMulti": "Essa entrada pode ser editada individualmente, mas não como parte do grupo",
-                       "restore": "Desfazer alterações",
-                       "title": "Multiplos valores",
-                       "info": "Os itens selecionados contêm valores diferentes para esta entrada. Para editar e definir todos os itens para esta entrada com o mesmo valor, clique ou toque aqui, caso contrário, eles manterão seus valores individuais."
-                   },
-                   "remove": {
-                       "button": "Remover",
-                       "confirm": {
-                           "_": "Tem certeza que quer deletar %d linhas?",
-                           "1": "Tem certeza que quer deletar 1 linha?"
-                       },
-                       "submit": "Remover",
-                       "title": "Remover registro"
-                   }
-               },
-               "decimal": ",",
-               "stateRestore": {
-                   "creationModal": {
-                       "button": "Criar",
-                       "columns": {
-                           "search": "Busca de colunas",
-                           "visible": "Visibilidade da coluna"
-                       },
-                       "name": "Nome:",
-                       "order": "Ordernar",
-                       "paging": "Paginação",
-                       "scroller": "Posição da barra de rolagem",
-                       "search": "Busca",
-                       "searchBuilder": "Mecanismo de busca",
-                       "select": "Selecionar",
-                       "title": "Criar novo estado",
-                       "toggleLabel": "Inclui:"
-                   },
-                   "duplicateError": "Já existe um estado com esse nome",
-                   "emptyError": "Não pode ser vazio",
-                   "emptyStates": "Nenhum estado salvo",
-                   "removeConfirm": "Confirma remover %s?",
-                   "removeError": "Falha ao remover estado",
-                   "removeJoiner": "e",
-                   "removeSubmit": "Remover",
-                   "removeTitle": "Remover estado",
-                   "renameButton": "Renomear",
-                   "renameLabel": "Novo nome para %s:",
-                   "renameTitle": "Renomear estado"
-               }
-           },
-           responsive: true,
-           lengthMenu: [
-               [5,10,15,20, 25, 50,100, -1 ],
-               ['5', '10','15','20', '25', '50','100', 'Show all' ]
-           ],
-           "bLengthChange" : false,
-           "bInfo":false,
-       });
-       //$('select').select2();
-   }
-    datatable('#example');
-    datatable('#users_table');
-    datatable('#periods_table');
-    datatable('#civil_states_table');
-    datatable('#payment_phases_table');
-    datatable('#students_table');
-    datatable('#veicle_classes_table');
-    datatable('#exam_types_table');
-    datatable('#class_rooms_table');
-    datatable('#dashboard_payments_tables');
+    function datatable(table) {
+        $(table).DataTable({
+            language: {
+                emptyTable: "No records found",
+                info: "Showing _START_ to _END_ of _TOTAL_ records",
+                infoEmpty: "Showing 0 to 0 of 0 records",
+                infoFiltered: "(Filtered from _MAX_ total records)",
+                infoThousands: ",",
+                loadingRecords: "Loading...",
+                processing: "Processing...",
+                zeroRecords: "No matching records found",
+                search: "Search",
+                paginate: {
+                    next: "Next",
+                    previous: "Previous",
+                    first: "First",
+                    last: "Last",
+                },
+                aria: {
+                    sortAscending: ": Activate to sort column ascending",
+                    sortDescending: ": Activate to sort column descending",
+                },
+                select: {
+                    rows: {
+                        _: "Selected %d rows",
+                        1: "Selected 1 row",
+                    },
+                    cells: {
+                        1: "1 cell selected",
+                        _: "%d cells selected",
+                    },
+                    columns: {
+                        1: "1 column selected",
+                        _: "%d columns selected",
+                    },
+                },
+                buttons: {
+                    copySuccess: {
+                        1: "1 row copied successfully",
+                        _: "%d rows copied successfully",
+                    },
+                    collection:
+                        'Collection  <span class="ui-button-icon-primary ui-icon ui-icon-triangle-1-s"></span>',
+                    colvis: "Column visibility",
+                    colvisRestore: "Restore visibility",
+                    copy: "Copy",
+                    copyKeys:
+                        "Press ctrl or u2318 + C to copy table data to your clipboard. To cancel, click on this message or press Esc.",
+                    copyTitle: "Copy to Clipboard",
+                    csv: "CSV",
+                    excel: "Excel",
+                    pageLength: {
+                        "-1": "Show all records",
+                        _: "Show %d records",
+                    },
+                    pdf: "PDF",
+                    print: "Print",
+                    createState: "Create state",
+                    removeAllStates: "Remove all states",
+                    removeState: "Remove",
+                    renameState: "Rename",
+                    savedStates: "Saved states",
+                    stateRestore: "State %d",
+                    updateState: "Update",
+                },
+                autoFill: {
+                    cancel: "Cancel",
+                    fill: "Fill all cells with",
+                    fillHorizontal: "Fill cells horizontally",
+                    fillVertical: "Fill cells vertically",
+                },
+                lengthMenu: "Show _MENU_ results per page",
+                searchBuilder: {
+                    add: "Add condition",
+                    button: {
+                        0: "Search Builder",
+                        _: "Search Builder (%d)",
+                    },
+                    clearAll: "Clear All",
+                    condition: "Condition",
+                    conditions: {
+                        date: {
+                            after: "After",
+                            before: "Before",
+                            between: "Between",
+                            empty: "Empty",
+                            equals: "Equals",
+                            not: "Not",
+                            notBetween: "Not Between",
+                            notEmpty: "Not Empty",
+                        },
+                        number: {
+                            between: "Between",
+                            empty: "Empty",
+                            equals: "Equals",
+                            gt: "Greater Than",
+                            gte: "Greater Than or Equal To",
+                            lt: "Less Than",
+                            lte: "Less Than or Equal To",
+                            not: "Not",
+                            notBetween: "Not Between",
+                            notEmpty: "Not Empty",
+                        },
+                        string: {
+                            contains: "Contains",
+                            empty: "Empty",
+                            endsWith: "Ends With",
+                            equals: "Equals",
+                            not: "Not",
+                            notEmpty: "Not Empty",
+                            startsWith: "Starts With",
+                            notContains: "Does Not Contain",
+                            notStarts: "Does Not Start With",
+                            notEnds: "Does Not End With",
+                        },
+                        array: {
+                            contains: "Contains",
+                            empty: "Empty",
+                            equals: "Equals",
+                            not: "Not",
+                            notEmpty: "Not Empty",
+                            without: "Does Not Contain",
+                        },
+                    },
+                    data: "Data",
+                    deleteTitle: "Delete filtering rule",
+                    logicAnd: "And",
+                    logicOr: "Or",
+                    title: {
+                        0: "Search Builder",
+                        _: "Search Builder (%d)",
+                    },
+                    value: "Value",
+                    leftTitle: "External criteria",
+                    rightTitle: "Internal criteria",
+                },
+                searchPanes: {
+                    clearMessage: "Clear All",
+                    collapse: {
+                        0: "Search Panes",
+                        _: "Search Panes (%d)",
+                    },
+                    count: "{total}",
+                    countFiltered: "{shown} ({total})",
+                    emptyPanes: "No Search Panes",
+                    loadMessage: "Loading Search Panes...",
+                    title: "Active Filters",
+                    showMessage: "Show all",
+                    collapseMessage: "Collapse all",
+                },
+                thousands: ",",
+                datetime: {
+                    previous: "Previous",
+                    next: "Next",
+                    hours: "Hour",
+                    minutes: "Minute",
+                    seconds: "Second",
+                    amPm: ["am", "pm"],
+                    unknown: "-",
+                    months: {
+                        0: "January",
+                        1: "February",
+                        10: "November",
+                        11: "December",
+                        2: "March",
+                        3: "April",
+                        4: "May",
+                        5: "June",
+                        6: "July",
+                        7: "August",
+                        8: "September",
+                        9: "October",
+                    },
+                    weekdays: [
+                        "Sunday",
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday",
+                        "Saturday",
+                    ],
+                },
+                editor: {
+                    close: "Close",
+                    create: {
+                        button: "New",
+                        submit: "Create",
+                        title: "Create new record",
+                    },
+                    edit: {
+                        button: "Edit",
+                        submit: "Update",
+                        title: "Edit record",
+                    },
+                    error: {
+                        system: 'A system error has occurred (<a target="\\" rel="nofollow" href="\\">More information</a>).',
+                    },
+                    multi: {
+                        noMulti:
+                            "This input can be edited individually, but not as part of a group",
+                        restore: "Undo changes",
+                        title: "Multiple values",
+                        info: "The selected items contain different values for this input. To edit and set all items for this input to the same value, click or tap here, otherwise they will retain their individual values.",
+                    },
+                    remove: {
+                        button: "Remove",
+                        confirm: {
+                            _: "Are you sure you want to delete %d rows?",
+                            1: "Are you sure you want to delete 1 row?",
+                        },
+                        submit: "Remove",
+                        title: "Remove record",
+                    },
+                },
+                decimal: ",",
+                stateRestore: {
+                    creationModal: {
+                        button: "Create",
+                        columns: {
+                            search: "Column Search",
+                            visible: "Column Visibility",
+                        },
+                        name: "Name:",
+                        order: "Order",
+                        paging: "Pagination",
+                        scroller: "Scroll position",
+                        search: "Search",
+                        searchBuilder: "Search Builder",
+                        select: "Select",
+                        title: "Create new state",
+                        toggleLabel: "Include:",
+                    },
+                    duplicateError: "There is already a state with this name",
+                    emptyError: "Cannot be empty",
+                    emptyStates: "No saved states",
+                    removeConfirm: "Confirm remove %s?",
+                    removeError: "Failed to remove state",
+                    removeJoiner: "and",
+                    removeSubmit: "Remove",
+                    removeTitle: "Remove state",
+                    renameButton: "Rename",
+                    renameLabel: "New name for %s:",
+                    renameTitle: "Rename state",
+                },
+            },
+            responsive: true,
+            lengthMenu: [
+                [5, 10, 15, 20, 25, 50, 100, -1],
+                ["5", "10", "15", "20", "25", "50", "100", "Show all"],
+            ],
+            bLengthChange: false,
+            bInfo: false,
+        });
+        //$('select').select2();
+    }
+    datatable("#example");
+    datatable("#users_table");
+    datatable("#periods_table");
+    datatable("#civil_states_table");
+    datatable("#payment_phases_table");
+    datatable("#students_table");
+    datatable("#veicle_classes_table");
+    datatable("#exam_types_table");
+    datatable("#class_rooms_table");
+    datatable("#dashboard_payments_tables");
 
-
-    const date = new Date('12/31/2001');
-     date.setYear((new Date().getFullYear() - 15));
+    const date = new Date("12/31/2001");
+    date.setYear(new Date().getFullYear() - 15);
     console.log(date);
 
-    $('#birth_day').daterangepicker({
-        singleDatePicker:true,
-        maxDate:date,
+    $("#birth_day").daterangepicker({
+        singleDatePicker: true,
+        maxDate: date,
         startDate: date,
         showDropdowns: true,
-        autoUpdateInput:true,
-        drops: "auto"
+        autoUpdateInput: true,
+        drops: "auto",
     });
 
-    $('#dates').daterangepicker({
-        showDropdowns : true,
-        autoUpdateInput:true,
+    $("#dates").daterangepicker({
+        showDropdowns: true,
+        autoUpdateInput: true,
         locale: {
-            format: 'D-MM-Y',
-            separator: " to "
+            format: "D-MM-Y",
+            separator: " to ",
         },
         ranges: {
-            'Hoje': [moment(), moment()],
-            'Ontem': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Últimos 7 Dias': [moment().subtract(6, 'days'), moment()],
-            'Últimos 30 Dias': [moment().subtract(29, 'days'), moment()],
-            'Este mês': [moment().startOf('month'), moment().endOf('month')],
-            'Mês passado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-         }
+            Today: [moment(), moment()],
+            Yesterday: [
+                moment().subtract(1, "days"),
+                moment().subtract(1, "days"),
+            ],
+            "Last 7 Days": [moment().subtract(6, "days"), moment()],
+            "Last 30 Days": [moment().subtract(29, "days"), moment()],
+            "This Month": [moment().startOf("month"), moment().endOf("month")],
+            "Last Month": [
+                moment().subtract(1, "month").startOf("month"),
+                moment().subtract(1, "month").endOf("month"),
+            ],
+        },
     });
 
-    const biDate =  new Date();
-    biDate.setYear((new Date().getFullYear() - 5));
-    $('#id_emision_date').daterangepicker({
-        singleDatePicker:true,
-        maxDate:new Date(),
+    const biDate = new Date();
+    biDate.setYear(new Date().getFullYear() - 5);
+    $("#id_emision_date").daterangepicker({
+        singleDatePicker: true,
+        maxDate: new Date(),
         startDate: biDate,
         minDate: biDate,
         showDropdowns: true,
-        autoUpdateInput:true,
-        drops: "auto"
+        autoUpdateInput: true,
+        drops: "auto",
     });
 
-
-    $('#init_at').timepicker({
+    $("#init_at").timepicker({
         use24hours: true,
         showMeridian: false,
-        timeFormat: 'H:i',
-        disableTimeRanges:[['0:00', '5:30'], ['21:00', '23:59']]
+        timeFormat: "H:i",
+        disableTimeRanges: [
+            ["0:00", "5:30"],
+            ["21:00", "23:59"],
+        ],
     });
-    $('#end_at').timepicker({
+    $("#end_at").timepicker({
         use24hours: true,
         showMeridian: false,
-        timeFormat: 'H:i',
-        disableTimeRanges:[['0:00', '5:30'], ['21:00', '23:59']]
+        timeFormat: "H:i",
+        disableTimeRanges: [
+            ["0:00", "5:30"],
+            ["21:00", "23:59"],
+        ],
     });
 });
-

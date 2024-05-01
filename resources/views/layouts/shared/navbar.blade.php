@@ -6,27 +6,27 @@
         @csrf
         @yield('search-bar')
     </form>
-    <h5 class="card-title pt-2">   {{ $title ?? ''}}</h5>
+    <h5 class="card-title pt-2">{{ $title ?? '' }}</h5>
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav navbar-align">
             <li class="nav-item dropdown">
                 @auth
                 <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
                     <img src="{{ asset('img/avatar.svg') }}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">
-                            {{Auth::user()->name}}
-                            </span>
+                        {{Auth::user()->name}}
+                    </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
                     <a href="{{ route('profile') }}" class="dropdown-item">
                         <i class="align-middle" data-feather="user"></i>
-                        <span class="align-middle">&nbsp;Perfil</span>
-
+                        <span class="align-middle">&nbsp; Profile</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item"  onclick="document.getElementById('logoutForm').submit()" >
+                    <a class="dropdown-item" onclick="document.getElementById('logoutForm').submit()">
                         <i class="align-middle" data-feather="power"></i>
-                    <span class="align-middle">&nbsp; {{_('Terminar sessão')}}</span></a>
-                    <form  action="{{route('logout')}}" method="post" id="logoutForm">
+                        <span class="align-middle">&nbsp; Sign out</span>
+                    </a>
+                    <form action="{{route('logout')}}" method="post" id="logoutForm">
                         @csrf
                     </form>
                 </div>
@@ -35,4 +35,3 @@
         </ul>
     </div>
 </nav>
-

@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="{{ route('dashboard') }}">
-            <span class="align-middle">{{ config('app.name', 'laravel') }}</span>
+            <span class="align-middle">{{ config('app.name', 'LMPDC') }}</span>
         </a>
         <ul class="sidebar-nav">
             <li class="sidebar-header">

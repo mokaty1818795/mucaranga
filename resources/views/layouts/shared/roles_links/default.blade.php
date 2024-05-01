@@ -6,6 +6,6 @@
 <li class="sidebar-item  @if (request()->routeIs('profile')) active @endif">
     <a class="sidebar-link " href="{{ route('profile') }}">
         <i class="align-middle" data-feather="user"></i>
-        <span class="align-middle">Perfil</span>
+        <span class="align-middle">Profile</span>
     </a>
 </li>
